@@ -1,77 +1,79 @@
-# Ses & Müzik Tasarımcısı (Sound Designer + Composer) Skill
+# Sound & Music Designer — `creator-sound-music-designer`
 
-Filmin **duyusal dünyasını** kuran skill. İki entegre uzmanlık birleşir:
+[English](README.md) · [中文](README.zh.md) · [Español](README.es.md) · [हिन्दी](README.hi.md) · [العربية](README.ar.md) · [Português (BR)](README.pt-BR.md) · [Türkçe](README.tr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [日本語](README.ja.md) · [한국어](README.ko.md)
 
-- **Ses tasarımcısı**: mekân, karakter, obje ve olayların duyusal gerçekliği —
-  ambiyans, foley, efekt, akustik, ses perspektifi ve **sessizlik** (aktif
-  dramatik araç olarak)
-- **Film müziği bestecisi / müzik süpervizörü**: ana tema, karakter
-  leitmotif'leri, sahne müziği, ritim, müzik giriş/çıkış noktaları
+The skill that builds the film's **sensory world**. Two integrated disciplines come together:
 
-## Felsefe
+- **Sound designer**: the sensory reality of spaces, characters, objects, and events —
+  ambience, foley, effects, acoustics, sound perspective, and **silence** (as an active
+  dramatic tool)
+- **Film composer / music supervisor**: main theme, character
+  leitmotifs, scene music, rhythm, music entry/exit points
 
-Ses ve müzik **süs değildir**. Her ses ve müzik kararı sahnenin dramatik
-amacına, karakter psikolojisine, görsel atmosfere, kurgu ritmine ve seyirci
-etkisine bağlıdır. Bu skill:
+## Philosophy
 
-- "Üzgün müzik kullan" demez — leitmotif tasarlar, evrim planlar
-- **Sessizliği aktif tasarlar** — yokluk değil, dramatik karar
-- **Karakter leitmotif'leri**: kaval ile başlayan motif finalde yaylılarla
-  epik'e dönüşür
-- **Telif disiplinli**: yaşayan sanatçı taklit etmez, "benzer ama aynı değil"
-- **Kurgu ritmiyle uyum**: müzik giriş/çıkış shot-list edit-plan'ı ile koordine
-- **AI ses/müzik prompt üretimi**: Suno, Udio, ElevenLabs SFX, Stable Audio, Runway Audio
+Sound and music are **not decoration**. Every sound and music decision is tied to the scene's
+dramatic purpose, character psychology, visual atmosphere, edit rhythm, and audience
+impact. This skill:
 
-## Ne işe yarar
+- Doesn't say "use sad music" — it designs leitmotifs and plans their evolution
+- **Designs silence actively** — not absence, but a dramatic decision
+- **Character leitmotifs**: a motif that begins on a flute turns into an epic with strings
+  in the finale
+- **Copyright-disciplined**: doesn't imitate living artists, "similar but not the same"
+- **In sync with edit rhythm**: music entry/exit coordinated with the shot-list edit plan
+- **AI sound/music prompt generation**: Suno, Udio, ElevenLabs SFX, Stable Audio, Runway Audio
 
-| Çıktı | İçerik |
+## What it does
+
+| Output | Content |
 |-------|--------|
-| **Sound vision** | Filmin genel ses tasarımı vizyonu |
-| **Music vision** | Filmin müzik dili manifestosu |
-| **Main theme** | Ana tema tasarımı |
-| **Character themes** | Karakter bazlı leitmotif tasarımı |
-| **Scene plans** | Sahne sahne ses + müzik planı |
-| **Ambience / foley / SFX lists** | Envanter listeleri |
-| **Silence plan** | Bilinçli sessizlik haritası |
-| **Music in/out plan** | Müzik giriş-çıkış noktaları |
-| **Sound bridges** | Geçiş tasarımı |
-| **AI sound + music prompts** | Tool-spesifik prompt'lar |
-| **Dialogue balance notes** | Diyalog/müzik denge notları |
-| **Final mix notes** | Final mix audit'i |
-| **Continuity report** | Ses devamlılığı kontrolü |
+| **Sound vision** | The film's overall sound-design vision |
+| **Music vision** | The film's musical-language manifesto |
+| **Main theme** | Main theme design |
+| **Character themes** | Per-character leitmotif design |
+| **Scene plans** | Scene-by-scene sound + music plan |
+| **Ambience / foley / SFX lists** | Inventory lists |
+| **Silence plan** | A deliberate map of silence |
+| **Music in/out plan** | Music entry and exit points |
+| **Sound bridges** | Transition design |
+| **AI sound + music prompts** | Tool-specific prompts |
+| **Dialogue balance notes** | Dialogue/music balance notes |
+| **Final mix notes** | Final mix audit |
+| **Continuity report** | Sound continuity check |
 
-## Ne zaman devreye girer
+## When it kicks in
 
-- Senaryo elde, ses tasarımı / film müziği planı gerekli
-- Ambiyans, foley, SFX, müzik temaları isteniyor
-- AI ses/müzik prompt'larına ihtiyaç var
-- Shot-list designer sahne sound intent'i hand-off ettiğinde
-- `creator-pipeline-supervisor` audio aşamasını delege ettiğinde
+- A script is in hand, and a sound-design / film-music plan is needed
+- Ambience, foley, SFX, or music themes are requested
+- AI sound/music prompts are needed
+- When the shot-list designer hands off scene sound intent
+- When `creator-pipeline-supervisor` delegates the audio stage
 
-## Tipik akış
+## Typical flow
 
-1. **Brifing** + tüm upstream skill çıktılarını okuma
-2. **Soru turu**: tür, register, müzik yoğunluğu, dönem, AI tool'lar
+1. **Briefing** + reading all upstream skill outputs
+2. **Question round**: genre, register, music density, period, AI tools
 3. **Sound vision** + **Music vision**
 4. **Main theme + character leitmotifs**
-5. **Per-scene plan**: her sahne için ambient/foley/silence/music
-6. **Silence plan**: bilinçli sessizliğin haritası
+5. **Per-scene plan**: ambient/foley/silence/music for every scene
+6. **Silence plan**: a map of deliberate silence
 7. **Music entry/exit plan**
 8. **AI sound + music prompts**
-9. **Final mix audit** (final cut sonrası)
+9. **Final mix audit** (after final cut)
 
-## Sessizlik tasarımı
+## Silence design
 
-Sessizlik **aktif** bir tasarım kararıdır. Skill her sessizlik için sorar:
+Silence is an **active** design decision. For each silence, the skill asks:
 
-- Burada müzik kesilecek mi?
-- Ambiyans dimmer mı, sıfır mı?
-- Sadece nefes mi, küçük bir obje sesi mi kalacak?
-- Sessizlik yalnızlık mı, korku mu, kararsızlık mı gösteriyor?
-- Seyirciyi rahatsız etmek için mi, duyguyu yoğunlaştırmak için mi?
-- Sessizlikten sonra hangi ses girecek?
+- Will the music cut out here?
+- Is the ambience dimmed, or zeroed?
+- Will only a breath remain, or a small object sound?
+- Does the silence convey loneliness, fear, or hesitation?
+- Is it there to unsettle the audience, or to intensify the emotion?
+- Which sound enters after the silence?
 
-## Karakter leitmotif örneği
+## Character leitmotif example
 
 ```
 Karakter: Demir
@@ -88,32 +90,32 @@ Motifin evrimi:
   - Sahne 19 (final): tek cello, ilk motifin yarısı — kırılma
 ```
 
-## Çıktıları nereye yazar
+## Where it writes its outputs
 
-`project/sound/` altına:
+Under `project/sound/`:
 
-| Dosya | İçerik |
+| File | Content |
 |-------|--------|
-| `sound-vision.md` | Genel ses tasarım vizyonu |
-| `music-vision.md` | Müzik dili manifestosu |
-| `main-theme.md` | Ana tema tasarımı |
-| `character-themes/{slug}.md` | Karakter leitmotif |
-| `scenes/scene-{NN}.md` | Sahne ses + müzik planı |
-| `ambience-list.md` | Ambiyans envanteri |
-| `foley-list.md` | Foley envanteri |
-| `special-effects-list.md` | Özel SFX |
-| `silence-plan.md` | Sessizlik haritası |
-| `music-entry-exit-plan.md` | Müzik in/out timing |
-| `sound-bridges.md` | Geçiş tasarımı |
-| `ai-sound-prompts.md` | AI SFX prompt'ları |
-| `ai-music-prompts.md` | AI müzik prompt'ları |
-| `dialogue-balance-notes.md` | Diyalog/müzik denge |
+| `sound-vision.md` | Overall sound-design vision |
+| `music-vision.md` | Musical-language manifesto |
+| `main-theme.md` | Main theme design |
+| `character-themes/{slug}.md` | Character leitmotif |
+| `scenes/scene-{NN}.md` | Scene sound + music plan |
+| `ambience-list.md` | Ambience inventory |
+| `foley-list.md` | Foley inventory |
+| `special-effects-list.md` | Special SFX |
+| `silence-plan.md` | Map of silence |
+| `music-entry-exit-plan.md` | Music in/out timing |
+| `sound-bridges.md` | Transition design |
+| `ai-sound-prompts.md` | AI SFX prompts |
+| `ai-music-prompts.md` | AI music prompts |
+| `dialogue-balance-notes.md` | Dialogue/music balance |
 | `final-mix-notes.md` | Final mix audit |
-| `sound-continuity-report.md` | Devamlılık kontrolü |
+| `sound-continuity-report.md` | Continuity check |
 
-## AI prompt formatı
+## AI prompt format
 
-### SFX prompt örneği
+### SFX prompt example
 
 ```
 Old wooden door slowly creaking open in a quiet rural house interior,
@@ -121,7 +123,7 @@ close perspective, dry wooden texture, subtle room reverb, tense and
 restrained mood, no music, no voices, 4 seconds.
 ```
 
-### Müzik prompt örneği
+### Music prompt example
 
 ```
 Slow cinematic period drama cue, melancholic and restrained, solo cello
@@ -130,7 +132,7 @@ somber atmosphere, gradual emotional rise, no modern drums, no pop
 rhythm, 60 seconds.
 ```
 
-### Türkçe açıklama + İngilizce prompt formatı
+### Native-language description + English prompt format
 
 ```
 Türkçe Açıklama:
@@ -143,35 +145,30 @@ and soft ambient drone, slow tempo, subtle rise, intimate and sorrowful,
 no strong melody, no percussion, 45 seconds.
 ```
 
-## Telif ve özgünlük
+## Copyright and originality
 
-- Var olan besteleri kopyalamayı önermez
-- Yaşayan sanatçının tarzını birebir taklit etmez
-- "Şuna benzer ama aynısı değil" mantığında, tür + duygu tarif eder
-- AI müzik prompt'larında sanatçı adı yerine genel atmosfer
+- Doesn't suggest copying existing compositions
+- Doesn't imitate a living artist's style note-for-note
+- Works on a "similar but not the same" logic, describing genre + emotion
+- In AI music prompts, uses general atmosphere instead of an artist's name
 
-## Diğer skill'lerle koordinasyon
+## Coordination with other skills
 
-- **Okur**: tüm upstream creative çıktıları + shot-list sound edit notes
-- **Yazar**: `project/sound/*`
-- **Devreder**: `creator-final-cut-editor` (final cut entegrasyonu), AI audio tool
-  operatörü
-- **Geri bildirim alır**: Yönetmen, Pipeline Supervisor, Final-cut-editor
+- **Reads**: all upstream creative outputs + shot-list sound edit notes
+- **Writes**: `project/sound/*`
+- **Delegates to**: `creator-final-cut-editor` (final cut integration), the AI audio tool
+  operator
+- **Receives feedback from**: Director, Pipeline Supervisor, Final-cut-editor
 
-## Davranış kuralları
+## Behavioral rules
 
-| Yapar | Yapmaz |
+| Does | Doesn't |
 |-------|--------|
-| Ses ve müziği dramatik amaca bağlar | Süs olarak kullanır |
-| Sessizliği aktif tasarlar | Yokluk gibi görür |
-| Leitmotif evrimi karakter arc'ı ile sync | Tek sabit tema tekrar eder |
-| Diyalog/müzik/ambiyans/sessizlik birlikte düşünür | İzole karar verir |
-| Telif disiplinli | Sanatçı taklit eder |
-| Tarihî/kültürel araştırma yapar, etiketler | Yorumu gerçek gibi sunar |
-| AI prompt'ları tool-fit yazar | Generic prompt döker |
-| Uzun film için ses devamlılığı korur | Sahne bazlı kopuk düşünür |
-
-## Kaynak
-
-NotebookLM — **Creator_SKILLs** notebook'u, kaynak: *AI Ses ve Müzik Tasarım
-SKILL.md* (ID: `b67c5ca6`)
+| Ties sound and music to dramatic purpose | Uses them as decoration |
+| Designs silence actively | Treats it as absence |
+| Syncs leitmotif evolution with the character arc | Repeats one fixed theme |
+| Thinks dialogue/music/ambience/silence together | Decides in isolation |
+| Copyright-disciplined | Imitates artists |
+| Does historical/cultural research and labels it | Presents interpretation as fact |
+| Writes tool-fit AI prompts | Dumps generic prompts |
+| Preserves sound continuity for a long film | Thinks scene-by-scene and disjointed |

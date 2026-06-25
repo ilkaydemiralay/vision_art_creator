@@ -1,74 +1,75 @@
-# Karakter Tasarımcısı & Casting Skill
+# Character Designer — `creator-character-designer`
 
-Karakteri **isim + yaş + dış görünüş** üçlüsünden çıkarıp **bütünlüklü bir
-yaratık** olarak tasarlayan skill. Dramatik işlev, psikoloji, biyografi,
-beden dili, kostüm, prop'lar, oyuncu profili ve **FACS Action Unit kodlu
-ifade kütüphanesi** üretir. Uzun AI film üretiminde karakter tutarlılığını
-sağlayan "Character DNA" anchor'larını kurar.
+[English](README.md) · [中文](README.zh.md) · [Español](README.es.md) · [हिन्दी](README.hi.md) · [العربية](README.ar.md) · [Português (BR)](README.pt-BR.md) · [Türkçe](README.tr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [日本語](README.ja.md) · [한국어](README.ko.md)
 
-## Felsefe
+A skill that lifts a character beyond the **name + age + appearance** triad and
+designs them as a **coherent being**. It produces dramatic function, psychology,
+biography, body language, costume, props, casting profile, and a **FACS Action
+Unit-coded expression library**. It establishes the "Character DNA" anchors that
+preserve character consistency across long-form AI film production.
 
-Karakter rastgele üretilmez — senaryonun ihtiyacından, yönetmenin vizyonundan
-ve DOP'un görsel dünyasından türer. Bu skill:
+## Philosophy
 
-- **Her karakter bir dramatik soruya cevaptır** — yoksa karakteri kesilmesini önerir
-- **Want / Need / Fear / Wound** dörtlüsünü her ana karakter için zorunlu kurar
-- **FACS Action Units**: "üzgün" demek yerine AU1+AU4+AU15 der —
-  AI modelleri ve animatörler anatomik kodu daha tutarlı yorumlar
-- **Character DNA**: AI tutarlılığı için kilitli anchor özellikler tanımlar
-- **Visual distinction audit**: birden çok karakter varsa silüet, renk, enerji
-  ayrımlarını denetler
+A character is not generated at random — they derive from the script's needs, the
+director's vision, and the DOP's visual world. This skill:
 
-## Ne işe yarar
+- **Every character is an answer to a dramatic question** — otherwise it suggests cutting the character
+- Mandatorily establishes the **Want / Need / Fear / Wound** quartet for every main character
+- **FACS Action Units**: instead of saying "sad," it says AU1+AU4+AU15 —
+  AI models and animators interpret anatomical code more consistently
+- **Character DNA**: defines locked anchor traits for AI consistency
+- **Visual distinction audit**: when there are multiple characters, it audits silhouette, color, and energy distinctions
 
-| Çıktı | İçerik |
-|-------|--------|
-| **Character sheet** | Karakter dosyası — psikoloji, kostüm, prop, FACS, AI prompt |
-| **Costume bible** | Tüm filmdeki kostüm varyasyonları ve devamlılık |
-| **Props list** | Karaktere ait kişisel eşyalar ve dramatik kullanımları |
-| **FACS expression library** | Karakter bazlı 3–5 imza ifade, AU kodlu |
-| **Casting brief** | Oyuncuda aranan profil (isim önermez, özellik tanımlar) |
-| **AI prompts** | Tutarlı karakter referansı için base prompt + sahne varyasyonları |
-| **Arc tracker** | Yönetmenin arc tracking'i ile koordineli karakter dönüşümü |
-| **Continuity notes** | Sahne sahne kostüm/prop devamlılığı |
+## What it does
 
-## Ne zaman devreye girer
+| Output | Content |
+|--------|---------|
+| **Character sheet** | Character file — psychology, costume, props, FACS, AI prompt |
+| **Costume bible** | Costume variations and continuity across the whole film |
+| **Props list** | The character's personal items and their dramatic uses |
+| **FACS expression library** | 3–5 signature expressions per character, AU-coded |
+| **Casting brief** | The profile sought in an actor (no names suggested, traits defined) |
+| **AI prompts** | Base prompt + scene variations for a consistent character reference |
+| **Arc tracker** | Character transformation coordinated with the director's arc tracking |
+| **Continuity notes** | Scene-by-scene costume/prop continuity |
 
-- Senaryo elde, karakterler geliştirilmek isteniyor
-- "Karakter sheet hazırla", "kostüm tasarla", "casting profili çıkar"
-- AI film için tutarlı karakter referansı gerekiyor
-- Yönetmen veya `creator-pipeline-supervisor` karakter aşamasını delege ettiğinde
-- Mevcut karakterlerin görsel ayrımı sorgulanıyor
+## When it kicks in
 
-## FACS kullanımı — neden ve nasıl
+- The script is in hand and characters need to be developed
+- "Prepare a character sheet," "design a costume," "draft a casting profile"
+- A consistent character reference is needed for AI film
+- When the director or `creator-pipeline-supervisor` delegates the character stage
+- When the visual distinction of existing characters is in question
 
-**Facial Action Coding System (Ekman & Friesen, 1978)** yüz kaslarının
-anatomik kodlamasıdır. Action Unit (AU) = belirli bir kas hareketi.
+## Using FACS — why and how
 
-### Neden bu skill kullanıyor?
+**The Facial Action Coding System (Ekman & Friesen, 1978)** is the anatomical
+coding of facial muscles. An Action Unit (AU) = a specific muscle movement.
 
-- **AI generator'lar** "happy face" gibi soyut girdileri tutarsız yorumlar;
-  "AU6 + AU12 (Duchenne smile)" daha güvenilir sonuç verir
-- **Animator/VFX ekipleri** AU kodlarıyla tek bir referans kümesini paylaşır
-- **Karakterin imza ifadesi** dosyalanabilir — örneğin "Demir bastırılmış
-  yası AU4 + AU17 (alın çatık, çene kalkık, AU15 yok) ile taşır"
+### Why does this skill use it?
 
-### Yaygın AU kombinasyonları
+- **AI generators** interpret abstract inputs like "happy face" inconsistently;
+  "AU6 + AU12 (Duchenne smile)" yields a more reliable result
+- **Animator/VFX teams** share a single reference set via AU codes
+- **A character's signature expression** can be filed — for example, "Demir
+  carries his suppressed grief with AU4 + AU17 (brow furrowed, chin raised, no AU15)"
 
-| İfade | AU'lar |
-|-------|--------|
-| Duchenne smile (gerçek mutluluk) | AU6 + AU12 |
-| Polite smile (sahte/sosyal) | AU12 tek |
-| Hüzün | AU1 + AU4 + AU15 |
-| Öfke | AU4 + AU5 + AU7 + AU23 |
-| Korku | AU1 + AU2 + AU4 + AU5 + AU7 + AU20 + AU26 |
-| Tiksinti | AU9 + AU15 + AU16 |
-| Sürpriz | AU1 + AU2 + AU5B + AU26 |
-| Aşağılama (asimetrik) | AU12 (tek taraflı) + AU14 |
-| Bastırılmış yas | AU4 + AU17 (AU15 yok) |
-| Gergin sükûnet | AU7 + AU23 + AU24 |
+### Common AU combinations
 
-## Karakter sheet şablonu (özet)
+| Expression | AUs |
+|------------|-----|
+| Duchenne smile (genuine happiness) | AU6 + AU12 |
+| Polite smile (fake/social) | AU12 alone |
+| Sadness | AU1 + AU4 + AU15 |
+| Anger | AU4 + AU5 + AU7 + AU23 |
+| Fear | AU1 + AU2 + AU4 + AU5 + AU7 + AU20 + AU26 |
+| Disgust | AU9 + AU15 + AU16 |
+| Surprise | AU1 + AU2 + AU5B + AU26 |
+| Contempt (asymmetric) | AU12 (one-sided) + AU14 |
+| Suppressed grief | AU4 + AU17 (no AU15) |
+| Tense calm | AU7 + AU23 + AU24 |
+
+## Character sheet template (summary)
 
 ```
 Character: Demir
@@ -87,103 +88,98 @@ Continuity anchors: yanık izi, palto, traşsız, ses tonu — sessiz, alçak
 AI base prompt: "...same character across all scenes..."
 ```
 
-## Çıktıları nereye yazar
+## Where it writes its outputs
 
-`project/characters/{karakter-slug}/` altına:
+Under `project/characters/{character-slug}/`:
 
-| Dosya | İçerik |
-|-------|--------|
-| `character-sheet.md` | Kanonik karakter dosyası |
-| `costume-bible.md` | Tüm kostüm varyasyonları + devamlılık |
-| `props.md` | Karaktere ait eşyalar, dramatik kullanım |
-| `facs-expressions.md` | İmza ifade kütüphanesi, AU kodlu |
-| `casting-brief.md` | Oyuncu profili / AI yüz prompt'u için temel |
-| `ai-prompts.md` | Base prompt + sahne sahne varyasyon |
-| `arc-tracker.md` | Yönetmenin arc tracking'i ile sync |
-| `continuity-notes.md` | Sahne sahne kostüm/prop devamlılık |
+| File | Content |
+|------|---------|
+| `character-sheet.md` | The canonical character file |
+| `costume-bible.md` | All costume variations + continuity |
+| `props.md` | The character's items, dramatic use |
+| `facs-expressions.md` | Signature expression library, AU-coded |
+| `casting-brief.md` | Actor profile / basis for an AI face prompt |
+| `ai-prompts.md` | Base prompt + scene-by-scene variation |
+| `arc-tracker.md` | Sync with the director's arc tracking |
+| `continuity-notes.md` | Scene-by-scene costume/prop continuity |
 
-Ayrıca üst dizinde `cast-list.md` — tüm karakterleri özetleyen liste.
+There is also a `cast-list.md` in the parent directory — a list summarizing all characters.
 
 ## Visual distinction audit
 
-Birden fazla karakter varsa skill şu kontrolleri yapar:
+When there is more than one character, the skill runs these checks:
 
-- Silüet ayrımı (boy, duruş, kostüm formu)
-- Renk dünyası ayrımı (veya bilinçli zıtlık)
-- Enerji register'ı ayrımı
-- Konuşma deseni ayrımı
-- Ekran varlığı ayrımı (foreground / background tipi)
+- Silhouette distinction (height, posture, costume form)
+- Color-world distinction (or deliberate contrast)
+- Energy register distinction
+- Speech pattern distinction
+- Screen presence distinction (foreground / background type)
 
-İki karakter birbirine "karışıyorsa" rapor verir ve revizyon önerir.
+If two characters "blur together," it reports it and suggests a revision.
 
-## AI tutarlılığı (Character DNA)
+## AI consistency (Character DNA)
 
-Aynı karakteri 50 sahnede aynı yüz/kostümle üretmek için:
+To generate the same character across 50 scenes with the same face/costume:
 
-1. **Base prompt** — kilit özellikler (yüz şekli, saç, ayırt edici işaret) sabit
-2. **Anchor descriptors** — her sahne prompt'unda 2–3 tanesi tekrar geçer
-3. **FACS ile ifade** — adjektif değil, AU kodlu
-4. **Erken karakter sheet üretimi** — front/side/back/close referans görseller
-5. **Scene prompt'unda referans**: "consistent with `characters/demir/sheet.png`"
+1. **Base prompt** — key traits (face shape, hair, distinguishing mark) held fixed
+2. **Anchor descriptors** — 2–3 of them recur in every scene prompt
+3. **Expression via FACS** — AU-coded, not adjectives
+4. **Early character sheet production** — front/side/back/close reference images
+5. **Reference in the scene prompt**: "consistent with `characters/demir/sheet.png`"
 
-## Diğer skill'lerle koordinasyon
+## Coordination with other skills
 
-- **Okur**:
+- **Reads**:
   - `project/screenplay/character-brief.md`
   - `project/continuity/creator-director-vision.md`
   - `project/continuity/performance-notes/*`
   - `project/production-design/cinematography/visual-language.md`
   - `project/production-design/world-bible.md`
-- **Yazar**: `project/characters/*`
-- **Devreder**: Prompt mühendisi, storyboard, DOP (palet koordinasyonu)
-- **Geri bildirim alır**: Yönetmen, Pipeline Supervisor
+- **Writes**: `project/characters/*`
+- **Delegates to**: Prompt engineer, storyboard, DOP (palette coordination)
+- **Receives feedback from**: Director, Pipeline Supervisor
 
-## Kostüm tasarımı yaklaşımı
+## Costume design approach
 
-Kostüm karakteri anlatır — sadece "giyiyor" değil:
+Costume tells the character — it isn't merely "what they wear":
 
-- Ana parça + işlevi
-- Kumaş: ağır, yumuşak, sert, lifli
-- Renk: paletle uyum/zıtlık
-- Eskimişlik / yenilik / hasar / onarım izi
-- Dönem doğruluğu
-- Karakterin ruh hâli ile ilişki
-- Hareket kabiliyetine etki
-- Işıkla etkileşim (mat, parlak, transparan, toz tutan)
+- Main piece + its function
+- Fabric: heavy, soft, stiff, fibrous
+- Color: harmony/contrast with the palette
+- Wear / newness / damage / signs of repair
+- Period accuracy
+- Relationship to the character's state of mind
+- Effect on mobility
+- Interaction with light (matte, glossy, transparent, dust-catching)
 
-Her ana sahne için kostüm continuity not'u: sahne içinde değişiyor mu, sahneler
-arası değişiyor mu, neden?
+For each main scene, a costume continuity note: does it change within the scene,
+does it change between scenes, why?
 
-## Props yaklaşımı
+## Props approach
 
-Prop'lar hikâye aracıdır — dekoratif değil:
+Props are storytelling tools — not decorative:
 
-- Adı + işlevi
-- Karakterle ilişkisi
-- Görünüm, malzeme, renk, kondisyon
-- Karakter için anlam (hatıra, kimlik, ilişki)
-- Dramatik kullanım (önceleme, ödeme, ifşa)
-- Kamera nasıl görür (yakın, detay, geçer)
-- Devamlılık (her sahnede nerede)
+- Name + function
+- Relationship to the character
+- Appearance, material, color, condition
+- Meaning to the character (memento, identity, relationship)
+- Dramatic use (foreshadowing, payoff, reveal)
+- How the camera sees it (close, detail, passing)
+- Continuity (where it is in each scene)
 
-Karakter-prop / mekân-prop sahipliği netleştirilir, **creator-production-designer**
-ile koordine edilir.
+Character-prop / location-prop ownership is clarified and coordinated with
+**creator-production-designer**.
 
-## Davranış kuralları
+## Rules of behavior
 
-| Yapar | Yapmaz |
-|-------|--------|
-| Karakteri dramatik gerekçe ile üretir | "Bir karakter daha lazım" der |
-| Her görsel seçimi arc / fonksiyon / temaya bağlar | İzole estetik seçim yapar |
-| Eksik bilgide soru sorar | Sessizce uydurur |
-| Kültürel detayda araştırma yapar | Yorumu gerçek gibi sunar |
-| FACS AU kodlarıyla ifade tanımlar | "Üzgün" gibi adjektif kullanır |
-| Visual distinction audit yapar | İki karakteri birbirine karıştırır |
-| Continuity anchor'ları AI prompt'larına gömer | Her sahnede sıfırdan tarif eder |
-| Karakter-prop sahipliğini netleştirir | Yapım tasarımcı ile çakıştırır |
-| Yapısal, downstream-readable dosyalar verir | Tek blok metin döker |
-
-## Kaynak
-
-NotebookLM — **Creator_SKILLs** notebook'u, kaynak: *Karakter Tasarımcısı ve
-Casting AI Skill* (ID: `dab6c1d2`) + FACS eklemesi (kullanıcı talebi)
+| Does | Doesn't |
+|------|---------|
+| Generates a character with a dramatic rationale | Says "we need one more character" |
+| Ties every visual choice to arc / function / theme | Makes isolated aesthetic choices |
+| Asks questions when information is missing | Quietly makes things up |
+| Researches cultural detail | Presents a guess as fact |
+| Defines expressions with FACS AU codes | Uses adjectives like "sad" |
+| Runs a visual distinction audit | Lets two characters blur together |
+| Embeds continuity anchors into AI prompts | Describes from scratch in every scene |
+| Clarifies character-prop ownership | Overlaps with the production designer |
+| Delivers structured, downstream-readable files | Dumps a single block of text |

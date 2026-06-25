@@ -1,93 +1,95 @@
-# Görüntü Yönetmeni (Cinematographer / DOP) Skill
+# Cinematographer — `creator-cinematographer`
 
-Senaryoyu ve yönetmenin vizyonunu **sinematik görsel dile** çeviren skill.
-Işık, kamera, lens, kadraj, renk, atmosfer, hareket — her görsel karar bir
-dramatik gerekçeye bağlı. "Estetik olur" yetmez; **motivated lighting**,
-**chiaroscuro**, **depth as psychology**, **camera as character** mantığında
-çalışır.
+[English](README.md) · [中文](README.zh.md) · [Español](README.es.md) · [हिन्दी](README.hi.md) · [العربية](README.ar.md) · [Português (BR)](README.pt-BR.md) · [Türkçe](README.tr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [日本語](README.ja.md) · [한국어](README.ko.md)
 
-## Felsefe
+The skill that translates the screenplay and the director's vision into a
+**cinematic visual language**. Light, camera, lens, framing, color, atmosphere,
+movement — every visual decision is tied to a dramatic justification. "It looks
+good" is not enough; it works in the logic of **motivated lighting**,
+**chiaroscuro**, **depth as psychology**, and **camera as character**.
 
-DOP sadece "iyi görüntü" üreten kişi değildir. **Görsel anlam mühendisidir**.
-Bu skill:
+## Philosophy
 
-- **Motivated lighting**: her ışık kaynağının sahne dünyasında bir nedeni var
-- **Chiaroscuro**: ışık/gölge kontrastı anlam taşır, sadece estetik değil
-- **Depth of field**: alan derinliği bir psikoloji tercihidir
-- **Negative space**: boşluk = yalnızlık/izole olmak
-- **Camera as character**: kamera gözlemci mi, takipçi mi, suçlayıcı mı?
-- AI üretim kısıtlarını **bilen** ve risk flag'leyen biri
+A DOP is not just someone who produces "nice images." A DOP is an **engineer of
+visual meaning**. This skill:
 
-## Ne işe yarar
+- **Motivated lighting**: every light source has a reason in the world of the scene
+- **Chiaroscuro**: the contrast of light and shadow carries meaning, not just aesthetics
+- **Depth of field**: depth of field is a psychological choice
+- **Negative space**: emptiness = loneliness / isolation
+- **Camera as character**: is the camera an observer, a follower, or an accuser?
+- Someone who **knows** the constraints of AI production and flags risks
 
-| Çıktı | İçerik |
+## What it does
+
+| Output | Content |
 |-------|--------|
-| **Visual language doc** | Filmin görsel konseptini referanslarla tanımlar |
-| **Lighting bible** | Tüm filmde tutarlı ışık yaklaşımı |
-| **Color script** | Filmdeki renk progresyonu (sahne sahne) |
-| **Lens list** | Sahne tipine göre lens seçimleri ve gerekçeleri |
-| **Per-scene plan** | Sahne bazlı ışık + kamera + lens + renk planı |
-| **Moodboard** | Referans görsel açıklamaları, kaynaklı |
-| **AI cinema prompts** | Sinematografi bilgisini AI prompt'larına çevirir |
-| **DOP notes to/from creator-director** | Yönetmenle iki yönlü iletişim |
+| **Visual language doc** | Defines the film's visual concept with references |
+| **Lighting bible** | A consistent lighting approach across the whole film |
+| **Color script** | The film's color progression (scene by scene) |
+| **Lens list** | Lens choices by scene type, with justifications |
+| **Per-scene plan** | Scene-level light + camera + lens + color plan |
+| **Moodboard** | Reference image descriptions, with sources |
+| **AI cinema prompts** | Translates cinematography knowledge into AI prompts |
+| **DOP notes to/from creator-director** | Two-way communication with the director |
 
-## Ne zaman devreye girer
+## When it kicks in
 
-- Senaryo + yönetmen vizyonu var, görsel tasarım gerekli
-- "Bu sahne nasıl aydınlatılmalı / hangi lens / hangi kadraj"
-- Renk paleti veya color script isteniyor
-- AI üretim için sinematik prompt çevirisi
-- `creator-pipeline-supervisor` DOP aşamasını delege ettiğinde
-- Yönetmen kamera/ışık konusunda spesifik geri bildirim istediğinde
+- The screenplay + director's vision exist, and visual design is needed
+- "How should this scene be lit / which lens / which framing"
+- A color palette or color script is requested
+- Cinematic prompt translation for AI production
+- When `creator-pipeline-supervisor` delegates the DOP phase
+- When the director wants specific feedback on camera/lighting
 
-## Tipik akış
+## Typical flow
 
-1. **Brifing** ve `creator-director-vision.md` okuması
-2. **Soru turu**: tür, ton, referanslar, dönem, AI araçları
-3. **Visual language**: master palette, referans filmler, görsel manifesto
-4. **Lighting bible**: filmin genel ışık yaklaşımı
-5. **Color script**: dramatik arka uyumlu renk dönüşümü
-6. **Per-scene**: sahne sahne plan
-7. **AI prompt hand-off**: creator-prompt-engineer'a yapısal sinema bilgisi
+1. **Briefing** and reading of `creator-director-vision.md`
+2. **Question round**: genre, tone, references, period, AI tools
+3. **Visual language**: master palette, reference films, visual manifesto
+4. **Lighting bible**: the film's overall lighting approach
+5. **Color script**: color transformation aligned with the dramatic arc
+6. **Per-scene**: scene-by-scene plan
+7. **AI prompt hand-off**: structural cinema knowledge to creator-prompt-engineer
 
-## Çıktıları nereye yazar
+## Where it writes its outputs
 
-`project/production-design/cinematography/` altına:
+Under `project/production-design/cinematography/`:
 
-| Dosya | İçerik |
+| File | Content |
 |-------|--------|
-| `visual-language.md` | Filmin genel görsel manifestosu |
-| `lighting-bible.md` | Master ışık yaklaşımı |
-| `color-script.md` | Sahne sahne renk progresyonu |
-| `lens-list.md` | Lens seçimleri ve gerekçe |
-| `scene-{NN}.md` | Per-scene plan (ışık + kamera + lens + renk) |
-| `moodboard.md` | Referans görsel açıklamaları |
-| `notes-to-creator-director.md` | Yönetmene soru/öneri |
-| `ai-production-cinema-notes.md` | AI üretim için sinema rehberi |
+| `visual-language.md` | The film's overall visual manifesto |
+| `lighting-bible.md` | Master lighting approach |
+| `color-script.md` | Scene-by-scene color progression |
+| `lens-list.md` | Lens choices and justification |
+| `scene-{NN}.md` | Per-scene plan (light + camera + lens + color) |
+| `moodboard.md` | Reference image descriptions |
+| `notes-to-creator-director.md` | Questions/suggestions to the director |
+| `ai-production-cinema-notes.md` | Cinema guide for AI production |
 
-## Lens psikolojisi (özet)
+## Lens psychology (summary)
 
-| Focal | Etki | Kullanım |
+| Focal | Effect | Use |
 |-------|------|----------|
-| 14–24mm wide | Distorsiyon, klostrofobi | Rüya/kâbus, agresif yakınlık |
-| 28–35mm | Belgesel his | Doğal, gözlemci |
-| 40–50mm | Göz seviyesi | Nötr, samimi diyalog |
-| 75–100mm | Sıkıştırma, izolasyon | Güzellik, özlem, gözetleme |
-| 135mm+ | Güçlü sıkıştırma | Mesafe, dehşet |
-| Anamorfik | Geniş aspect, oval bokeh | Epik, sinematik |
-| Macro | Aşırı detay | Obje anlamı, duyusal |
+| 14–24mm wide | Distortion, claustrophobia | Dream/nightmare, aggressive proximity |
+| 28–35mm | Documentary feel | Natural, observational |
+| 40–50mm | Eye level | Neutral, intimate dialogue |
+| 75–100mm | Compression, isolation | Beauty, longing, surveillance |
+| 135mm+ | Strong compression | Distance, dread |
+| Anamorphic | Wide aspect, oval bokeh | Epic, cinematic |
+| Macro | Extreme detail | Object meaning, sensory |
 
-## Işık dili (özet)
+## Lighting language (summary)
 
-- **Key**: ana kaynak, sahnenin dünyasında nereden gelir?
-- **Fill**: gölge modülasyonu, oran tercihi
-- **Backlight**: arka plandan ayırma, rim halo
-- **Practical**: lamba, mum, ateş, ekran — sahnedeki gerçek kaynaklar
-- **Hard vs. soft**: sertlik dokuyu ortaya çıkarır, niyet belirler
-- **Color temp**: warm (3200K, samimi/anı), cool (5600K+, mesafe/klinik), mixed (gerilim)
-- **Contrast**: yüksek (dram, noir), düşük (belgesel, melankoli, şafak)
+- **Key**: the main source — where does it come from in the world of the scene?
+- **Fill**: shadow modulation, ratio choice
+- **Backlight**: separation from the background, rim halo
+- **Practical**: lamp, candle, fire, screen — the real sources in the scene
+- **Hard vs. soft**: hardness reveals texture, sets intent
+- **Color temp**: warm (3200K, intimate/memory), cool (5600K+, distance/clinical), mixed (tension)
+- **Contrast**: high (drama, noir), low (documentary, melancholy, dawn)
 
-## Diğer skill'lerle koordinasyon
+## Coordination with other skills
 
 ```
 creator-director-vision ──► creator-cinematographer
@@ -101,43 +103,38 @@ creator-director-vision ──► creator-cinematographer
                   creator-shot-list-designer
 ```
 
-- **Okur**: `project/screenplay/*`, `creator-director-vision.md`, `notes-to-dop.md`,
-  yapım tasarım çıktıları, karakter renk paleti
-- **Yazar**: `project/production-design/cinematography/*`
-- **Devreder**: Prompt mühendisi, storyboard, shot-list designer
-- **Geri bildirim alır**: Yönetmen, Pipeline Supervisor
+- **Reads**: `project/screenplay/*`, `creator-director-vision.md`, `notes-to-dop.md`,
+  production-design outputs, character color palette
+- **Writes**: `project/production-design/cinematography/*`
+- **Hands off to**: Prompt engineer, storyboard, shot-list designer
+- **Receives feedback from**: Director, Pipeline Supervisor
 
-## AI üretim için sinematik prompt formatı
+## Cinematic prompt format for AI production
 
-Sinematografi'yi AI prompt'a çevirirken her zaman dahil edilir:
+When translating cinematography into an AI prompt, the following are always included:
 
-- Shot scale + açı
-- Lens (focal + DoF etkisi)
-- Işık yönü, kalite, renk sıcaklığı
-- Renk paleti ve mood
-- Atmosfer (sis, duman, yağmur, toz)
-- Mekân detayları (dönem, doku, malzeme)
-- Karakter pozisyonu ve eylem
+- Shot scale + angle
+- Lens (focal + DoF effect)
+- Light direction, quality, color temperature
+- Color palette and mood
+- Atmosphere (fog, smoke, rain, dust)
+- Location details (period, texture, material)
+- Character position and action
 - Aspect ratio (2.39:1, 1.85:1, 16:9, 9:16)
-- Stil referansı (film adı, fotoğrafçı, dönem)
-- Negative prompt (dışlananlar)
+- Style reference (film title, photographer, period)
+- Negative prompt (exclusions)
 
-Bu yapı `creator-prompt-engineer` skill'ine hand-off için hazır.
+This structure is ready for hand-off to the `creator-prompt-engineer` skill.
 
-## Davranış kuralları
+## Rules of behavior
 
-| Yapar | Yapmaz |
+| Does | Doesn't |
 |-------|--------|
-| Her ışığa dramatik gerekçe verir | "İyi görünsün" der |
-| Motivated lighting uygular | Kaynak belirsiz ışık koyar |
-| Lens psikolojisini açıklar | Lens'i estetik sebebiyle seçer |
-| Renk paletini yönetmen/yapım/karakter ile koordine eder | İzole karar verir |
-| AI risk flag'i koyar | Üretilemeyecek sahne planlar |
-| Low-budget alternatif sunar | Sadece ideal versiyonu yazar |
-| Tarihî dönemi araştırır, etiketler | Yorumu gerçek gibi sunar |
-| Çekim öncesi `notes-to-creator-director.md` ile soru iletir | Sessizce ilerler |
-
-## Kaynak
-
-NotebookLM — **Creator_SKILLs** notebook'u, kaynak: *Görüntü Yönetmeni AI Skill
-Tasarımı* (ID: `4b2de75d`)
+| Gives every light a dramatic justification | Says "make it look good" |
+| Applies motivated lighting | Places light with an unclear source |
+| Explains lens psychology | Picks a lens for aesthetic reasons |
+| Coordinates the color palette with director/production/character | Decides in isolation |
+| Flags AI risks | Plans a scene that can't be produced |
+| Offers a low-budget alternative | Only writes the ideal version |
+| Researches and labels the historical period | Presents interpretation as fact |
+| Sends questions via `notes-to-creator-director.md` before the shoot | Proceeds silently |

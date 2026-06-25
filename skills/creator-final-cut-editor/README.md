@@ -1,79 +1,82 @@
-# Final Cut Editor / Post-Production Supervisor Skill
+# Final Cut Editor — `creator-final-cut-editor`
 
-AI üretim çıktılarını **bitmiş filme** çeviren skill. Pre-production'ın
-sonu / post-production'ın başı. Material üretildikten sonra rough cut → fine
-cut → final cut → delivery akışını yönetir; AI generation hatalarını triage
-eder, continuity'yi denetler, ses/müzik entegrasyonunu kontrol eder,
-delivery-hazır master'lar üretir.
+**English** · [中文](README.zh.md) · [Español](README.es.md) · [हिन्दी](README.hi.md) · [العربية](README.ar.md) · [Português (BR)](README.pt-BR.md) · [Türkçe](README.tr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [日本語](README.ja.md) · [한국어](README.ko.md)
 
-**Shot-list-designer'dan farkı**: shot-list editorial niyeti çekim ÖNCESİ
-tasarlar; creator-final-cut-editor gerçek material üzerinde kesimi YÜRÜTÜR.
+The skill that turns AI production outputs into a **finished film**. The end of
+pre-production / the start of post-production. Once material has been produced,
+it manages the rough cut → fine cut → final cut → delivery flow; it triages AI
+generation errors, audits continuity, checks audio/music integration, and
+produces delivery-ready masters.
 
-## Felsefe
+**Difference from shot-list-designer**: the shot list designs editorial intent
+BEFORE the shoot; creator-final-cut-editor EXECUTES the cut on the actual
+material.
 
-Final cut **teknik sıralama değildir** — sinemasal bütünlük inşasıdır.
-Bu skill:
+## Philosophy
 
-- **Her kesimde dramatik gerekçe** — "iyi durur" yetmez
-- **Çoklu ölçek ritim**: shot içi, sahne içi, film geneli
-- **AI error triage**: hangi hata break, hangisi gizlenebilir, hangisi kalabilir
-- **Audience experience design**: izleyici ne hisseder, neyi öğrenir, ne kalır
-- **Delivery discipline**: YouTube ≠ festival ≠ Instagram ≠ arşiv
-- **Versioning**: rough/fine/final + festival/social/trailer cut'larını ayrı yönetir
+The final cut is **not a technical sequencing** — it is the construction of
+cinematic wholeness. This skill:
 
-## Ne işe yarar
+- **A dramatic rationale for every cut** — "looks good" isn't enough
+- **Multi-scale rhythm**: within a shot, within a scene, across the whole film
+- **AI error triage**: which error breaks the cut, which can be hidden, which can stay
+- **Audience experience design**: what the viewer feels, learns, and takes away
+- **Delivery discipline**: YouTube ≠ festival ≠ Instagram ≠ archive
+- **Versioning**: manages rough/fine/final + festival/social/trailer cuts separately
 
-| Çıktı | İçerik |
-|-------|--------|
-| **Material evaluation** | Her shot için: usable / revize / re-generate / cut |
-| **Rough cut plan** | İlk kaba sıralama, eksik material listesi |
-| **Fine cut plan** | Kesme noktaları, shot süreleri, sessizlik |
+## What it does
+
+| Output | Content |
+|-------|---------|
+| **Material evaluation** | Per shot: usable / revise / re-generate / cut |
+| **Rough cut plan** | First rough sequencing, list of missing material |
+| **Fine cut plan** | Cut points, shot durations, silence |
 | **Final cut plan** | Final readiness + delivery checklist |
-| **Per-scene final-check** | Sahne bazlı detaylı audit |
-| **Whole-film report** | Tüm film final cut raporu |
-| **AI error report** | Generation hataları + severity sınıflama |
-| **Audio integration audit** | Ses tasarımcısına geri bildirim |
-| **Color grade notes** | Renk düzeltme direktifleri |
-| **EDL** | NLE'de okunabilir Edit Decision List |
-| **Version manifest** | Festival/social/trailer cut versiyonları |
-| **Delivery specs** | Platform bazlı export ayarları |
-| **Trailer plan** | Teaser/trailer cut planı |
+| **Per-scene final-check** | Detailed scene-by-scene audit |
+| **Whole-film report** | Final cut report for the entire film |
+| **AI error report** | Generation errors + severity classification |
+| **Audio integration audit** | Feedback to the sound designer |
+| **Color grade notes** | Color correction directives |
+| **EDL** | NLE-readable Edit Decision List |
+| **Version manifest** | Festival/social/trailer cut versions |
+| **Delivery specs** | Platform-specific export settings |
+| **Trailer plan** | Teaser/trailer cut plan |
 
-## Ne zaman devreye girer
+## When it kicks in
 
-- AI video shot'ları üretildi, montaja geçiliyor
-- Rough/fine/final cut planlaması gerekli
-- AI hata audit'i isteniyor
-- Çoklu cut (festival, social, trailer) üretilecek
-- Delivery export hazırlığı
-- `creator-pipeline-supervisor` post-production aşamasını delege ettiğinde
+- AI video shots have been produced, editing is starting
+- Rough/fine/final cut planning is required
+- An AI error audit is requested
+- Multiple cuts (festival, social, trailer) will be produced
+- Delivery export preparation
+- When `creator-pipeline-supervisor` delegates the post-production phase
 
-## Tipik akış
+## Typical flow
 
-1. **Material evaluation** — her shot kategorize edilir (✅🟡🟠🔴)
-2. **Rough cut v01** — hikâye sırası, temel dramatik sequence
-3. **Fine cut v01** — kesme noktaları, ritim, sessizlik
-4. **Sound integration audit** — creator-sound-music-designer'a feedback
-5. **AI error report** — kritik/orta/küçük sınıflama
-6. **Color grade notes** — gerekirse
+1. **Material evaluation** — each shot is categorized (✅🟡🟠🔴)
+2. **Rough cut v01** — story order, basic dramatic sequence
+3. **Fine cut v01** — cut points, rhythm, silence
+4. **Sound integration audit** — feedback to creator-sound-music-designer
+5. **AI error report** — critical/medium/minor classification
+6. **Color grade notes** — if needed
 7. **Subtitle / titles / graphics check**
 8. **Final cut v01** — readiness checklist
-9. **Delivery export** — platform bazlı versiyon
+9. **Delivery export** — platform-specific version
 
-## AI error triage matrisi
+## AI error triage matrix
 
-| Severity | Tanım | Aksiyon |
-|----------|-------|---------|
-| 🔴 Kritik | Final cut'a giremez | Re-generate (creator-prompt-engineer'a flag) |
-| 🟡 Orta | Hidden via trim/crop/color/sound | Editorial workaround |
-| ✅ Küçük | Seyirciyi rahatsız etmiyor | Kalabilir |
+| Severity | Definition | Action |
+|----------|------------|--------|
+| 🔴 Critical | Cannot make it into the final cut | Re-generate (flag to creator-prompt-engineer) |
+| 🟡 Medium | Hidden via trim/crop/color/sound | Editorial workaround |
+| ✅ Minor | Doesn't disturb the viewer | Can stay |
 
-Kontrol edilenler: yüz bozulması, el/parmak hatası, lip-sync, kostüm değişimi,
-aksesuar kaybı, mekân kayması, ışık yönü tutarsızlığı, kamera yapay hareket,
-flicker, warping, morphing, eriyen objeler, arka plan bozulması, anakronizm,
-plastik görüntü.
+Checked: face distortion, hand/finger errors, lip-sync, costume changes,
+loss of accessories, location drift, light-direction inconsistency, artificial
+camera movement, flicker, warping, morphing, melting objects, background
+breakdown, anachronism, plastic look.
 
-## Per-scene final-check formatı
+## Per-scene final-check format
 
 ```
 Scene 04 — "Mutfak / Cenaze Sonrası"
@@ -105,95 +108,90 @@ Final decision: 🟡 küçük revizyon (1 shot kes, 1 kısalt, 1 uzat)
 Revision rationale: ritim 12s düşürülerek dramatik yoğunluk artar
 ```
 
-## Çıktıları nereye yazar
+## Where it writes its outputs
 
-`project/cuts/` altına:
+Under `project/cuts/`:
 
-| Dosya | İçerik |
-|-------|--------|
-| `material-evaluation.md` | Her shot kategorisi |
-| `rough-cut/v{NN}.md` | Rough cut planı |
-| `fine-cut/v{NN}.md` | Fine cut planı |
-| `final-cut/v{NN}.md` | Final cut planı + readiness |
-| `scene-{NN}/final-check.md` | Sahne bazlı detay |
-| `final-cut-report.md` | Tüm film audit |
-| `ai-error-report.md` | AI hata raporu |
-| `audio-integration-report.md` | Ses entegrasyon audit |
-| `color-grade-notes.md` | Renk düzeltme |
-| `subtitle-titles-graphics.md` | Altyazı/jenerik |
-| `transitions.md` | Geçiş kararları |
+| File | Content |
+|-------|---------|
+| `material-evaluation.md` | Each shot's category |
+| `rough-cut/v{NN}.md` | Rough cut plan |
+| `fine-cut/v{NN}.md` | Fine cut plan |
+| `final-cut/v{NN}.md` | Final cut plan + readiness |
+| `scene-{NN}/final-check.md` | Scene-by-scene detail |
+| `final-cut-report.md` | Whole-film audit |
+| `ai-error-report.md` | AI error report |
+| `audio-integration-report.md` | Audio integration audit |
+| `color-grade-notes.md` | Color correction |
+| `subtitle-titles-graphics.md` | Subtitles/titles |
+| `transitions.md` | Transition decisions |
 | `edit-decision-list.md` | EDL |
-| `versions/{cut-name}.md` | Versiyon manifest |
+| `versions/{cut-name}.md` | Version manifest |
 | `delivery/{platform}.md` | Platform export specs |
-| `trailer-plan.md` | Trailer/teaser planı |
+| `trailer-plan.md` | Trailer/teaser plan |
 
 ## Version management
 
-| Versiyon | Süre | Hedef |
-|----------|------|-------|
-| Rough Cut v01 | ~115% target | İlk hikâye akışı testi |
-| Rough Cut v02 | ~108% | Eksiklerin entegrasyonu |
-| Fine Cut | ~102% | Ritim ve duygu lock |
-| Director's Cut | %100 hedef | Yönetmen tam onay |
-| Final Cut | %100 | Delivery-ready |
-| Festival Cut | %100 | Festival format |
-| YouTube Cut | %100 veya kısaltılmış | YouTube algoritma |
-| Trailer Cut | 30s–2dk | Pazarlama |
+| Version | Duration | Goal |
+|----------|----------|------|
+| Rough Cut v01 | ~115% target | First story-flow test |
+| Rough Cut v02 | ~108% | Integration of missing pieces |
+| Fine Cut | ~102% | Lock rhythm and emotion |
+| Director's Cut | 100% target | Full director approval |
+| Final Cut | 100% | Delivery-ready |
+| Festival Cut | 100% | Festival format |
+| YouTube Cut | 100% or shortened | YouTube algorithm |
+| Trailer Cut | 30s–2 min | Marketing |
 | Social Cut | 9:16 short | Reels, TikTok |
 
-Her versiyon için: name, duration, changes, removed/added scenes, audio
+For each version: name, duration, changes, removed/added scenes, audio
 changes, revision rationale, approval status.
 
-## Delivery örnek specs
+## Example delivery specs
 
-| Platform | Aspect | Çözünürlük | FPS | Audio |
+| Platform | Aspect | Resolution | FPS | Audio |
 |----------|--------|------------|-----|-------|
-| YouTube 16:9 master | 16:9 | 3840×2160 (4K) veya 1920×1080 | 24/25 | AAC 320kbps stereo |
-| Festival master | 2.39:1 veya 16:9 | 4K | 24 | WAV 48kHz 24-bit stereo + 5.1 |
+| YouTube 16:9 master | 16:9 | 3840×2160 (4K) or 1920×1080 | 24/25 | AAC 320kbps stereo |
+| Festival master | 2.39:1 or 16:9 | 4K | 24 | WAV 48kHz 24-bit stereo + 5.1 |
 | Instagram Reels | 9:16 | 1080×1920 | 30 | AAC stereo |
 | TikTok | 9:16 | 1080×1920 | 30 | AAC stereo |
 | Web compressed | 16:9 | 1920×1080 | 24/25 | AAC 192kbps |
-| Archive master | original | en yüksek | original | WAV master |
+| Archive master | original | highest | original | WAV master |
 
-## Trailer kurgu mantığı
+## Trailer cut logic
 
-Trailer **filmin küçültülmüş hali değildir** — ayrı bir editorial mantık:
+A trailer is **not a miniature of the film** — it has its own editorial logic:
 
-- En güçlü 6–10 görsel
+- The 6–10 strongest visuals
 - Spoiler exclusion list
-- Hook → arka plan → tehdit/çatışma → climax teaser → karanlık → tagline
-- Müzik yükselişi (filmden farklı, daha doğrudan)
-- Hızlı kesme ritmi (filmden farklı)
-- Karakter tanıtımı sıkıştırılmış
-- Son vurucu image — film bağlamı **dışında**
-- Social media 9:16 kısa versiyon
+- Hook → background → threat/conflict → climax teaser → darkness → tagline
+- Music build (different from the film, more direct)
+- Fast cutting rhythm (different from the film)
+- Compressed character introductions
+- A final punch image — **outside** the film's context
+- Short social media 9:16 version
 
-## Diğer skill'lerle koordinasyon
+## Coordination with other skills
 
-- **Okur**: tüm upstream creative çıktıları + shot-list `final-editor-notes.md`
-- **Yazar**: `project/cuts/*`
-- **Geri bildirim verir**:
-  - **creator-sound-music-designer**: audio fix talepleri
-  - **creator-prompt-engineer**: regeneration talepleri
+- **Reads**: all upstream creative outputs + shot-list `final-editor-notes.md`
+- **Writes**: `project/cuts/*`
+- **Gives feedback to**:
+  - **creator-sound-music-designer**: audio fix requests
+  - **creator-prompt-engineer**: regeneration requests
   - **creator-pipeline-supervisor**: continuity escalation
-- **Onay alır**: Yönetmen (final approval), Pipeline Supervisor
+- **Gets approval from**: Director (final approval), Pipeline Supervisor
 
-## Davranış kuralları
+## Behavior rules
 
-| Yapar | Yapmaz |
-|-------|--------|
-| Her kesim için dramatik gerekçe | Teknik sıralama yapar |
-| Gereksiz sahne/shot açıkça flag | Sadakat adına korur |
-| AI error'ı viewer experience'tan değerlendirir | Soyut/teknik perfectionism |
-| Dialogue + music + ambience + silence beraber düşünür | İzole audit yapar |
-| Yönetmen vizyonuna sadık | Editorial ego ile çakışır |
-| Target süre disiplinli | Sınırı aşar |
-| Büyük değişiklik öncesi kullanıcıya sorar | Sessizce keser |
-| Multi-version takibi yapar | Tek dosyada karıştırır |
-| Platform-fit delivery sunar | Tek master verir |
-| Delivery readiness checklist olmadan "tamam" demez | Erken complete der |
-
-## Kaynak
-
-NotebookLM — **Creator_SKILLs** notebook'u, kaynak: *AI Film Kurgu Süpervizörü
-Skill Tasarımı* (ID: `a92873ea`)
+| Does | Doesn't |
+|-------|---------|
+| A dramatic rationale for every cut | Do mere technical sequencing |
+| Clearly flags unnecessary scenes/shots | Keep them for the sake of loyalty |
+| Evaluates AI errors from viewer experience | Abstract/technical perfectionism |
+| Considers dialogue + music + ambience + silence together | Audit in isolation |
+| Faithful to the director's vision | Clash with editorial ego |
+| Disciplined about target duration | Overrun the limit |
+| Asks the user before a major change | Cut silently |
+| Tracks multiple versions | Mix them in a single file |
+| Delivers platform-fit delivery | Hand over a single master |
+| Won't say "done" without a delivery readiness checklist | Declare it complete early |

@@ -1,74 +1,79 @@
-# Yapım Tasarımcısı (Production Designer / Art Director) Skill
+# Production Designer — `creator-production-designer`
 
-Filmin **dünyasını** kuran skill: mekânlar, dekorlar, prop'lar, dönem
-atmosferi, renk ve malzeme dili. "Güzel bir köy" demek yerine duvar dokusu,
-zemin malzemesi, mobilya yoğunluğu, ışığı etkileyen yüzeyler, eskimişlik
-izleri seviyesinde tasarlar. Uzun AI film üretiminde **lokasyon tutarlılığını**
-sağlayan master reference'ları kurar.
+[English](README.md) · [中文](README.zh.md) · [Español](README.es.md) · [हिन्दी](README.hi.md) · [العربية](README.ar.md) · [Português (BR)](README.pt-BR.md) · [Türkçe](README.tr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [日本語](README.ja.md) · [한국어](README.ko.md)
 
-## Felsefe
+The skill that builds the film's **world**: locations, sets, props, period
+atmosphere, color and material language. Instead of saying "a beautiful
+village," it designs down to the level of wall texture, floor material,
+furniture density, surfaces that affect light, and traces of wear. It
+establishes the master references that maintain **location consistency** across
+long-form AI film production.
 
-Mekân arka plan değil **anlatım aracıdır**. Bu skill:
+## Philosophy
 
-- **World bible** önce — sonra per-location, sonra per-scene (top-down)
-- **Master reference**: her ana mekân için kilitli AI prompt block'u —
-  50 sahne sonra bile aynı evi üretebilmek için
-- **Yaşanmışlık tasarımı**: çatlak, leke, güneş solması, eskime, onarım izi
-- **Class-coded design**: her malzeme/renk sosyal sınıfı söyler
-- **Coordinated palette**: DOP ışığıyla ve karakter kostümüyle birlikte düşünür
-- **Period research**: tarihî/kültürel doğruluk gerektiğinde kaynaklı araştırma
+A space is not a backdrop — it is a **storytelling instrument**. This skill:
 
-## Ne işe yarar
+- **World bible** first — then per-location, then per-scene (top-down)
+- **Master reference**: a locked AI prompt block for each main location — so the
+  same house can still be produced even 50 scenes later
+- **Lived-in design**: cracks, stains, sun fading, wear, repair marks
+- **Class-coded design**: every material/color speaks the social class
+- **Coordinated palette**: thought through together with the DOP's lighting and
+  the character costumes
+- **Period research**: sourced research when historical/cultural accuracy is
+  required
 
-| Çıktı | İçerik |
+## What it does
+
+| Output | Content |
 |-------|--------|
-| **World bible** | Filmin genel dünya kuralları (dönem, sınıf, mimari, malzeme) |
-| **Color & texture bible** | Renk paleti, malzeme dili, eskime patternleri |
-| **Location dossier** | Her ana mekân için kapsamlı belge (kilitli + varyasyonlar) |
-| **Master reference (AI)** | Mekân kimliğinin sabit AI prompt block'u |
-| **Props inventory** | Sahne objeleri, dramatik işlevleriyle |
-| **Per-scene plan** | Sahne bazlı yapım tasarımı (dressing, prop, ışık kaynakları) |
-| **Continuity log** | Sahneler arası mekân tutarlılığı kontrolü |
-| **Period research** | Kaynaklı tarihî/kültürel araştırma |
-| **Notes to DOP / creator-director** | İki yönlü iletişim |
+| **World bible** | The film's overall world rules (period, class, architecture, materials) |
+| **Color & texture bible** | Color palette, material language, wear patterns |
+| **Location dossier** | A comprehensive document for each main location (locked + variations) |
+| **Master reference (AI)** | The fixed AI prompt block of a location's identity |
+| **Props inventory** | Set objects, with their dramatic functions |
+| **Per-scene plan** | Scene-by-scene production design (dressing, props, light sources) |
+| **Continuity log** | Cross-scene location consistency check |
+| **Period research** | Sourced historical/cultural research |
+| **Notes to DOP / creator-director** | Two-way communication |
 
-## Ne zaman devreye girer
+## When it kicks in
 
-- Senaryo elde, dünya / lokasyon / set tasarımı gerekli
-- "Bu mekân nasıl görünmeli", "set dressing", "prop listesi"
-- AI üretim için tutarlı mekân referansı
-- Dönem araştırması (tarihî, kültürel, bölgesel)
-- `creator-pipeline-supervisor` yapım tasarımı aşamasını delege ettiğinde
+- Script in hand, world / location / set design needed
+- "How should this space look," "set dressing," "prop list"
+- Consistent location reference for AI production
+- Period research (historical, cultural, regional)
+- When `creator-pipeline-supervisor` delegates the production design phase
 
-## Tipik akış
+## Typical flow
 
-1. **Brifing** + `creator-director-vision.md` + DOP visual-language okuması
-2. **Soru turu**: dönem, coğrafya, ton, sınıf, AI araçları
-3. **World bible**: filmin genel dünya kuralları
-4. **Color & texture bible**: malzeme ve renk dili
-5. **Major locations**: her ana mekân için dossier
-6. **Master references**: AI tutarlılığı için kilitli prompt block'ları
-7. **Per-scene sheets**: sahne bazlı set dressing + prop notları
-8. **Continuity audit**: aynı mekân farklı sahnelerde tutarlı mı?
+1. **Briefing** + reading of `creator-director-vision.md` + DOP visual-language
+2. **Question round**: period, geography, tone, class, AI tools
+3. **World bible**: the film's overall world rules
+4. **Color & texture bible**: material and color language
+5. **Major locations**: a dossier for each main location
+6. **Master references**: locked prompt blocks for AI consistency
+7. **Per-scene sheets**: scene-by-scene set dressing + prop notes
+8. **Continuity audit**: is the same location consistent across different scenes?
 
-## Çıktıları nereye yazar
+## Where it writes its outputs
 
-`project/production-design/` altına (cinematography hariç — orası DOP'un):
+Under `project/production-design/` (excluding cinematography — that's the DOP's):
 
-| Dosya | İçerik |
+| File | Content |
 |-------|--------|
-| `world-bible.md` | Filmin dünya kuralları |
-| `color-texture-bible.md` | Renk + malzeme dili |
+| `world-bible.md` | The film's world rules |
+| `color-texture-bible.md` | Color + material language |
 | `locations/{slug}/location-doc.md` | Per-location dossier |
-| `locations/{slug}/master-reference.md` | Kilitli AI base prompt |
-| `props/{slug}.md` veya `props-list.md` | Prop envanteri |
-| `scenes/scene-{NN}.md` | Sahne sahne yapım tasarımı planı |
-| `continuity-notes.md` | Mekân tutarlılığı kontrol logu |
-| `period-research.md` | Kaynaklı dönem araştırması |
-| `notes-to-creator-director.md` | Yönetmene soru/öneri |
-| `notes-to-creator-cinematographer.md` | DOP ile yüzey/derinlik/ışık koordinasyonu |
+| `locations/{slug}/master-reference.md` | Locked AI base prompt |
+| `props/{slug}.md` or `props-list.md` | Prop inventory |
+| `scenes/scene-{NN}.md` | Scene-by-scene production design plan |
+| `continuity-notes.md` | Location consistency check log |
+| `period-research.md` | Sourced period research |
+| `notes-to-creator-director.md` | Questions/suggestions to the director |
+| `notes-to-creator-cinematographer.md` | Surface/depth/light coordination with the DOP |
 
-## Location dossier şablonu (özet)
+## Location dossier template (summary)
 
 ```
 Location: Demir'in dedesinin köy evi mutfağı
@@ -91,9 +96,9 @@ AI master reference prompt: "...same kitchen across all scenes..."
 Variations: gündüz, gece, fırtınalı, yeni temizlenmiş (final sahnede)
 ```
 
-## Master reference (AI tutarlılığı için)
+## Master reference (for AI consistency)
 
-Her ana mekân için **kilitli base prompt block'u** yazılır:
+A **locked base prompt block** is written for each main location:
 
 ```
 {kitchen-anatolian-1980s}: small one-room kitchen in an Eastern Anatolian
@@ -105,58 +110,53 @@ family photograph framed on the west wall — soft natural side light, dust in
 the air, period-accurate 1980s Eastern Anatolia, no modern objects, --ar 2.39:1
 ```
 
-Tüm sahne prompt'larında bu block aynen tekrarlanır, üstüne sahne-spesifik
-varyasyon eklenir.
+This block is repeated verbatim in all scene prompts, with scene-specific
+variation added on top.
 
-## Diğer skill'lerle koordinasyon
+## Coordination with other skills
 
 - **Cinematographer**:
-  - Yüzeylerin ışıkla ilişkisi (matt, parlak, transparan)
-  - Derinlik kademesi için ön/orta/arka plan
-  - Renk paleti planlanan ışıkla çalışır mı?
-  - Ayna, cam, parlak yüzeyler kamera için sorun mu?
+  - How surfaces relate to light (matte, glossy, transparent)
+  - Foreground/midground/background for depth staging
+  - Does the color palette work with the planned lighting?
+  - Are mirrors, glass, glossy surfaces a problem for the camera?
 - **Director**:
-  - Lokasyon ana temaya hizmet ediyor mu?
-  - Dünya tonu vizyona uygun mu?
-  - "Signature/iconic" olmalı lokasyonlar var mı?
+  - Does the location serve the central theme?
+  - Does the world tone fit the vision?
+  - Are there locations that must be "signature/iconic"?
 - **Character-designer**:
-  - Kostüm mekân paletinde doğru okunuyor mu?
-  - Kişisel eşyalar dressing içinde yer buluyor mu?
-  - Sosyal sınıf hem kostümden hem mekândan tutarlı mı?
-- **Storyboard / shot-list**: kadraj noktası notları
-- **Prompt-engineer**: master reference + varyasyon prompt'ları hand-off
+  - Do costumes read correctly within the location palette?
+  - Do personal items find a place within the dressing?
+  - Is social class consistent from both costume and space?
+- **Storyboard / shot-list**: framing-point notes
+- **Prompt-engineer**: hand-off of master reference + variation prompts
 
 ## Reads / writes
 
-- **Reads**: senaryo, yönetmen vizyonu, DOP visual-language, karakter paletleri
-- **Writes**: `project/production-design/*` (cinematography hariç)
+- **Reads**: script, director vision, DOP visual-language, character palettes
+- **Writes**: `project/production-design/*` (excluding cinematography)
 
-## AI üretim odaklı çözümler
+## AI-production-focused solutions
 
-- Az lokasyonla çok sahne üretme
-- Aynı lokasyonu açı/ışık/hava varyasyonu ile farklı göstermek
-- Dressing yoğunluğunu kontrol — AI fazla yüklenmez
-- AI'nin zorlanacağı karmaşık mekânları sadeleştirme
-- Sabit referans görselleriyle tutarlılık
-- "Master reference" erken üretimi
-- Dressing objelerini tekrar kullanma (dünya bütünlüğü)
-- Gereksiz detayları azaltıp dramatik objeyi öne çıkarma
+- Producing many scenes with few locations
+- Showing the same location differently via angle/light/weather variation
+- Controlling dressing density — so AI isn't overloaded
+- Simplifying complex spaces that AI would struggle with
+- Consistency through fixed reference images
+- Early production of the "master reference"
+- Reusing dressing objects (world coherence)
+- Reducing unnecessary detail to bring the dramatic object forward
 
-## Davranış kuralları
+## Behavior rules
 
-| Yapar | Yapmaz |
+| Does | Doesn't |
 |-------|--------|
-| Mekânı hikâye aracı olarak tasarlar | "Güzel bir oda" der |
-| Her dressing kararını dönem/karakter/temaya bağlar | İzole estetik seçim yapar |
-| Eksik bilgide soru sorar | Sessizce uydurur |
-| Kültürel detayda araştırma yapar, etiketler | Yorumu gerçek gibi sunar |
-| Master reference ile AI tutarlılığı sağlar | Her sahnede sıfırdan tarif eder |
-| DOP + karakter ile palet koordine eder | İzole karar verir |
-| Karakter-prop / mekân-prop sahipliğini netleştirir | Karakter tasarımcı ile çakışır |
-| Yapısal, downstream-readable dosya verir | Tek blok metin döker |
-| AI riskli mekânlara alternatif sunar | Üretilemeyecek detaya zorlar |
-
-## Kaynak
-
-NotebookLM — **Creator_SKILLs** notebook'u, kaynak: *Yapım Tasarımcısı AI Skill
-Tasarımı* (ID: `a1e7465d`)
+| Designs the space as a storytelling instrument | Says "a nice room" |
+| Ties every dressing decision to period/character/theme | Makes isolated aesthetic choices |
+| Asks questions when information is missing | Silently makes things up |
+| Researches cultural details, labels them | Presents interpretation as fact |
+| Ensures AI consistency via master reference | Describes from scratch in every scene |
+| Coordinates palette with DOP + characters | Decides in isolation |
+| Clarifies character-prop / location-prop ownership | Clashes with the character designer |
+| Delivers a structured, downstream-readable file | Dumps a single block of text |
+| Offers alternatives for AI-risky locations | Forces detail that can't be produced |

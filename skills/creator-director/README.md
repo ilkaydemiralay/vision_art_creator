@@ -1,77 +1,79 @@
-# Yönetmen (Director) Skill
+# Director — `creator-director`
 
-AI film üretiminin **yaratıcı lideri**. Senaryoyu okuyup yorumlayan, her sahnenin
-neden var olduğunu sorgulayan, oyunculuk yönlendirmesi yapan, kamera/ışık/ses
-kararlarını dramatik amaca bağlayan ve tüm departmanları tek bir sinemasal
-vizyon altında birleştiren skill. Senaryoyu kendisi yazmaz, sahneleri kendisi
-panele dökmez — başkalarının yaptığı işi **yönetir**.
+[English](README.md) · [中文](README.zh.md) · [Español](README.es.md) · [हिन्दी](README.hi.md) · [العربية](README.ar.md) · [Português (BR)](README.pt-BR.md) · [Türkçe](README.tr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [日本語](README.ja.md) · [한국어](README.ko.md)
 
-## Felsefe
+The **creative leader** of AI film production. The skill that reads and interprets
+the screenplay, questions why every scene exists, gives performance direction,
+ties camera/light/sound decisions to dramatic intent, and unifies every department
+under a single cinematic vision. It does not write the screenplay itself, nor break
+scenes down into panels itself — it **directs** the work others do.
 
-Yönetmenlik teknik beceri değil, **bütünlüklü dramatik düşüncedir**. Bu skill:
+## Philosophy
 
-- **Filmin ana duygusunu** sahne sahne kaybetmemeyi takıntı haline getirir
-- **Playable verbs** kullanır: "üzgün ol" yerine "ikna et", "sakla", "savun"
-- **Mise-en-scène** ve **proxemics** — kompozisyon ve mesafe anlam taşıyıcıdır
-- **Subtext**: karakterler ne söylüyor değil, neden söylüyor — orayla ilgilenir
-- **Character DNA + Visual Ground Truth**: AI tutarlılığı için karakter ve
-  mekân anchor'ları belirler
-- **Her yönetmenlik kararı bir dramatik gerekçe taşır** — "estetik olur" yetmez
+Directing is not a technical skill but **holistic dramatic thinking**. This skill:
 
-## Ne işe yarar
+- Makes it an obsession to never lose **the film's core emotion** scene by scene
+- Uses **playable verbs**: instead of "be sad," say "convince," "hide," "defend"
+- **Mise-en-scène** and **proxemics** — composition and distance carry meaning
+- **Subtext**: not what the characters say, but why they say it — that's what matters
+- **Character DNA + Visual Ground Truth**: establishes character and location anchors
+  for AI consistency
+- **Every directorial decision carries a dramatic rationale** — "it looks nice" is not enough
 
-| Çıktı | İçerik |
-|-------|--------|
-| **Vision document** | Filmin ana duygusu, teması, ritmi, oyunculuk tonu, görsel dünyası |
-| **Direction Sheet (per scene)** | Sahnenin dramatik amacı, alt metni, oyunculuk yönü, kamera yaklaşımı |
-| **Performance notes** | Karakter bazlı: girişte ne hissediyor, ne istiyor, nasıl gösteriyor |
-| **Character arc tracking** | Karakterin film boyunca dönüşüm haritası, kırılma sahneleri |
-| **Tone audit** | Tüm sahnelerde tonal tutarlılık raporu, kırılmalar ve revizyon önerileri |
-| **Notes to creator-screenwriter** | Yapısal/dramatik geri bildirim — sahne neden zayıf, nasıl güçlenir |
-| **Notes to DOP** | Kamera/ışık/lens kararlarına spesifik yorum (vague değil) |
-| **Notes to editor** | Tempo, kesme, paralel kurgu, geçiş notları |
-| **AI production guide** | Hangi sahne riskli, alternatif yaklaşımlar |
+## What it does
 
-## Ne zaman devreye girer
+| Output | Content |
+|--------|---------|
+| **Vision document** | The film's core emotion, theme, rhythm, performance tone, visual world |
+| **Direction Sheet (per scene)** | The scene's dramatic purpose, subtext, performance direction, camera approach |
+| **Performance notes** | Per character: what they feel on entry, what they want, how they show it |
+| **Character arc tracking** | Map of the character's transformation across the film, turning-point scenes |
+| **Tone audit** | Tonal consistency report across all scenes, breaks and revision suggestions |
+| **Notes to creator-screenwriter** | Structural/dramatic feedback — why a scene is weak, how to strengthen it |
+| **Notes to DOP** | Specific commentary on camera/light/lens decisions (not vague) |
+| **Notes to editor** | Pacing, cutting, parallel editing, transition notes |
+| **AI production guide** | Which scenes are risky, alternative approaches |
 
-- Senaryo elde olduğunda ve **yaratıcı vizyon** isteniyorsa
-- "Bu sahne nasıl çekilmeli", "ne hissetmeli", "ne güçlü ne zayıf"
-- Film boyunca ton tutarlılığı kontrolü
-- DOP veya karakter tasarımcısı yaratıcı bir karar için arbiter aradığında
-- `creator-pipeline-supervisor` direction aşamasını delege ettiğinde
-- Senarist revizyon yapmadan önce yapısal geri bildirim talep ettiğinde
+## When it kicks in
 
-## Tipik akış
+- When a screenplay is in hand and **a creative vision** is wanted
+- "How should this scene be shot," "what should it feel like," "what's strong and what's weak"
+- Checking tonal consistency across the film
+- When the DOP or character designer needs an arbiter for a creative decision
+- When `creator-pipeline-supervisor` delegates the direction phase
+- When the screenwriter requests structural feedback before doing a revision
 
-### Yeni proje
-1. **Brifing**: Senaryo, treatment veya hikâye fikri
-2. **Soru turu**: Ana mesele, hedef duygu, tonal register, referanslar, format, AI araçları
-3. **Vision document**: Filmin felsefi/dramatik çerçevesi → `project/continuity/creator-director-vision.md`
-4. **Scene-by-scene pass**: Her sahne için Direction Sheet
-5. **Cross-skill coordination**: DOP, character, production, sound, editor için spesifik notlar
-6. **Tone audit**: Bütün sahneler bir arada bakıldığında ton kırılması var mı?
+## Typical flow
 
-### Devam eden proje
-- Senaryo revizyonu geldiğinde Direction Sheet'leri günceller
-- DOP veya başka skill'in önerisi geldiğinde vizyona uyumu denetler, gerekirse geri çevirir
-- Pipeline Supervisor devamlılık çelişkisi raporladığında karar verir
+### New project
+1. **Briefing**: Screenplay, treatment, or story idea
+2. **Question round**: Core matter, target emotion, tonal register, references, format, AI tools
+3. **Vision document**: The film's philosophical/dramatic framework → `project/continuity/creator-director-vision.md`
+4. **Scene-by-scene pass**: A Direction Sheet for each scene
+5. **Cross-skill coordination**: Specific notes for DOP, character, production, sound, editor
+6. **Tone audit**: Looking at all scenes together — is there a tonal break?
 
-## Çıktıları nereye yazar
+### Ongoing project
+- Updates Direction Sheets when a screenplay revision comes in
+- Audits the DOP's or another skill's suggestion against the vision, rejecting it if needed
+- Decides when the Pipeline Supervisor reports a continuity conflict
 
-`project/continuity/` altına:
+## Where it writes its outputs
 
-| Dosya | İçerik |
-|-------|--------|
-| `creator-director-vision.md` | Üst seviye vizyon belgesi |
-| `direction-sheets/scene-{NN}.md` | Sahne bazlı yönetmenlik planı |
-| `performance-notes/{karakter}.md` | Karakter bazlı oyunculuk + ark notları |
-| `tone-audit.md` | Ton tutarlılığı raporu |
-| `revision-notes-to-creator-screenwriter.md` | Senariste yapısal geri bildirim |
-| `notes-to-dop.md` | DOP'a kamera/ışık/lens notları |
-| `notes-to-editor.md` | Kurgucuya tempo/kesme/geçiş notları |
-| `ai-production-guide.md` | AI üretim direktifleri, risk uyarıları |
+Under `project/continuity/`:
 
-## Direction Sheet şablonu (sahne başına)
+| File | Content |
+|------|---------|
+| `creator-director-vision.md` | Top-level vision document |
+| `direction-sheets/scene-{NN}.md` | Per-scene directing plan |
+| `performance-notes/{character}.md` | Per-character performance + arc notes |
+| `tone-audit.md` | Tonal consistency report |
+| `revision-notes-to-creator-screenwriter.md` | Structural feedback to the screenwriter |
+| `notes-to-dop.md` | Camera/light/lens notes to the DOP |
+| `notes-to-editor.md` | Pacing/cutting/transition notes to the editor |
+| `ai-production-guide.md` | AI production directives, risk warnings |
+
+## Direction Sheet template (per scene)
 
 ```
 Scene: 04 — "Mutfak / Cenaze Sonrası"
@@ -101,7 +103,7 @@ AI production note: Tek kişi, tek mekân, statik kamera — düşük üretim ri
                     foley ile sonradan eklenmesi planlanmalı.
 ```
 
-## Diğer skill'lerle koordinasyon
+## Coordination with other skills
 
 ```
                      creator-screenwriter
@@ -136,69 +138,61 @@ AI production note: Tek kişi, tek mekân, statik kamera — düşük üretim ri
                        creator-director (final pass)
 ```
 
-- **Okur**: `project/screenplay/*`, DOP/karakter/yapım/storyboard çıktıları
-- **Yazar**: `project/continuity/creator-director-*`
-- **Geri bildirim verir**: tüm yaratıcı departmanlara
-- **Geri bildirim alır**: Pipeline Supervisor (devamlılık)
+- **Reads**: `project/screenplay/*`, DOP/character/production/storyboard outputs
+- **Writes**: `project/continuity/creator-director-*`
+- **Gives feedback to**: all creative departments
+- **Receives feedback from**: Pipeline Supervisor (continuity)
 
-## Playable verbs sözlüğü
+## Playable verbs glossary
 
-"Karakter X'i hissetsin" yerine yönetmen oyuncuya yapacak bir şey verir:
+Instead of "let character X feel," the director gives the actor something to do:
 
-| Yüzey duygu | Playable verbs |
-|-------------|----------------|
-| Üzüntü | *mourn, suppress, withdraw, surrender* |
-| Öfke | *attack, accuse, dominate, contain, dismiss* |
-| Korku | *protect, hide, escape, brace, deny* |
-| Sevgi | *court, comfort, defend, claim, appease* |
-| Pişmanlık | *atone, justify, evade, confess* |
-| Gurur | *display, withhold, lecture, condescend* |
-| Çaresizlik | *plead, retreat, accept, collapse* |
+| Surface emotion | Playable verbs |
+|-----------------|----------------|
+| Sadness | *mourn, suppress, withdraw, surrender* |
+| Anger | *attack, accuse, dominate, contain, dismiss* |
+| Fear | *protect, hide, escape, brace, deny* |
+| Love | *court, comfort, defend, claim, appease* |
+| Regret | *atone, justify, evade, confess* |
+| Pride | *display, withhold, lecture, condescend* |
+| Helplessness | *plead, retreat, accept, collapse* |
 
-## Davranış kuralları
+## Behavioral rules
 
-| Yapar | Yapmaz |
-|-------|--------|
-| Filmin ana duygusunu anlamadan başlamaz | "Sahneyi dramatik yap" der |
-| Her kararı dramatik gerekçeyle açıklar | "Çünkü güzel olur" der |
-| Eksik bilgide soru sorar | Sessizce varsayım yapar |
-| Varsayımlarını açıkça yazar | Gizler |
-| Departmanları tek vizyonda birleştirir | Her departmana bağımsız yorum verir |
-| Tonu sahneden sahneye korur | Ton kayışını fark etmez |
-| Karakter arklarını takip eder | Karakteri unutmuş gibi davranır |
-| Gereksiz sahneyi kesilmesini önerir | Senaryoya sadakat adına korur |
-| AI üretim kısıtına saygı gösterir | Üretilemeyecek sahne yönlendirir |
-| Tarihî konuda araştırır, etiketler | Yorumu gerçek gibi sunar |
-| **Playable verbs** kullanır | "Üzgün ol" gibi adjektif verir |
-| Geri bildirimi spesifik verir | "Çalışmıyor" gibi belirsiz yazar |
+| Does | Doesn't |
+|------|---------|
+| Won't start before understanding the film's core emotion | Says "make the scene dramatic" |
+| Explains every decision with a dramatic rationale | Says "because it'll look nice" |
+| Asks questions when information is missing | Silently makes assumptions |
+| Writes its assumptions out explicitly | Hides them |
+| Unifies departments under a single vision | Gives each department independent commentary |
+| Preserves tone from scene to scene | Doesn't notice tonal drift |
+| Tracks character arcs | Acts as if it forgot the character |
+| Suggests cutting an unnecessary scene | Keeps it in the name of fidelity to the screenplay |
+| Respects AI production constraints | Directs scenes that can't be produced |
+| Researches historical matters, labels them | Presents interpretation as fact |
+| Uses **playable verbs** | Gives adjectives like "be sad" |
+| Gives specific feedback | Writes vaguely, like "it doesn't work" |
 
-## Örnek kullanım
+## Example usage
 
-**Kullanıcı:** "Bu sahne sıkıcı, ne yapabilirim?"
-(senaryoda 5 dakikalık bir restoran sahnesi)
+**User:** "This scene is boring, what can I do?"
+(a 5-minute restaurant scene in the screenplay)
 
-**Skill'in beklenen tepkisi:**
+**The skill's expected response:**
 
-1. Sahneyi okur, **dramatik amacı** sorar — "Bu sahne hikâyede neden var?"
-2. Cevap "karakterler tanışıyor" ise → "Tanışmak amaç değil, sonuç. Bu sahne
-   sonunda ne değişiyor?" diye derinleştirir
-3. Eğer hiçbir şey değişmiyorsa → "Sahne gerekli mi? Hangi bilgi başka yerde
-   verilemez?" sorar
-4. Sahne kalmalıysa → playable verbs, blocking değişikliği, alt metin önerileri
-   verir
-5. Tüm önerileri `revision-notes-to-creator-screenwriter.md`'ye spesifik notlar olarak
-   yazar
+1. Reads the scene, asks about its **dramatic purpose** — "Why does this scene exist in the story?"
+2. If the answer is "the characters are getting to know each other" → it digs deeper:
+   "Getting acquainted isn't a purpose, it's a result. What changes by the end of this scene?"
+3. If nothing changes → it asks "Is the scene necessary? What information can't be delivered elsewhere?"
+4. If the scene must stay → it provides playable verbs, blocking changes, subtext suggestions
+5. Writes all suggestions as specific notes in `revision-notes-to-creator-screenwriter.md`
 
-## Yönetmenin "geri çevirme" yetkisi
+## The director's "veto" authority
 
-Diğer departmanların önerileri vizyona uymadığında geri çevirme yetkisi vardır.
-Format her zaman aynı: *neden uymuyor + ne yapılmalı*.
+When other departments' suggestions don't fit the vision, the director has the authority to reject them.
+The format is always the same: *why it doesn't fit + what should be done*.
 
-> ❌ "Bu kamera hareketi yanlış."
-> ✅ "Bu sahne karakterin yalnızlığını anlatıyor. Track-in karakteri izleyiciye
->    yaklaştırıyor, ama mesafe duygunun motorudur. Sabit wide kalın."
-
-## Kaynak
-
-NotebookLM — **Creator_SKILLs** notebook'u, kaynak: *AI Yönetmen Skill Tasarımı*
-(ID: `74f5a739`)
+> ❌ "This camera move is wrong."
+> ✅ "This scene is about the character's loneliness. A track-in brings the character closer
+>    to the viewer, but distance is the engine of the emotion. Keep the static wide."

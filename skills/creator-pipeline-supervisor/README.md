@@ -1,66 +1,72 @@
-# Pipeline Supervisor + Continuity Supervisor Skill
+# Pipeline & Continuity Supervisor — `creator-pipeline-supervisor`
 
-AI film projesinin **orchestrator**'ı ve **devamlılık denetçisi**. İki entegre
-uzmanlık birleşir:
+[English](README.md) · [中文](README.zh.md) · [Español](README.es.md) · [हिन्दी](README.hi.md) · [العربية](README.ar.md) · [Português (BR)](README.pt-BR.md) · [Türkçe](README.tr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [日本語](README.ja.md) · [한국어](README.ko.md)
 
-- **Pipeline supervisor**: hangi skill ne zaman çalışır, paylaşılan state
-  nerede yaşar, revizyonlar nasıl döngüler, versiyonlar nasıl takip edilir,
-  proje nasıl ship edilir
-- **Continuity supervisor**: karakter, kostüm, lokasyon, prop, ışık, renk,
-  ses, zaman, edit yönü tutarlılığını sahne sahne, departman departman
-  denetler — çelişkiyi erken yakalar, fix talep eder
+The **orchestrator** and **continuity supervisor** of an AI film project. Two
+integrated disciplines come together:
 
-## Felsefe
+- **Pipeline supervisor**: which skill runs when, where shared state lives,
+  how revisions loop, how versions are tracked, how the project ships
+- **Continuity supervisor**: audits the consistency of character, costume,
+  location, prop, light, color, sound, time, and edit direction scene by
+  scene and department by department — catches contradictions early, requests
+  fixes
 
-Pipeline-supervisor "checklist tool" değildir. **Unit production manager +
-script supervisor** kombinasyonu gibi düşünür. Tüm projeyi kafasında tutar,
-hiçbir departmanın işinin filmin tutarlı niyetinden sapmasına izin vermez.
-Bu skill:
+## Philosophy
 
-- **Tek doğruluk kaynağı tutar**: `bible/continuity-bible.md` her şeyi yönetir
-- **Production status table** sürekli güncel — "şimdi ne yapmalı" sorusunun cevabı
-- **Locked anchor disiplini**: karakter DNA + lokasyon master reference +
-  style block — her prompt'a verbatim girer
-- **Cross-skill arbitration**: iki departman çelişirse görüşleri aktarır,
-  yönetmen vizyonuna referansla seçenek sunar, kullanıcıya escalate eder
-- **Revizyon loop yönetimi**: downstream skill upstream'de sorun bulduğunda
-  kanonik sırada cascade yapar
-- **Risk register**: proaktif risk izleme, mitigation takibi
-- **Ship gate**: delivery-readiness audit olmadan "tamam" demez
+The pipeline-supervisor is not a "checklist tool." It thinks like a combination
+of a **unit production manager + script supervisor**. It holds the entire
+project in its head and lets no department's work drift from the film's
+coherent intent. This skill:
 
-## Ne işe yarar
+- **Keeps a single source of truth**: `bible/continuity-bible.md` governs
+  everything
+- **Production status table** always current — the answer to "what should I do
+  now"
+- **Locked-anchor discipline**: character DNA + location master reference +
+  style block — enters every prompt verbatim
+- **Cross-skill arbitration**: when two departments conflict, it relays both
+  positions, presents options referenced against the director's vision, and
+  escalates to the user
+- **Revision-loop management**: when a downstream skill finds a problem
+  upstream, it cascades in canonical order
+- **Risk register**: proactive risk tracking, mitigation follow-up
+- **Ship gate**: won't say "done" without a delivery-readiness audit
 
-| Çıktı | İçerik |
-|-------|--------|
-| **Project bible** | Üst seviye proje canon'u |
+## What it produces
+
+| Output | Content |
+|--------|---------|
+| **Project bible** | High-level project canon |
 | **Style bible** | Cross-skill style canon |
-| **Continuity bible** | Devamlılık tek doğruluk kaynağı |
-| **Prompt blocks** | Konsolide locked prompt block'ları |
-| **Production status table** | Skill × sahne durum matrisi |
-| **Risk register** | Risk + severity + mitigation logu |
-| **Continuity audit reports** | Domain bazlı audit'ler |
-| **Revision request manifests** | Cross-skill revizyon talepleri |
+| **Continuity bible** | Continuity single source of truth |
+| **Prompt blocks** | Consolidated locked prompt blocks |
+| **Production status table** | Skill × scene status matrix |
+| **Risk register** | Risk + severity + mitigation log |
+| **Continuity audit reports** | Domain-based audits |
+| **Revision request manifests** | Cross-skill revision requests |
 | **Prompt consistency report** | Pre-generation audit |
 | **AI generation error summary** | Post-generation audit |
-| **Final QC report** | Tüm proje audit |
+| **Final QC report** | Whole-project audit |
 | **Delivery readiness** | Ship gate (pass/fail) |
-| **Decisions log** | Tarihli karar tarihçesi |
+| **Decisions log** | Dated decision history |
 
-## Ne zaman devreye girer
+## When it engages
 
-- Yeni AI film projesi başlatılıyor
-- Devam eden projede cross-skill consistency audit isteniyor
-- "Şimdi ne yapayım" sorusunda (production status'tan cevap)
-- Devamlılık veya pipeline sorusu skill sınırını aşıyorsa
-- Delivery-readiness audit isteniyor
-- Klasör yapısı / file organization sorusu
-- Revizyon dependent skill'lere cascade ettirilecekse
+- A new AI film project is being started
+- A cross-skill consistency audit is requested on an ongoing project
+- On the question "what should I do now" (the answer comes from production
+  status)
+- When a continuity or pipeline question crosses a skill boundary
+- A delivery-readiness audit is requested
+- A folder-structure / file-organization question
+- When a revision needs to cascade to dependent skills
 
-## Ne zaman devreye GİRMEZ
+## When it does NOT engage
 
-- Tek-skill yaratıcı işler (specialist tek başına çalışsın)
-- Basit tek-shot generation
-- Film prodüksiyon dışı saf teknik sorular
+- Single-skill creative work (let the specialist work on its own)
+- Simple single-shot generation
+- Purely technical questions outside film production
 
 ## Canonical pipeline
 
@@ -68,7 +74,7 @@ Bu skill:
 0. project bible & vision
 1. creator-screenwriter
 2. creator-director
-3-4-5. character + production + DOP (paralel)
+3-4-5. character + production + DOP (parallel)
 6. creator-storyboard-artist
 7. creator-shot-list-designer
 8. creator-prompt-engineer
@@ -76,14 +82,15 @@ Bu skill:
 9. creator-sound-music-designer
 10. creator-final-cut-editor
 
-Tüm aşamalarda: creator-pipeline-supervisor continuity, QC, revizyon, bible yönetimi
+Throughout all stages: creator-pipeline-supervisor handles continuity, QC, revision, bible management
 ```
 
-Sıralama **canonical ama rigid değil**:
-- **İteratif loop'lar**: creator-director feedback → creator-screenwriter yeni v
-- **Parallel work**: yönetmen vizyonu sonrası character/production/DOP paralel
+The order is **canonical but not rigid**:
+- **Iterative loops**: creator-director feedback → creator-screenwriter new v
+- **Parallel work**: after the director's vision, character/production/DOP run
+  in parallel
 
-## Continuity domains (audit alanları)
+## Continuity domains (audit areas)
 
 1. Story / plot
 2. Time / chronology
@@ -105,24 +112,25 @@ Sıralama **canonical ama rigid değil**:
 18. Reference image consistency
 19. Scene / shot numbering
 
-Her domain için risk log'u var: `project/qc/continuity-reports/`.
+There is a risk log for each domain: `project/qc/continuity-reports/`.
 
-## Continuity bible (tek doğruluk kaynağı)
+## Continuity bible (single source of truth)
 
-`project/bible/continuity-bible.md` — bu dosya **otoritedir**. Bir skill'in
-çıktısı bible ile çelişirse bible kazanır (veya bible güncellenir).
+`project/bible/continuity-bible.md` — this file is the **authority**. If a
+skill's output conflicts with the bible, the bible wins (or the bible is
+updated).
 
-İçeriği:
+Its contents:
 - Locked character anchors (DNA verbatim)
 - Locked location anchors (master reference verbatim)
-- Costume continuity tablosu (sahne × karakter)
-- Time / weather tablosu
-- Prop continuity tablosu
+- Costume continuity table (scene × character)
+- Time / weather table
+- Prop continuity table
 - Color palette canon
 - Lighting canon
 - Sound continuity
 - Edit direction (screen direction × scene)
-- Açık continuity soruları (yönetmen kararına bekleyen)
+- Open continuity questions (awaiting a director's decision)
 - Resolved decisions log
 
 ## Production tracking table
@@ -137,32 +145,32 @@ Her domain için risk log'u var: `project/qc/continuity-reports/`.
 
 States: ✅ done · ⏳ in progress · 🟡 needs revision · 🔴 blocked · `-` not started
 
-Her skill run sonrası güncellenir. "Şimdi ne yapayım?" sorusunun kaynağı.
+Updated after every skill run. The source of the answer to "what should I do now?"
 
-## Revizyon loop yönetimi
+## Revision-loop management
 
-Downstream skill upstream'de sorun bulduğunda:
+When a downstream skill finds a problem upstream:
 
-1. **Origin tespit**: hangi skill çıktısı sorunlu?
-2. **Blast radius**: fix dependent skill'leri nasıl etkiler?
+1. **Origin detection**: which skill's output is faulty?
+2. **Blast radius**: how does the fix affect dependent skills?
 3. **Change request**: `qc/revision-notes/req-{NN}.md`
-4. **Karar**: origin'de fix (derin, yavaş) vs. workaround (yüzeysel, hızlı)
-5. **Origin fix**: skill yeniden tetiklenir, dependent'ler 🟡, cascade canonical sırada
-6. **Workaround**: nereye, neden, kim uyguladı yazılır
-7. **Resolution log**: continuity bible "Resolved decisions"a append
+4. **Decision**: fix at origin (deep, slow) vs. workaround (shallow, fast)
+5. **Origin fix**: skill is re-triggered, dependents go 🟡, cascade in canonical order
+6. **Workaround**: where, why, and who applied it is recorded
+7. **Resolution log**: appended to the continuity bible's "Resolved decisions"
 
 ## Cross-skill arbitration
 
-İki skill çelişirse (örn. DOP sıcak ışık vs. karakter cool palet):
+When two skills conflict (e.g. DOP warm light vs. character cool palette):
 
-1. İki öneriyi **verbatim** alıntıla
-2. Çakışmayı sade dille belirt
-3. Director vision'a referans
-4. 2–3 çözüm + trade-off sun
-5. Kullanıcıya / yönetmene escalate
-6. Karar continuity bible'a yazılır
+1. Quote both proposals **verbatim**
+2. State the conflict in plain language
+3. Reference the director's vision
+4. Present 2–3 solutions + trade-offs
+5. Escalate to the user / director
+6. The decision is written into the continuity bible
 
-**Sessizce seçim yapmaz** — çelişkiyi görünür kılar.
+**It does not choose silently** — it makes the conflict visible.
 
 ## Risk register
 
@@ -170,17 +178,17 @@ Downstream skill upstream'de sorun bulduğunda:
 
 | Risk | Severity | Probability | Owner | Mitigation | Status |
 |------|----------|-------------|-------|------------|--------|
-| Sahne 7'de lip sync fail riski | medium | high | creator-shot-list-designer | reaction shot kullan | mitigating |
-| Sahne 12 el insert AI risk | medium | medium | creator-prompt-engineer | wider framing backup | mitigated |
-| "Navy coat" hue drift | low | high | creator-character-designer | DNA'da hex kilitli | mitigated |
+| Lip-sync fail risk in scene 7 | medium | high | creator-shot-list-designer | use reaction shot | mitigating |
+| Hand insert AI risk in scene 12 | medium | medium | creator-prompt-engineer | wider framing backup | mitigated |
+| "Navy coat" hue drift | low | high | creator-character-designer | hex locked in DNA | mitigated |
 
-## Klasör yapısı (iki seçenek)
+## Folder structure (two options)
 
-### Default (named — basit)
+### Default (named — simple)
 
 `project/screenplay/`, `project/characters/`, `project/cuts/` ...
 
-### Alternate (numbered — büyük projeler için)
+### Alternate (numbered — for large projects)
 
 ```
 PROJECT/
@@ -190,43 +198,44 @@ PROJECT/
   10_SOUND_MUSIC/  11_EDIT/  12_QC/  13_DELIVERY/
 ```
 
-Aynı içerik, numaralı görsel tarama dostu. Default named; isteğe göre migration sunar.
+Same content, numbered and friendly for visual scanning. Default is named; it
+offers a migration on request.
 
-## Çıktıları nereye yazar
+## Where it writes its outputs
 
-`project/bible/` ve `project/qc/` altına (diğer skill'lerin dizinlerine
-DOĞRUDAN yazmaz — onlara revision request gönderir):
+Under `project/bible/` and `project/qc/` (it does NOT write DIRECTLY to other
+skills' directories — it sends them revision requests):
 
-| Dosya | İçerik |
-|-------|--------|
-| `bible/project-bible.md` | Üst seviye proje canon |
+| File | Content |
+|------|---------|
+| `bible/project-bible.md` | High-level project canon |
 | `bible/style-bible.md` | Cross-skill style canon |
-| `bible/continuity-bible.md` | Continuity tek doğruluk |
-| `bible/prompt-blocks.md` | Locked prompt block'ları |
-| `qc/production-status.md` | Skill × sahne durum matrisi |
+| `bible/continuity-bible.md` | Continuity single source of truth |
+| `bible/prompt-blocks.md` | Locked prompt blocks |
+| `qc/production-status.md` | Skill × scene status matrix |
 | `qc/risk-register.md` | Risk log |
-| `qc/continuity-reports/{topic}.md` | Domain audit'leri |
+| `qc/continuity-reports/{topic}.md` | Domain audits |
 | `qc/revision-notes/req-{NN}.md` | Revision request |
 | `qc/prompt-consistency-report.md` | Pre-generation audit |
 | `qc/ai-generation-error-summary.md` | Post-generation audit |
-| `qc/final-qc-report.md` | Tüm proje audit |
+| `qc/final-qc-report.md` | Whole-project audit |
 | `qc/delivery-readiness.md` | Ship gate |
-| `qc/decisions-log.md` | Tarihli karar tarihçesi |
+| `qc/decisions-log.md` | Dated decision history |
 
-## Tipik akış (yeni proje)
+## Typical flow (new project)
 
-1. Kullanıcı brifing
-2. `bible/project-bible.md` yaz
-3. → **creator-screenwriter** tetikle
-4. Script v1 → **creator-director** tetikle
-5. Vision → paralel: **character + production + DOP**
-6. Cross-palette audit; çelişki flag
+1. User briefing
+2. Write `bible/project-bible.md`
+3. → Trigger **creator-screenwriter**
+4. Script v1 → trigger **creator-director**
+5. Vision → parallel: **character + production + DOP**
+6. Cross-palette audit; flag conflicts
 7. → **creator-storyboard-artist**
 8. → **creator-shot-list-designer**
-9. `bible/prompt-blocks.md` build/update
+9. Build/update `bible/prompt-blocks.md`
 10. → **creator-prompt-engineer**
 11. Pre-generation audit
-12. [AI material — operatör çalıştırır]
+12. [AI material — operator runs it]
 13. Post-generation audit
 14. → **creator-sound-music-designer**
 15. → **creator-final-cut-editor**
@@ -236,45 +245,41 @@ DOĞRUDAN yazmaz — onlara revision request gönderir):
 
 ## Delivery readiness audit (ship gate)
 
-Tamam denmeden önce:
+Before it's called done:
 
-- ✅ Tüm sahneler production-status'ta
-- ✅ Continuity audit temiz (veya yalnızca minor flag)
-- ✅ Final cut yönetmen onaylı
-- ✅ Audio integration audit temiz
-- ✅ AI errors triage edilmiş (kritik 🔴 yok)
-- ✅ Color grade uygulanmış veya niyetli olarak işaretlenmiş
-- ✅ Subtitles tamam ve timed
-- ✅ Title cards / credits yerinde
-- ✅ Tüm deliverable platformların master'ı `project/delivery/` altında
-- ✅ Trailer cut üretildi (istendiyse)
-- ✅ Archive master saklandı
-- ✅ Dokümantasyon güncel (bible, continuity, prompt-blocks)
+- ✅ All scenes are in production-status
+- ✅ Continuity audit is clean (or only minor flags)
+- ✅ Final cut is director-approved
+- ✅ Audio integration audit is clean
+- ✅ AI errors triaged (no critical 🔴)
+- ✅ Color grade applied or intentionally flagged
+- ✅ Subtitles complete and timed
+- ✅ Title cards / credits in place
+- ✅ Master for all deliverable platforms under `project/delivery/`
+- ✅ Trailer cut produced (if requested)
+- ✅ Archive master stored
+- ✅ Documentation current (bible, continuity, prompt-blocks)
 
-## Diğer skill'lerle koordinasyon
+## Coordination with other skills
 
-- **Okur**: tüm skill çıktıları (`project/` her şey)
-- **Yazar**: `project/bible/*`, `project/qc/*` — diğer dizinlere DOĞRUDAN yazmaz
-- **Tetikler**: tüm specialist skill'leri
-- **Arbitre eder**: cross-skill çelişkilerini
+- **Reads**: all skill outputs (everything in `project/`)
+- **Writes**: `project/bible/*`, `project/qc/*` — does NOT write DIRECTLY to
+  other directories
+- **Triggers**: all specialist skills
+- **Arbitrates**: cross-skill conflicts
 
-## Davranış kuralları
+## Behavior rules
 
-| Yapar | Yapmaz |
-|-------|--------|
-| Director vision'a sadakati her departmanda zorlar | Sessizce sürüklenmeye izin verir |
-| Cross-skill çelişkide her iki tarafı **verbatim** alıntılar | Sessizce taraf seçer |
-| Her kararı tarih + gerekçeyle dokümante eder | Tarihçesiz hareket eder |
-| Continuity bible'ı otorite olarak korur | Bible ile çelişen çıktıyı geçirir |
-| Production-status'u her skill run sonrası günceller | Stale tablo bırakır |
-| Revizyonu canonical sırada cascade eder | Dependent skill'i atlar |
-| Yaratıcı disputeleri kullanıcıya / yönetmene escalate eder | Tek başına arbitre eder |
-| Uzun filmde her act break'te continuity audit | Sadece sonda audit |
-| Risk register proaktif | Kritik 🔴'yı bekletir |
-| Delivery-readiness.md green olmadan "ship" demez | Erken complete der |
-| Yapısal, machine-readable çıktı | Tek blok metin döker |
-
-## Kaynak
-
-NotebookLM — **Creator_SKILLs** notebook'u, kaynak: *AI Film Üretimi Süreç
-Yönetimi* (ID: `70917fa3`)
+| Does | Doesn't |
+|------|---------|
+| Enforces fidelity to the director's vision in every department | Allows silent drift |
+| On cross-skill conflict, quotes both sides **verbatim** | Picks a side silently |
+| Documents every decision with date + rationale | Acts without a record |
+| Protects the continuity bible as the authority | Lets output that conflicts with the bible pass |
+| Updates production-status after every skill run | Leaves a stale table |
+| Cascades revisions in canonical order | Skips a dependent skill |
+| Escalates creative disputes to the user / director | Arbitrates on its own |
+| Continuity audit at every act break on a long film | Audits only at the end |
+| Proactive risk register | Holds a critical 🔴 |
+| Won't say "ship" until delivery-readiness.md is green | Calls it complete early |
+| Structured, machine-readable output | Dumps a single block of text |

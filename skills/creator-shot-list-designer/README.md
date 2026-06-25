@@ -1,225 +1,222 @@
-# Shot List Designer + Editorial Planner Skill
+# Shot List Designer — `creator-shot-list-designer`
 
-Sahneleri ve storyboard'ları **shot list + kurgu intent**'e çeviren skill.
-Pre-production planlaması ile editorial intent'in birleştiği yer. Final-cut
-editor değildir — material üretilmeden ÖNCE editorial niyeti tasarlar ki
-çekim doğru parçaları üretsin.
+[English](README.md) · [中文](README.zh.md) · [Español](README.es.md) · [हिन्दी](README.hi.md) · [العربية](README.ar.md) · [Português (BR)](README.pt-BR.md) · [Türkçe](README.tr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [日本語](README.ja.md) · [한국어](README.ko.md)
 
-## Felsefe
+The skill that turns scenes and storyboards into a **shot list + edit intent**.
+The place where pre-production planning and editorial intent come together. It is
+not the final-cut editor — it designs editorial intent BEFORE any material is
+produced, so that the shoot generates the right pieces.
 
-Shot list teknik envanter değil, **dramatik + editorial niyetin haritasıdır**.
-Bu skill:
+## Philosophy
 
-- **Shot economy**: her shot tek bir net aksiyon taşır
-- **Edit rhythm awareness**: hangi shot uzun tutulur, hangisi hızla kesilir?
-  shot süresi bir editorial karardır
-- **Screen direction + continuity**: kesmelerde uzay/zaman tutarlılığı
-- **Producibility for AI**: tek-shot karmaşıklığını AI tool kısıtlarına göre planlar
-- **Editorial intent before production**: kurgu mantığı çekimden ÖNCE belirlenir
-  ki gereksiz shot çekilmesin
-- **Audience experience design**: izleyici ne hisseder, ne öğrenir, ne saklanır?
+A shot list is not a technical inventory; it is a **map of dramatic + editorial
+intent**. This skill:
 
-## Ne işe yarar
+- **Shot economy**: every shot carries a single clear action
+- **Edit rhythm awareness**: which shot is held long, which is cut quickly?
+  Shot duration is an editorial decision
+- **Screen direction + continuity**: spatial/temporal consistency across cuts
+- **Producibility for AI**: plans single-shot complexity around AI tool constraints
+- **Editorial intent before production**: the edit logic is set BEFORE the shoot
+  so that unnecessary shots are not filmed
+- **Audience experience design**: what does the viewer feel, learn, and what is withheld?
 
-| Çıktı | İçerik |
-|-------|--------|
-| **Per-scene shot list** | Kanonik shot listesi, dramatik + editorial gerekçeli |
-| **Edit plan** | Sahne içi tempo, kesme noktası, açılış/kapanış görüntüsü |
-| **Transition design** | Sahneler arası geçiş kararları (hard cut, match, J/L, sound bridge) |
-| **Continuity risk audit** | Shot'lar arası tutarlılık risklerinin raporu |
-| **Sound edit notes** | Ses tasarımcısı için J-cut / L-cut / silence noktaları |
-| **Film-wide shot list** | Tüm filmi kapsayan konsolide liste |
-| **Rhythm map** | Sahne sahne tempo (shot süresi aralıkları) |
-| **Redundancy report** | Kesilmesi/birleştirilmesi gereken shot'lar |
-| **Final editor notes** | Final-cut-editor'a editorial intent hand-off |
+## What it produces
 
-## Ne zaman devreye girer
+| Output | Content |
+|-------|---------|
+| **Per-scene shot list** | Canonical shot list, with dramatic + editorial justification |
+| **Edit plan** | Within-scene pacing, cut points, opening/closing image |
+| **Transition design** | Scene-to-scene transition decisions (hard cut, match, J/L, sound bridge) |
+| **Continuity risk audit** | Report of consistency risks across shots |
+| **Sound edit notes** | J-cut / L-cut / silence points for the sound designer |
+| **Film-wide shot list** | Consolidated list covering the whole film |
+| **Rhythm map** | Scene-by-scene pacing (shot duration ranges) |
+| **Redundancy report** | Shots that should be cut/merged |
+| **Final editor notes** | Editorial intent hand-off to the final-cut editor |
 
-- Sahne ve storyboard elde, shot bazlı plana ihtiyaç var
-- Edit-aware shot sıralama isteniyor
-- Uzun sahneler AI üretilebilir parçalara bölünecek
-- Yönetmen veya DOP yapısal çekim/üretim planı talep ettiğinde
-- `creator-pipeline-supervisor` pre-edit planlamasını delege ettiğinde
+## When it comes into play
 
-## Tipik akış
+- Scenes and storyboards are ready, and a shot-based plan is needed
+- Edit-aware shot sequencing is requested
+- Long scenes need to be broken into AI-producible pieces
+- When the director or DOP requests a structural shooting/production plan
+- When `creator-pipeline-supervisor` delegates pre-edit planning
 
-1. **Brifing** + tüm upstream skill çıktılarını okuma
-2. **Soru turu**: format, edit ritmi, ton, AI tool'lar
-3. **Shot list (per scene)**: kanonik yapıda, dramatik + editorial gerekçeli
-4. **Edit plan (per scene)**: tempo, açılış/kapanış, kesme noktası
-5. **Transition design**: sahneler arası geçişler
-6. **Continuity audit**: cross-shot riskler
-7. **Rhythm map**: film geneli tempo haritası
-8. **Redundancy report**: kesilebilir shot tespiti
-9. **Hand-off**: creator-prompt-engineer için shot prompt verisi + creator-final-cut-editor için editorial intent
+## Typical flow
 
-## Shot — kanonik yapı
+1. **Briefing** + reading all upstream skill outputs
+2. **Question round**: format, edit rhythm, tone, AI tools
+3. **Shot list (per scene)**: in canonical structure, with dramatic + editorial justification
+4. **Edit plan (per scene)**: pacing, opening/closing, cut points
+5. **Transition design**: scene-to-scene transitions
+6. **Continuity audit**: cross-shot risks
+7. **Rhythm map**: film-wide pacing map
+8. **Redundancy report**: identification of cuttable shots
+9. **Hand-off**: shot prompt data for creator-prompt-engineer + editorial intent for creator-final-cut-editor
+
+## Shot — canonical structure
 
 ```
 Scene 04 — Shot 04.02
-Shot name: "Kettle close, sessizlik"
+Shot name: "Kettle close, silence"
 Shot type: insert
 Frame scale: extreme close
-Camera angle: eye level (yan-üst)
+Camera angle: eye level (side-high)
 Camera movement: static
 Lens recommendation: 100mm macro feeling
 Estimated duration: 4s
 Location: Anatolian kitchen 1980s [anchor: kitchen-anatolian-1980s]
-Time: gece
-Characters in frame: yok (sadece kettle)
-Character action: kettle ıslığı sönüyor (off-screen Demir ateşi kapatıyor)
-Dialogue / silence note: SİLENCE (yalnızca kettle + saat tıkırtı)
-Light / atmosphere: pencereden gri ay ışığı, bakır kettle highlight
-Sound / music note: müzik YOK; saat tıkırtısı + kettle dying
-Dramatic purpose: Demir'in iç dönüşümüne sembolik karşılık
-Edit purpose: 4 saniye nefes — kesmeye gerek yok, hold it
-Link to previous shot: 04.01 (Demir oturuyor wide) — match by sound
-Link to next shot: 04.03 (Demir yüzü close, ilk göz kırpma) — hard cut
-Continuity note: kettle = aynı bakır, aynı leke pattern
-AI video production note: tek aksiyon (ıslığın sönmesi) + static camera = düşük risk
-Safe alternative: 6s versiyon — daha yavaş ıslık fade, kamera çok yavaş push-in
+Time: night
+Characters in frame: none (only the kettle)
+Character action: kettle whistle dying down (off-screen Demir turns off the heat)
+Dialogue / silence note: SILENCE (only kettle + clock ticking)
+Light / atmosphere: gray moonlight from the window, copper kettle highlight
+Sound / music note: NO music; clock ticking + kettle dying
+Dramatic purpose: a symbolic echo of Demir's inner turning
+Edit purpose: a 4-second breath — no need to cut, hold it
+Link to previous shot: 04.01 (Demir sitting, wide) — match by sound
+Link to next shot: 04.03 (Demir's face close, first blink) — hard cut
+Continuity note: kettle = same copper, same stain pattern
+AI video production note: single action (whistle dying) + static camera = low risk
+Safe alternative: 6s version — slower whistle fade, very slow camera push-in
 ```
 
-## Editorial intent — sahne planı
+## Editorial intent — scene plan
 
-Sahne bazlı editorial sorular:
+Scene-level editorial questions:
 
-- Hangi shot sahneyi açar?
-- Hangi görüntü kapatır?
-- Hangi shot uzun tutulur?
-- Hangi shot kısa kesilir?
-- Reaction shot'lar nereye yerleşir?
-- Sessizlik nerede uzar?
-- Sert kesme nerede gerekir?
-- Yumuşak geçiş nerede?
-- Hangi görüntü bir sonraki sahneye bağlanır?
-- Hangi shot dramatik tepe noktayı taşır?
-- Hangi shot gereksizdir?
-- Hangi shot bilgi verir, hangisi duygu?
+- Which shot opens the scene?
+- Which image closes it?
+- Which shot is held long?
+- Which shot is cut short?
+- Where do the reaction shots go?
+- Where does silence stretch?
+- Where is a hard cut needed?
+- Where is a soft transition?
+- Which image links to the next scene?
+- Which shot carries the dramatic peak?
+- Which shot is unnecessary?
+- Which shot delivers information, which delivers emotion?
 
-`project/shot-list/scene-{NN}/edit-plan.md` altına yazılır.
+Written under `project/shot-list/scene-{NN}/edit-plan.md`.
 
-## Çıktıları nereye yazar
+## Where it writes its outputs
 
-`project/shot-list/` altına:
+Under `project/shot-list/`:
 
-| Dosya | İçerik |
-|-------|--------|
-| `scene-{NN}/shot-list.md` | Sahne shot listesi |
-| `scene-{NN}/edit-plan.md` | Edit niyeti + tempo |
-| `scene-{NN}/transitions.md` | Geçiş kararları |
+| File | Content |
+|-------|---------|
+| `scene-{NN}/shot-list.md` | Scene shot list |
+| `scene-{NN}/edit-plan.md` | Edit intent + pacing |
+| `scene-{NN}/transitions.md` | Transition decisions |
 | `scene-{NN}/continuity-risks.md` | Continuity audit |
 | `scene-{NN}/sound-edit-notes.md` | Sound designer hand-off |
-| `film-shot-list.md` | Tüm film konsolide liste |
-| `rhythm-map.md` | Tempo haritası |
-| `redundancy-report.md` | Kesilebilir shot'lar |
-| `ai-production-shot-guide.md` | AI tool kısıt rehberi |
-| `final-editor-notes.md` | Final-cut-editor için intent |
+| `film-shot-list.md` | Whole-film consolidated list |
+| `rhythm-map.md` | Pacing map |
+| `redundancy-report.md` | Cuttable shots |
+| `ai-production-shot-guide.md` | AI tool constraint guide |
+| `final-editor-notes.md` | Intent for the final-cut editor |
 
-## Geçiş türleri (editorial kullanımı)
+## Transition types (editorial use)
 
-| Geçiş | Editorial kullanım |
+| Transition | Editorial use |
 |-------|-------------------|
-| Hard cut | Ani dramatik kırılma |
-| Match cut | İki görüntü arası anlam köprüsü |
-| Fade in/out | Zamansal/duygusal açılış/kapanış |
-| Dissolve | Zaman geçişi, duygu harmanı |
-| J-cut | Sonraki sahnenin sesi önce gelir (yumuşak akış) |
-| L-cut | Mevcut sahnenin sesi uzatılır (tutulan duygu) |
-| Sound bridge | Ses üzerinden mekân/zaman değişimi |
-| Visual motif | Tekrarlayan görsel ile köprü |
-| Object transition | Şekil eşleşmesi |
-| Movement transition | Yön süreklilik |
-| Time jump | Ani zaman atlama |
-| Flashback | Filtre/lens/blur/ses ipucuyla |
-| Parallel edit | İki mekân iç içe |
+| Hard cut | Sudden dramatic break |
+| Match cut | A bridge of meaning between two images |
+| Fade in/out | Temporal/emotional opening/closing |
+| Dissolve | Time transition, emotional blend |
+| J-cut | The next scene's sound arrives first (smooth flow) |
+| L-cut | The current scene's sound is extended (held emotion) |
+| Sound bridge | Change of place/time carried over sound |
+| Visual motif | A bridge via a recurring visual |
+| Object transition | Shape match |
+| Movement transition | Directional continuity |
+| Time jump | Sudden time skip |
+| Flashback | Via a filter/lens/blur/sound cue |
+| Parallel edit | Two places interwoven |
 
-## AI video producibility kuralları
+## AI video producibility rules
 
-- Tek shot'ta tek net aksiyon
-- Tek ana kamera hareketi (zincirleme değil)
-- Kontrollü karakter sayısı
-- Net görsel hedef
-- Karmaşık hareketi multi-shot'a böl
-- Riskli el/parmak/dudak senkronu için flag
-- Kalabalık için seçici kadraj
-- Locked location + character anchor'ları her prompt'ta
-- Shot süresi 3–10s typically
-- Her shot tek bir video prompt'a temiz mapping
+- One clear action per shot
+- One main camera movement (not chained)
+- A controlled number of characters
+- A clear visual target
+- Break complex motion into multi-shot
+- Flag risky hand/finger/lip sync
+- Selective framing for crowds
+- Locked location + character anchors in every prompt
+- Shot duration typically 3–10s
+- Each shot maps cleanly to a single video prompt
 
-Risk tespit edildiğinde flag:
+When a risk is detected, flag it:
 
-> *"Bu shot AI video için fazla karmaşık — iki shot'a böl."*
-> *"Dudak senkronu burada fail edebilir; speaker yerine reaction shot kullan."*
-> *"El hareketi kritik — insert yerine wider kadraj kullan."*
-> *"Kalabalık aksiyon — tek shot değil kesmelerle kur."*
+> *"This shot is too complex for AI video — split it into two shots."*
+> *"Lip sync may fail here; use a reaction shot instead of the speaker."*
+> *"The hand movement is critical — use a wider frame instead of an insert."*
+> *"Crowd action — build it with cuts, not a single shot."*
 
-## Rhythm ve tempo
+## Rhythm and pacing
 
-"Hızlı olsun" gibi belirsiz ifadeler kullanılmaz. Tempo:
+Vague phrases like "make it fast" are not used. Pacing is:
 
-- **Shot süresi aralığı** ile ifade edilir
-- **Kesme sıklığı** ile ölçülür
+- Expressed as a **shot duration range**
+- Measured by **cut frequency**
 
-Örnek:
-> *"Sahne 3 ortalama 4–6s/shot, sahne 12 ortalama 1.5–3s/shot —
-> tempo karakter çelişkisi yükselirken hızlanıyor."*
+Example:
+> *"Scene 3 averages 4–6s/shot, scene 12 averages 1.5–3s/shot —
+> the pace speeds up as the character conflict escalates."*
 
-## Diyalog kurgu intent'i
+## Dialogue edit intent
 
-Diyalog ağırlıklı sahneler için:
+For dialogue-heavy scenes:
 
-- Konuşan mı, dinleyen mi?
-- Reaction shot nereye?
-- Sessizlik nerede daha güçlü?
-- Diyalog üstüne başka görüntü?
-- Alt metin yüz ifadesiyle mi?
-- Sert kesme vs. doğal overlap?
-- Cümle bitmeden kesmek?
-- Gereksiz açıklama tekrarı?
-- İzleyicinin asıl görmesi gereken duygu kimde?
+- The speaker or the listener?
+- Where do the reaction shots go?
+- Where is silence stronger?
+- Another image over the dialogue?
+- Subtext through facial expression?
+- Hard cut vs. natural overlap?
+- Cut before the sentence ends?
+- Redundant repetition of explanation?
+- On whom is the emotion the viewer really needs to see?
 
-J-cut / L-cut işaretleri burada belirlenir.
+J-cut / L-cut markers are set here.
 
-## Diğer skill'lerle koordinasyon
+## Coordination with other skills
 
-- **Okur**: senaryo, yönetmen vizyonu + direction sheets, DOP per-scene plan,
-  storyboard panel verisi, karakter/lokasyon anchor'ları
-- **Yazar**: `project/shot-list/*`
-- **Devreder**:
+- **Reads**: script, director's vision + direction sheets, DOP per-scene plan,
+  storyboard panel data, character/location anchors
+- **Writes**: `project/shot-list/*`
+- **Hands off to**:
   - `creator-prompt-engineer` (shot-level video prompts)
-  - `creator-final-cut-editor` (editorial intent dosyaları)
-- **Geri bildirim alır**: Yönetmen, Pipeline Supervisor
+  - `creator-final-cut-editor` (editorial intent files)
+- **Receives feedback from**: Director, Pipeline Supervisor
 
 ## Redundancy detection
 
-Uzun AI filmde flag:
+In a long AI film, flag:
 
-- Aynı bilgiyi tekrarlayan shot
-- Duygu değiştirmeyen shot
-- Ritim düşüren detay shot
-- Aşırı reaction kullanımı
-- AI-hard ama dramatik katkısı düşük shot
-- Geç gir / erken çık fırsatları
-- Diyalog yerine görsel anlatılabilir an
+- A shot that repeats the same information
+- A shot that does not change the emotion
+- A detail shot that drops the rhythm
+- Excessive use of reaction shots
+- An AI-hard shot with low dramatic contribution
+- Late-in / early-out opportunities
+- A moment that can be told visually instead of in dialogue
 
-*"Bu shot kesilebilir"* veya *"İki shot birleştirilebilir"* açıkça yazılır.
+*"This shot can be cut"* or *"These two shots can be merged"* is written explicitly.
 
-## Davranış kuralları
+## Behavioral rules
 
-| Yapar | Yapmaz |
-|-------|--------|
-| Her shot'a dramatik **ve** editorial gerekçe | Teknik envanter yapar |
-| Yönetmen ritim, DOP kadraj, storyboard ile koordine | İzole karar verir |
-| Gereksiz shot flag'ler | Doldurma yapar |
-| Continuity proaktif kontrol | Çekim sonrası sorun çıkmasını bekler |
-| AI tool kısıtına göre tasarlar | Üretilemeyecek shot planlar |
-| Riskli shot için safe alternatif | Tek versiyon koyar |
-| Diyalogda dinleyeni de düşünür | Sadece konuşanı takip eder |
-| Ses ve müzik editorial intent koordine | Sadece picture düşünür |
-| Yapısal, downstream-readable çıktı | Tek blok metin döker |
-
-## Kaynak
-
-NotebookLM — **Creator_SKILLs** notebook'u, kaynak: *AI Film Üretimi İçin Shot
-List ve Kurgu* (ID: `44052f1c`)
+| Does | Doesn't |
+|-------|---------|
+| Gives every shot a dramatic **and** editorial justification | Make a technical inventory |
+| Coordinates with director's rhythm, DOP framing, storyboard | Decide in isolation |
+| Flags unnecessary shots | Add filler |
+| Checks continuity proactively | Wait for problems to surface after the shoot |
+| Designs around AI tool constraints | Plan unproducible shots |
+| A safe alternative for risky shots | Provide a single version |
+| Considers the listener too in dialogue | Follow only the speaker |
+| Coordinates sound and music editorial intent | Think only of the picture |
+| Structured, downstream-readable output | Dump a single block of text |

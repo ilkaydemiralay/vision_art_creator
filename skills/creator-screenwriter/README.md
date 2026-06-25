@@ -1,85 +1,77 @@
-# Senarist (Screenwriter) Skill
+# Screenwriter — `creator-screenwriter`
 
-AI film üretimi için profesyonel senaryo geliştirme uzmanı. Sadece "metin üreten"
-bir araç değil; **hikâye, yapı, karakter, ritim ve tema**yı birlikte düşünen bir
-yaratıcı yazarlık asistanı. Ünlü senaristlerin yöntemlerini (Sorkin'in diyalog
-ritmi, Nolan'ın yapısal yinelemesi, Tarantino'nun tonal kontrolü, Save the Cat!
-beat yapısı, Field'ın üç-perde paradigması) **şablon olarak değil araç olarak**
-kullanır.
+**English** · [中文](README.zh.md) · [Español](README.es.md) · [हिन्दी](README.hi.md) · [العربية](README.ar.md) · [Português (BR)](README.pt-BR.md) · [Türkçe](README.tr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [日本語](README.ja.md) · [한국어](README.ko.md)
 
-## Felsefe
+A professional script-development specialist for AI film production. Not just a tool that "generates text," but a creative-writing assistant that thinks about **story, structure, character, rhythm, and theme** together. It draws on the methods of renowned screenwriters (Sorkin's dialogue rhythm, Nolan's structural recursion, Tarantino's tonal control, the Save the Cat! beat structure, Field's three-act paradigm) **as tools, not as templates**.
 
-Senaryo yazmak fikir üretmekten farklıdır — fikri uygulanabilir, dramatik
-sahnelere dönüştürmektir. Bu skill:
+## Philosophy
 
-- **Önce niyeti anlar**, sonra yazar
-- **Soru sorar**, varsayım yapmaz
-- **Her sahnenin neden var olduğunu** dramatik gerekçeyle açıklar
-- **Show, don't tell** ilkesini ciddiye alır
-- **Alt metin > metin** — karakterler nadiren ne hissediyorlarsa onu söyler
-- **Yaratıcılığı ama kontrollü** uygular — kullanıcının sesine sadık kalır
-- AI film üretiminin kısıtlarına saygı duyar (kalabalık, hızlı aksiyon vb.)
+Writing a screenplay is different from generating ideas — it means turning an idea into producible, dramatic scenes. This skill:
 
-## Ne işe yarar
+- **Understands intent first**, then writes
+- **Asks questions**, doesn't assume
+- **Explains why every scene exists** with a dramatic rationale
+- Takes the **show, don't tell** principle seriously
+- **Subtext > text** — characters rarely say exactly what they feel
+- Applies **creativity, but controlled** — staying faithful to the user's voice
+- Respects the constraints of AI film production (crowds, fast action, etc.)
 
-| Çıktı türü | Kullanım |
+## What it does
+
+| Output type | Use |
 |------------|----------|
-| **Logline** | Tek cümlede hikâyenin özü, pitch için |
-| **Sinopsis** | 1 sayfa, ana olay örgüsü ile finalin önizlemesi |
-| **Treatment** | 3–10 sayfa düzyazı, sahne sahne ilerleyiş |
-| **Outline** | Beat-bazlı yapı listesi (her sahnenin dramatik amacı) |
-| **Karakter dosyası** | Want / Need / Fear / Arc — karakter-tasarımcı ile koordine |
-| **Sahne metni** | Endüstri standardı script formatında tam sahne |
-| **Tam senaryo** | Versiyon kontrollü `script-v1.md`, `script-v2.md` ... |
-| **Diyalog revizyonu** | Mevcut diyaloğu güçlendirme önerileri |
-| **Yapısal analiz** | Var olan senaryoda zayıf noktaları tespit |
-| **Format adaptasyonu** | Reklam, sosyal medya, YouTube, belgesel formatlarına çeviri |
+| **Logline** | The essence of the story in one sentence, for the pitch |
+| **Synopsis** | 1 page, the main plot with a preview of the ending |
+| **Treatment** | 3–10 pages of prose, scene-by-scene progression |
+| **Outline** | A beat-based structural list (the dramatic purpose of every scene) |
+| **Character brief** | Want / Need / Fear / Arc — coordinated with the character designer |
+| **Scene text** | A full scene in industry-standard script format |
+| **Full screenplay** | Version-controlled `script-v1.md`, `script-v2.md` ... |
+| **Dialogue revision** | Suggestions for strengthening existing dialogue |
+| **Structural analysis** | Identifying weak spots in an existing screenplay |
+| **Format adaptation** | Conversion to ad, social media, YouTube, or documentary formats |
 
-## Ne zaman devreye girer
+## When it kicks in
 
-Bu skill aşağıdaki sinyallerde tetiklenir:
+This skill is triggered by signals such as:
 
-- "Senaryo yaz", "hikâye geliştir", "sahne kuralım"
-- "Logline çıkar", "sinopsis yaz", "treatment hazırla"
-- "Bu sahneyi güçlendir", "diyaloğu revize et"
-- "Karakter dosyası hazırla", "want/need/fear analizi"
-- "Bir fikrim var, film olabilir mi" — yapısal değerlendirme
-- `creator-pipeline-supervisor` script aşamasını delege ettiğinde
+- "Write a screenplay," "develop a story," "let's build a scene"
+- "Pull a logline," "write a synopsis," "prepare a treatment"
+- "Strengthen this scene," "revise the dialogue"
+- "Prepare a character brief," "want/need/fear analysis"
+- "I have an idea — could it be a film?" — structural evaluation
+- When `creator-pipeline-supervisor` delegates the script stage
 
-## Tipik akış
+## Typical flow
 
-1. **Brifing**: Kullanıcı bir fikir veya istek getirir
-2. **Soru turu**: Format, tür, ton, hedef kitle, ana mesele, karakter, dönem, AI üretim aracı
-3. **Vizyon önerisi**: Eksik bilgi için makul varsayımlar (etiketli)
-4. **İskelet**: Logline → sinopsis → outline (beat sheet) sırası
-5. **Sahne metni**: Onaylı outline üzerinden sahne sahne yazım
-6. **Revizyon**: Yönetmenden geri bildirim entegrasyonu, yeni versiyon
+1. **Brief**: The user brings an idea or request
+2. **Question round**: Format, genre, tone, target audience, central conflict, characters, period, AI production tool
+3. **Vision proposal**: Reasonable assumptions for missing information (clearly labeled)
+4. **Skeleton**: Logline → synopsis → outline (beat sheet) order
+5. **Scene text**: Scene-by-scene writing from the approved outline
+6. **Revision**: Integrating feedback from the director, a new version
 
-Eğer kullanıcı hızlı sonuç isterse, varsayımları **açıkça** belirtir ve şuna
-benzer not düşer:
+If the user wants a quick result, it states the assumptions **explicitly** and adds a note like:
 
-> *"10 dakikalık kısa film, tek protagonist arkı, gerçekçi ton — onaylayın
-> ya da düzeltin."*
+> *"10-minute short film, single protagonist arc, realistic tone — confirm or correct."*
 
-## Çıktıları nereye yazar
+## Where it writes its outputs
 
-Tüm çıktılar `project/screenplay/` altına gider:
+All outputs go under `project/screenplay/`:
 
-| Dosya | İçerik |
+| File | Content |
 |-------|--------|
-| `logline.md` | Tek cümle hikâye özeti |
-| `synopsis.md` | Bir sayfalık tam olay örgüsü özeti |
-| `treatment.md` | 3–10 sayfa düzyazı treatment |
-| `character-brief.md` | Karakter dosyaları (karakter-tasarımcıya devir) |
-| `outline.md` | Beat-bazlı sahne listesi, her sahnenin dramatik amacı |
-| `script-v{N}.md` | Endüstri standardı senaryo (her revizyon yeni dosya) |
-| `revision-notes.md` | Versiyonlar arası değişikliklerin gerekçesi |
+| `logline.md` | One-sentence story summary |
+| `synopsis.md` | One-page full plot summary |
+| `treatment.md` | 3–10 page prose treatment |
+| `character-brief.md` | Character briefs (handoff to the character designer) |
+| `outline.md` | Beat-based scene list, the dramatic purpose of every scene |
+| `script-v{N}.md` | Industry-standard screenplay (a new file for each revision) |
+| `revision-notes.md` | The rationale for changes between versions |
 
-Versiyon adlandırma: hiçbir zaman üzerine yazmaz. `v1` → `v2` → `v3` şeklinde
-ilerler. Değişiklik gerekçesi `revision-notes.md`'de **commit message** mantığında
-özetlenir.
+Version naming: it never overwrites. It progresses as `v1` → `v2` → `v3`. The rationale for each change is summarized in `revision-notes.md` in **commit message** style.
 
-## Endüstri standardı script formatı
+## Industry-standard script format
 
 ```
 INT. KITCHEN - NIGHT
@@ -98,108 +90,100 @@ She turns off the burner. The whistle dies.
 ```
 
 - **Slugline**: `INT./EXT. LOCATION - TIME`
-- **Action**: bugünkü zaman, görsel, üçüncü tekil, en fazla 4 satır
-- **Karakter adı**: BÜYÜK HARF, ortalanmış, ilk görünüşte
-- **Diyalog**: karakter adı altında ortalanmış
-- **Parantez**: yalnızca gerekliyse, küçük harf
-- **1 sayfa ≈ 1 dakika** ekran zamanı
+- **Action**: present tense, visual, third person, at most 4 lines
+- **Character name**: ALL CAPS, centered, on first appearance
+- **Dialogue**: centered under the character name
+- **Parenthetical**: only when necessary, lowercase
+- **1 page ≈ 1 minute** of screen time
 
-Sosyal medya / YouTube / reklam / belgesel için format hedef mecraya uyarlanır
-ama disiplin korunur.
+For social media / YouTube / ads / documentary, the format is adapted to the target medium, but the discipline is preserved.
 
-## Diğer skill'lerle koordinasyon
+## Coordination with other skills
 
 ```
 creator-screenwriter
-    │ yazar: project/screenplay/*
+    │ writes: project/screenplay/*
     ▼
 creator-director ◄─────► creator-screenwriter
-    │ vizyon onayı + yapısal notlar
+    │ vision approval + structural notes
     ▼
 creator-character-designer + creator-production-designer + creator-cinematographer
 ```
 
-- **Okur**:
-  - `project/characters/*` — karakter-tasarımcı çıktıları (varsa)
-  - `project/continuity/creator-director-vision.md` — yönetmen vizyon koymuşsa
-  - `project/continuity/revision-notes-to-creator-screenwriter.md` — yönetmenden gelen notlar
-- **Yazar**: `project/screenplay/*`
-- **Devreder**:
-  1. **Yönetmen** (vizyon + yapısal kontrol)
-  2. Sonrasında karakter, yapım, DOP, storyboard
-- **Geri bildirim alır**: Yönetmen, Pipeline Supervisor (devamlılık çelişkileri)
+- **Reads**:
+  - `project/characters/*` — character-designer outputs (if any)
+  - `project/continuity/creator-director-vision.md` — if the director has set a vision
+  - `project/continuity/revision-notes-to-creator-screenwriter.md` — notes from the director
+- **Writes**: `project/screenplay/*`
+- **Hands off to**:
+  1. **Director** (vision + structural control)
+  2. Then character, production, DOP, storyboard
+- **Receives feedback from**: Director, Pipeline Supervisor (continuity conflicts)
 
-Yönetmen revizyon istediğinde **sessizce üzerine yazmaz** — yeni `script-v{N+1}.md`
-oluşturur, gerekçeyi `revision-notes.md`'ye loglar.
+When the director requests a revision, it **does not silently overwrite** — it creates a new `script-v{N+1}.md` and logs the rationale in `revision-notes.md`.
 
-## Master creator-screenwriter modülleri
+## Master creator-screenwriter modules
 
-Kullanıcı özel bir ses isterse aktif eder ve açıkça söyler:
+If the user wants a specific voice, it activates one and says so explicitly:
 
-- **Sorkin**: hızlı, üst üste binen diyalog; walk-and-talk; karakterlerin sesli düşünmesi
-- **Nolan**: yapısal yineleme, iç içe zaman çizgileri, bilgi sırasıyla motor
-- **Tarantino**: aksiyonu geciktiren uzun diyaloglar; tür çarpışması
-- **Coen**: ton kırılmaları, kader vs. seçim
-- **Save the Cat!**: 15-beat yapı
-- **Field üç-perde**: 25%-50%-25%
-- **Hero's journey**: mitik veya dönüşümsel hikâyeler için
+- **Sorkin**: fast, overlapping dialogue; walk-and-talk; characters thinking out loud
+- **Nolan**: structural recursion, nested timelines, the order of information as the engine
+- **Tarantino**: long dialogues that delay the action; genre collision
+- **Coen**: tonal shifts, fate vs. choice
+- **Save the Cat!**: 15-beat structure
+- **Field three-act**: 25%-50%-25%
+- **Hero's journey**: for mythic or transformational stories
 
-Modüller karıştırılmaz — hangisi seçildi, neden seçildi, kullanıcıya yazılır.
+The modules are not mixed — which one was chosen, and why, is written out for the user.
 
-## AI üretim kısıtlarına uyum
+## Adherence to AI production constraints
 
-AI video üretimi yapılacaksa senaryo şu noktalara uyar:
+If AI video production is planned, the screenplay observes the following:
 
-- **Kısa, kapalı sahneler** tercih edilir (1 mekân, 1–3 karakter)
-- **Sürekli karmaşık aksiyon** ve yoğun kalabalık azaltılır
-- **El etkileşimi, kompleks koreografi** sınırlanır
-- Karakter için **anchor özellikler** (yara izi, gözlük, saç) belirlenir — AI tutarlılığı için
-- Riskli sahneler `[AI-RISK]` etiketiyle outline'da işaretlenir
+- **Short, contained scenes** are preferred (1 location, 1–3 characters)
+- **Continuous complex action** and dense crowds are reduced
+- **Hand interaction, complex choreography** are limited
+- **Anchor features** for characters (scar, glasses, hair) are defined — for AI consistency
+- Risky scenes are flagged in the outline with the `[AI-RISK]` tag
 
-## Davranış kuralları
+## Behavioral rules
 
-| Yapar | Yapmaz |
+| Does | Doesn't |
 |-------|--------|
-| Önce niyeti, dünyayı, karakteri anlar | Brief olmadan sahne yazmaya başlar |
-| Eksik bilgide soru sorar | Sessizce uydurur |
-| Varsayım yaparsa açıkça yazar | Varsayımı gizler |
-| Her sahnenin dramatik amacını belirtir | "Buraya bir sahne lazımdı" der |
-| Show, don't tell uygular | Karaktere ne hissettiğini açıklatır |
-| Alt metin oluşturur | Diyaloğu over-explanation'a kaçırır |
-| Tarihî/kültürel konuda araştırır | Yorumla gerçeği karıştırır |
-| Yorum ve gerçeği etiketler | Tek bir gri blok döker |
-| Revizyon **önerir** | Sessizce yeniden yazar |
-| Kullanıcının sesini güçlendirir | Yerine geçer |
-| Hassas konularda uyarı verir | Risk almadan ilerler |
+| Understands intent, world, and character first | Starts writing a scene without a brief |
+| Asks when information is missing | Silently makes things up |
+| Writes assumptions out explicitly | Hides the assumption |
+| States the dramatic purpose of every scene | Says "a scene was needed here" |
+| Applies show, don't tell | Has characters explain what they feel |
+| Builds subtext | Lets the dialogue slide into over-explanation |
+| Researches historical/cultural matters | Confuses interpretation with fact |
+| Labels interpretation vs. fact | Dumps a single gray block |
+| **Suggests** revisions | Silently rewrites |
+| Strengthens the user's voice | Replaces it |
+| Warns on sensitive topics | Proceeds without flagging risk |
 
-## Örnek kullanım
+## Example usage
 
-**Kullanıcı:** "Babasıyla küs bir oğulun cenaze sonrası eve dönüşünü anlatan
-10 dakikalık kısa film yazmak istiyorum."
+**User:** "I want to write a 10-minute short film about a son who's estranged from his father returning home after the funeral."
 
-**Skill'in beklenen tepkisi:**
+**The skill's expected response:**
 
-1. Önce sorar:
-   - Oğul kaç yaşında? Babanın ölümü beklenen miydi, ani miydi?
-   - Geri dönüş yalnız mı, biriyle mi?
-   - Final: barış, hâlâ kırgın, belirsiz?
-   - Ton: ağırbaşlı dramatik mi, ironik mi?
-   - Üretim: AI video mı, canlı çekim mi?
-2. Bilgi yetmezse "şu varsayımlarla başlıyorum" der
-3. Logline + 3-perde outline sunar
-4. Onay alınca sahne metnini yazar, her sahnenin dramatik amacını paragraf altına not düşer
+1. First it asks:
+   - How old is the son? Was the father's death expected or sudden?
+   - Is the return alone, or with someone?
+   - Ending: reconciliation, still resentful, ambiguous?
+   - Tone: grave and dramatic, or ironic?
+   - Production: AI video or live action?
+2. If information is insufficient, it says "I'm starting with these assumptions"
+3. It presents a logline + three-act outline
+4. Once approved, it writes the scene text, noting the dramatic purpose of each scene below the paragraph
 
-## Sık tuzaklar ve düzeltmeleri
+## Common pitfalls and their fixes
 
-| Tuzak | Düzeltme |
+| Pitfall | Fix |
 |-------|----------|
-| Sahne sadece bilgi taşıyor | Sahnede mutlaka bir değişim olmalı — kim/ne değişti? |
-| Diyalog "on-the-nose" | Alt metin ekle — karakter gerçek niyetini sakladığında |
-| Karakter "yaşıyor" ama "değişmiyor" | Want vs. need ayrımını netleştir, dönüşüm anını işaretle |
-| Tema dialogla anlatılıyor | Karakter eylemiyle göster — bir seçimle |
-| Üç perde topal | Catalyst, midpoint, all-is-lost beat'lerini ayrı ayrı kontrol et |
-
-## Kaynak
-
-NotebookLM — **Creator_SKILLs** notebook'u, kaynak: *AI Senaryo Yazım Asistanı
-Geliştirme* (ID: `a030f8df`)
+| The scene only carries information | Something must change in the scene — who/what changed? |
+| Dialogue is "on-the-nose" | Add subtext — when the character hides their true intent |
+| The character is "alive" but doesn't "change" | Clarify the want vs. need distinction, mark the moment of transformation |
+| The theme is told through dialogue | Show it through character action — through a choice |
+| The three acts are lame | Check the catalyst, midpoint, and all-is-lost beats separately |

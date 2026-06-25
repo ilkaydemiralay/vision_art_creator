@@ -1,80 +1,82 @@
-# AI Image & Video Prompt Engineer Skill
+# Prompt Engineer — `creator-prompt-engineer`
 
-Yaratıcı pipeline ile AI generator'lar arasında **çeviri katmanı**.
-Senarist, yönetmen, DOP, karakter, yapım, storyboard, shot-list skill'lerinin
-ürettiği kararları **gerçekten üretilebilir, tutarlı** prompt'lara dönüştürür.
-Tool-spesifik optimize eder (Midjourney ≠ Sora ≠ Stable Diffusion), locked
-anchor'ları her prompt'a gömer, riskli sahneler için safe alternative üretir.
+[English](README.md) · [中文](README.zh.md) · [Español](README.es.md) · [हिन्दी](README.hi.md) · [العربية](README.ar.md) · [Português (BR)](README.pt-BR.md) · [Türkçe](README.tr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [日本語](README.ja.md) · [한국어](README.ko.md)
 
-## Felsefe
+The **translation layer** between the creative pipeline and the AI generators.
+It turns the decisions produced by the screenwriter, director, DOP, character,
+production, storyboard, and shot-list skills into **truly producible, consistent**
+prompts. It optimizes per tool (Midjourney ≠ Sora ≠ Stable Diffusion), embeds
+locked anchors into every prompt, and produces safe alternatives for risky scenes.
 
-Prompt mühendisi **görsel icat etmez** — upstream kararlarını encode eder.
-Bu skill:
+## Philosophy
+
+The prompt engineer **does not invent visuals** — it encodes upstream decisions.
+This skill:
 
 - **Locked anchors**: character DNA + location master reference + style block —
-  50 prompt sonra bile aynı karakter aynı yüzle çıkar
-- **Tool fitness**: her AI tool'un kendi prompt dili var
-- **Producibility audit**: bu sahne generator'ı yenecek — alternatif öner
-- **Consistency discipline**: uzun film için prompt'lar bir sistemdir, izole değil
-- **FACS expression coding**: "üzgün" yerine AU1 + AU4 + AU15 — daha tutarlı sonuç
-- **Asla upstream'i sessizce ezmez**: gerekirse flag eder, geri sorar
+  even after 50 prompts the same character comes out with the same face
+- **Tool fitness**: every AI tool has its own prompt language
+- **Producibility audit**: this scene will defeat the generator — propose an alternative
+- **Consistency discipline**: for a long film, prompts are a system, not isolated
+- **FACS expression coding**: AU1 + AU4 + AU15 instead of "sad" — more consistent results
+- **Never silently overrides upstream**: flags it and asks back when needed
 
-## Ne işe yarar
+## What it produces
 
-| Çıktı | İçerik |
-|-------|--------|
-| **Character prompts** | Locked DNA + sahne sahne varyasyon |
-| **Location prompts** | Master reference + day/night/weather varyasyonu |
-| **Style anchors** | Film geneli görsel/teknik blok |
-| **Negative prompts** | Kategori bazlı negatif prompt bankası |
-| **Panel prompts** | Storyboard panelden görsel üretim prompt'u |
-| **Shot prompts** | Shot-list'ten AI video üretim prompt'u |
-| **Character sheets** | Front/side/back/close referans üretimi |
-| **Producibility risk report** | Sahne/shot bazlı risk + safe alternative |
-| **Tool guide** | Operatör için tool-spesifik notlar |
+| Output | Content |
+|--------|---------|
+| **Character prompts** | Locked DNA + scene-by-scene variation |
+| **Location prompts** | Master reference + day/night/weather variation |
+| **Style anchors** | Film-wide visual/technical block |
+| **Negative prompts** | Category-based negative prompt bank |
+| **Panel prompts** | Image-generation prompt from a storyboard panel |
+| **Shot prompts** | AI video-generation prompt from the shot list |
+| **Character sheets** | Front/side/back/close reference generation |
+| **Producibility risk report** | Scene/shot-level risk + safe alternative |
+| **Tool guide** | Tool-specific notes for the operator |
 
-## Ne zaman devreye girer
+## When it kicks in
 
-- Üretim öncesi AI image/video prompt'a ihtiyaç var
-- Karakter/mekân tutarlılığı için anchor sistemi kurulmalı
-- Storyboard veya shot-list çıktısı tool prompt'una dönüştürülecek
-- Mevcut prompt riskli — safe alternative isteniyor
-- `creator-pipeline-supervisor` prompt aşamasını delege ettiğinde
+- AI image/video prompts are needed before production
+- An anchor system must be set up for character/location consistency
+- A storyboard or shot-list output is to be turned into tool prompts
+- An existing prompt is risky — a safe alternative is wanted
+- When `creator-pipeline-supervisor` delegates the prompt stage
 
-## Tool optimization rehberi (özet)
+## Tool optimization guide (summary)
 
 ### Midjourney
-- `--ar`, `--style raw`, `--s` parametreleri
-- `--cref` ve `--cw` karakter referansı
-- `--sref` stil referansı
-- Kompakt yazım — adjective stacking sinyali zayıflatır
+- `--ar`, `--style raw`, `--s` parameters
+- `--cref` and `--cw` for character reference
+- `--sref` for style reference
+- Compact phrasing — adjective stacking weakens the signal
 
 ### DALL·E
-- Doğal dil > tag dump
-- Mekânsal ilişkileri yaz
-- Görsel içi text üretiminden kaçın
+- Natural language > tag dump
+- Spell out spatial relationships
+- Avoid generating in-image text
 
 ### Stable Diffusion (SDXL / SD3)
-- Positive + negative ayrı
-- LoRA / reference / seed notları karakter tutarlılığı için
-- Önemli terimler başa (token weight)
+- Positive + negative separated
+- LoRA / reference / seed notes for character consistency
+- Important terms up front (token weight)
 
 ### Runway / Kling / Sora / Veo / Luma / Higgsfield
-- Tek ana kamera hareketi
-- Kontrollü karakter sayısı
-- Net opening + closing frame
-- Süre kısa (3–10s typical)
-- Tool-spesifik limitler:
+- A single main camera move
+- Controlled number of characters
+- Clear opening + closing frame
+- Short duration (3–10s typical)
+- Tool-specific limits:
   - Sora 2: ~20s
-  - Kling 3.0: subject binding tutarlılık için
-  - Veo: motion fidelity güçlü
-  - Runway Gen-3/4: motion mantıklı, lip sync zayıf
+  - Kling 3.0: subject binding for consistency
+  - Veo: strong motion fidelity
+  - Runway Gen-3/4: motion makes sense, lip sync weak
 
-## Locked anchor sistemi (uzun film için)
+## Locked anchor system (for a long film)
 
 ### Character DNA block
 
-`project/characters/{slug}/ai-prompts.md`'den **birebir** kopyalanır:
+Copied **verbatim** from `project/characters/{slug}/ai-prompts.md`:
 
 ```
 {character-demir}: middle-aged man, late 40s, weary but composed face,
@@ -85,7 +87,7 @@ underneath, controlled posture, low and quiet energy
 
 ### Location anchor block
 
-`project/production-design/locations/{slug}/master-reference.md`'den birebir:
+Verbatim from `project/production-design/locations/{slug}/master-reference.md`:
 
 ```
 {kitchen-anatolian-1980s}: small one-room kitchen in an Eastern Anatolian
@@ -102,45 +104,45 @@ feeling, subtle film grain, muted earth-tone palette, 2.39:1 aspect ratio,
 no modern objects
 ```
 
-Bu blok'lar o sahnenin/karakterin/lokasyonun **her prompt'unda aynen tekrarlanır**.
-Bu disiplin tutarlılığın motorudur.
+These blocks are **repeated verbatim in every prompt** of that scene/character/location.
+This discipline is the engine of consistency.
 
-## Negative prompt kategorileri
+## Negative prompt categories
 
-| Sorun | Negatif terim |
-|-------|--------------|
-| Yüz bozukluğu | distorted face, malformed face, asymmetric eyes, blurred features |
-| El hatası | extra fingers, missing fingers, fused fingers, deformed hand |
-| Anakronizm | modern clothes, modern tech, plastic, neon, smartphone |
+| Problem | Negative term |
+|---------|--------------|
+| Face distortion | distorted face, malformed face, asymmetric eyes, blurred features |
+| Hand error | extra fingers, missing fingers, fused fingers, deformed hand |
+| Anachronism | modern clothes, modern tech, plastic, neon, smartphone |
 | AI artifact | warping, morphing, flickering, jittery motion |
-| Kalite | low quality, low resolution, jpeg artifacts, oversaturated |
+| Quality | low quality, low resolution, jpeg artifacts, oversaturated |
 | Text | unwanted text, watermark, signature, logo |
-| Kompozisyon | extra characters, cropped subject, duplicate subject |
-| Kamera | unintended shake, fisheye distortion |
+| Composition | extra characters, cropped subject, duplicate subject |
+| Camera | unintended shake, fisheye distortion |
 
-Bazı tool'lar negatif prompt'u ignore eder — o durumda positive prompt
-içinde *"avoid: ..."* hint olarak yaz.
+Some tools ignore the negative prompt — in that case write it inside the
+positive prompt as an *"avoid: ..."* hint.
 
 ## AI video producibility audit
 
-Video prompt issue edilmeden önce kontrol:
+Checks before a video prompt is issued:
 
-- Tek shot'ta çok aksiyon var mı?
-- Karakter sayısı fazla mı?
-- Kamera hareketi karmaşık mı?
-- El/parmak/yüz detayı riskli mi?
-- Kostüm/aksesuar tutarlılığı korunabilir mi?
-- Mekân çok kalabalık mı?
-- Işık ve zaman tutarlı mı?
-- Sahne tek prompt yerine parçalara bölünmeli mi?
-- Lip sync gerekiyor mu? (flag et)
-- Prompt gereksiz soyut mu?
+- Too much action in a single shot?
+- Too many characters?
+- Is the camera move complex?
+- Is hand/finger/face detail risky?
+- Can costume/prop consistency be maintained?
+- Is the location too crowded?
+- Are light and time consistent?
+- Should the scene be split into parts instead of a single prompt?
+- Is lip sync needed? (flag it)
+- Is the prompt needlessly abstract?
 
-Risk varsa **safe simplified alternative** verir.
+If there is risk it gives a **safe simplified alternative**.
 
-## Variation üretimi
+## Variation generation
 
-Aynı sahne için odaklanmış varyasyonlar:
+Focused variations for the same scene:
 
 - Realistic
 - More cinematic
@@ -153,28 +155,28 @@ Aynı sahne için odaklanmış varyasyonlar:
 - AI-safe
 - Poster / key art
 
-Her varyasyonun **amacı yazılır** — neden hangi durumda kullanılır.
+The **purpose of each variation is written down** — why and when it is used.
 
-## Çıktıları nereye yazar
+## Where it writes its outputs
 
-`project/prompts/` altına:
+Under `project/prompts/`:
 
-| Dosya | İçerik |
-|-------|--------|
-| `character-prompts/{slug}.md` | Locked DNA + sahne varyasyonları |
-| `location-prompts/{slug}.md` | Master anchor + varyasyonları |
-| `style-anchors.md` | Film geneli style block(s) |
-| `negative-prompts.md` | Negatif prompt bankası |
-| `scene-{NN}/panel-{PP}.md` | Panel image prompt'ları |
-| `scene-{NN}/shot-{SS}.md` | Shot video prompt'ları |
-| `character-sheets/{slug}.md` | Front/side/back/close sheet üretim prompt'ları |
-| `prompt-system.md` | Anchor sistemi dokümantasyonu |
-| `producibility-risk-report.md` | Risk flag'leri + safe alternatif |
-| `tool-guide.md` | Tool-spesifik operatör notları |
+| File | Content |
+|------|---------|
+| `character-prompts/{slug}.md` | Locked DNA + scene variations |
+| `location-prompts/{slug}.md` | Master anchor + variations |
+| `style-anchors.md` | Film-wide style block(s) |
+| `negative-prompts.md` | Negative prompt bank |
+| `scene-{NN}/panel-{PP}.md` | Panel image prompts |
+| `scene-{NN}/shot-{SS}.md` | Shot video prompts |
+| `character-sheets/{slug}.md` | Front/side/back/close sheet generation prompts |
+| `prompt-system.md` | Anchor system documentation |
+| `producibility-risk-report.md` | Risk flags + safe alternative |
+| `tool-guide.md` | Tool-specific operator notes |
 
-## Diyaloglu prompt formatı
+## Bilingual prompt format
 
-Kullanıcı Türkçe açıklama + İngilizce prompt istediğinde:
+When the user wants a native-language explanation + an English prompt:
 
 ```
 Türkçe Açıklama:
@@ -188,31 +190,26 @@ worn dark traditional clothing, quiet melancholic mood, realistic period
 drama, subtle film grain, 16:9 aspect ratio.
 ```
 
-## Diğer skill'lerle koordinasyon
+## Coordination with other skills
 
-- **Okur**: tüm upstream creative çıktıları
-- **Yazar**: `project/prompts/*`
-- **Devreder**:
-  - AI tool'ları çalıştıracak insan operatöre
-  - Producibility audit upstream'i değiştirmeyi gerektiriyorsa **storyboard
-    artist** veya **shot-list designer**'a geri bildirim
-- **Geri bildirim alır**: Pipeline Supervisor (tutarsızlık drift'i)
+- **Reads**: all upstream creative outputs
+- **Writes**: `project/prompts/*`
+- **Delegates**:
+  - to the human operator who will run the AI tools
+  - feedback to the **storyboard artist** or **shot-list designer** if the
+    producibility audit requires changing upstream
+- **Receives feedback**: Pipeline Supervisor (consistency drift)
 
-## Davranış kuralları
+## Behavior rules
 
-| Yapar | Yapmaz |
-|-------|--------|
-| Locked anchor'ları multi-shot işte her prompt'a koyar | Her seferinde sıfırdan tarif eder |
-| Tool-fit prompt yazar | Aynı prompt'u her tool'a verir |
-| Producibility audit + safe alternative | Riski sessizce geçer |
-| FACS AU kodu kullanır | "Üzgün" gibi adjektif yığar |
-| Adjective bloat azaltır | Süslü kelime doldurur |
-| Upstream kararı korur, sessizce ezmez | Yaratıcı icat ekler |
-| Tarihî dönem araştırmasına saygı | Anakronizm bırakır |
-| Yapısal, downstream-readable çıktı | Tek blok prompt döker |
-| Türkçe açıklama + İngilizce prompt formatı (istenirse) | Hep İngilizce dayatır |
-
-## Kaynak
-
-NotebookLM — **Creator_SKILLs** notebook'u, kaynak: *AI Prompt Mühendisliği
-Skill Tasarımı* (ID: `2ea42974`)
+| Does | Doesn't |
+|------|---------|
+| Puts locked anchors into every prompt on multi-shot work | Describes from scratch each time |
+| Writes tool-fit prompts | Gives the same prompt to every tool |
+| Producibility audit + safe alternative | Glosses over risk silently |
+| Uses FACS AU codes | Piles up adjectives like "sad" |
+| Reduces adjective bloat | Pads with fancy words |
+| Preserves upstream decisions, no silent override | Adds creative invention |
+| Respects period research | Leaves anachronisms |
+| Structured, downstream-readable output | Dumps a single-block prompt |
+| Native-language explanation + English prompt format (if requested) | Forces English always |
