@@ -1,0 +1,53 @@
+name: 🌍 Translation issue
+description: Report a translation error, or offer to add/fix a language.
+labels: ["translation", "documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Docs are maintained in 12 languages with **English as canonical**.
+        Use this for translation fixes, missing strings, or proposing a new language.
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language
+      description: Which language does this concern? (Choose "New language" to propose one not yet supported.)
+      options:
+        - 中文 (zh)
+        - Español (es)
+        - हिन्दी (hi)
+        - العربية (ar)
+        - Português BR (pt-BR)
+        - Türkçe (tr)
+        - Français (fr)
+        - Deutsch (de)
+        - Русский (ru)
+        - 日本語 (ja)
+        - 한국어 (ko)
+        - New language (not yet supported)
+    validations:
+      required: true
+  - type: input
+    id: file
+    attributes:
+      label: File(s) affected
+      description: Path(s) to the README(s), e.g. README.ja.md or skills/creator-director/README.de.md
+      placeholder: README.<lang>.md
+    validations:
+      required: false
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Describe the error (quote the text), the suggested correction, or — for a new language — confirm you can provide the translations.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: The fix keeps identifiers, paths, code blocks, and table structure unchanged (only prose translated).
+          required: false
+        - label: I searched existing issues and this isn't a duplicate.
+          required: true

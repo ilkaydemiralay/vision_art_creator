@@ -1,0 +1,73 @@
+name: 🐛 Bug report
+description: A skill misbehaves, produces wrong output, or the install/scripts fail.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for the report! Please fill in the details below so it can be reproduced.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      description: Which skill or part of the repo does this concern?
+      options:
+        - creator-pipeline-supervisor
+        - creator-director
+        - creator-screenwriter
+        - creator-character-designer
+        - creator-production-designer
+        - creator-cinematographer
+        - creator-storyboard-artist
+        - creator-shot-list-designer
+        - creator-sound-music-designer
+        - creator-prompt-engineer
+        - creator-final-cut-editor
+        - install.sh / uninstall.sh
+        - Documentation (README)
+        - Other / not sure
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the bug, including the wrong behavior or output.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen instead?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: How can someone reproduce this? Include the prompt you used if relevant.
+      placeholder: |
+        1. Installed with `./install.sh`
+        2. Invoked `/creator-...`
+        3. Asked: "..."
+        4. Got: "..."
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Claude Code version, OS, and how you installed (symlink via install.sh, `--target`, etc.).
+      placeholder: |
+        - Claude Code:
+        - OS:
+        - Install: ./install.sh (default)
+    validations:
+      required: false
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched existing issues and this isn't a duplicate.
+          required: true
