@@ -18,7 +18,7 @@ final — dans un seul dépôt. Installez-le sur n'importe quelle machine avec
 ## Installation
 
 ```bash
-git clone https://github.com/<your-username>/vision_art_creator.git ~/projects/vision_art_creator
+git clone https://github.com/ilkaydemiralay/vision_art_creator.git ~/projects/vision_art_creator
 cd ~/projects/vision_art_creator
 ./install.sh
 ```

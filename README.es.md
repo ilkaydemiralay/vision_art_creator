@@ -18,7 +18,7 @@ montaje final— en un único repositorio. Instálalo en cualquier máquina con
 ## Instalación
 
 ```bash
-git clone https://github.com/<your-username>/vision_art_creator.git ~/projects/vision_art_creator
+git clone https://github.com/ilkaydemiralay/vision_art_creator.git ~/projects/vision_art_creator
 cd ~/projects/vision_art_creator
 ./install.sh
 ```

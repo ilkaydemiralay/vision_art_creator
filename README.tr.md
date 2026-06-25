@@ -15,7 +15,7 @@ repo'da toplar; başka bir makineye `git clone` + `./install.sh` ile kurulur.
 ## Kurulum
 
 ```bash
-git clone https://github.com/<kullanıcı>/vision_art_creator.git ~/projects/vision_art_creator
+git clone https://github.com/ilkaydemiralay/vision_art_creator.git ~/projects/vision_art_creator
 cd ~/projects/vision_art_creator
 ./install.sh
 ```
