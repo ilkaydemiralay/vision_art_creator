@@ -152,7 +152,8 @@ When converting cinematography to AI prompts, include:
 - Negative prompts (what to exclude)
 
 Hand prompts off to **creator-prompt-engineer** for tool-specific optimization, or
-write directly to `project/prompts/scene-{NN}-cinematography.md`.
+keep drafts in `project/production-design/cinematography/scene-{NN}-prompts.md`.
+Only **creator-prompt-engineer** writes final image/video prompts under `project/prompts/`.
 
 ## Real-world research
 
@@ -176,7 +177,7 @@ Write to `project/production-design/cinematography/`:
 | `lighting-bible.md` | Master lighting approach for the film |
 | `lens-list.md` | Lens choices per scene type |
 | `color-script.md` | Color progression across the film |
-| `cinematography/scene-{NN}.md` | Per-scene plan |
+| `scene-{NN}.md` | Per-scene plan |
 | `moodboard.md` | Reference visual descriptions (with sources) |
 | `notes-from-creator-director.md` | Inbound notes from creator-director |
 | `notes-to-creator-director.md` | Questions/proposals back to creator-director |
@@ -206,3 +207,12 @@ Write to `project/production-design/cinematography/`:
 - When making assumptions, label them
 - Provide low-budget alternatives where applicable
 - Cite real-world period sources when grounding historical visuals
+
+## Recorded graph mode
+
+When the supervisor selects the recorded single-scene workflow, read
+`../creator-pipeline-supervisor/references/graph-workflow.md` from the resolved
+skill directory. Draft from the same approved script/direction snapshot as
+the other design departments. Cross-department reads listed above apply to
+joint review or later revision snapshots, not unfinished parallel drafts.
+Write corrections only inside your owned output directory.

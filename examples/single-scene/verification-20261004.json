@@ -1,0 +1,92 @@
+{
+  "checked_at": "2026-10-04T10:32:30.526706+00:00",
+  "checks": {
+    "workflow": {
+      "exit_code": 0,
+      "output": {
+        "result": "pass",
+        "nodes": 12
+      }
+    },
+    "v00_partial": {
+      "exit_code": 0,
+      "output": {
+        "result": "pass",
+        "nodes": 7,
+        "artifacts": 7,
+        "independent_review": false,
+        "partial": true,
+        "scope": "partial checkpoint"
+      }
+    },
+    "v01_strict_role_required": {
+      "exit_code": 1,
+      "output": {
+        "result": "fail",
+        "error": "design approval requires director/user role"
+      }
+    },
+    "v02_strict_role_required": {
+      "exit_code": 1,
+      "output": {
+        "result": "fail",
+        "error": "design approval requires director/user role"
+      }
+    },
+    "v01_historical": {
+      "exit_code": 0,
+      "output": {
+        "result": "pass",
+        "nodes": 12,
+        "artifacts": 12,
+        "independent_review": true,
+        "partial": false,
+        "scope": "historical compatibility only; not production approval"
+      }
+    },
+    "v02_historical": {
+      "exit_code": 0,
+      "output": {
+        "result": "pass",
+        "nodes": 12,
+        "artifacts": 12,
+        "independent_review": true,
+        "partial": false,
+        "scope": "historical compatibility only; not production approval"
+      }
+    },
+    "v00_v01_lineage": {
+      "exit_code": 0,
+      "output": {
+        "result": "pass",
+        "affected": [
+          "canon",
+          "design",
+          "production",
+          "prompts",
+          "shots",
+          "sound",
+          "storyboard"
+        ]
+      }
+    },
+    "v01_v02_lineage": {
+      "exit_code": 0,
+      "output": {
+        "result": "pass",
+        "affected": [
+          "canon",
+          "design",
+          "production",
+          "prompts",
+          "shots",
+          "sound",
+          "storyboard"
+        ]
+      }
+    }
+  },
+  "tests": "----------------------------------------------------------------------\nRan 44 tests in 0.974s\n\nOK",
+  "unchanged_historical_files": 37,
+  "skill_checks": 11
+}

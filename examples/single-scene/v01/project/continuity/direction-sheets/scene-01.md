@@ -1,0 +1,2 @@
+# Direction — scene 01
+Intent: withheld action, curiosity becoming reluctance; do not perform panic or grief. Three beats: notice (5 s), approach (5 s), deliberate pause (5 s). Preserve ambiguity; do not reveal sender or contents. A small shoulder release is enough for the last beat. No touch or hand insert. Fixed spatial axis, screen-left to screen-right approach. Keep figure and wall visually separable. Costume/material colors are design decisions.

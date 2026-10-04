@@ -1,0 +1,628 @@
+{
+  "workflow_id": "single-scene.v1",
+  "scene_id": "scene-01",
+  "artifacts": [
+    {
+      "artifact_id": "brief",
+      "scene_id": "scene-01",
+      "path": "bible/project-bible.md",
+      "owner": "creator-pipeline-supervisor",
+      "revision": 1,
+      "sha256": "23e510665b86a9d9db79aa0a87563cc5890f950bb2404600eb22899e4e74c5d5",
+      "inputs": []
+    },
+    {
+      "artifact_id": "script",
+      "scene_id": "scene-01",
+      "path": "screenplay/scene-01.md",
+      "owner": "creator-screenwriter",
+      "revision": 1,
+      "sha256": "d9b65b17bbeecabb6e6d2a0a6da545d86c1088d9eb645911aa767801c43a92de",
+      "inputs": [
+        {
+          "artifact_id": "brief",
+          "sha256": "23e510665b86a9d9db79aa0a87563cc5890f950bb2404600eb22899e4e74c5d5"
+        }
+      ]
+    },
+    {
+      "artifact_id": "direction",
+      "scene_id": "scene-01",
+      "path": "continuity/direction-sheets/scene-01.md",
+      "owner": "creator-director",
+      "revision": 1,
+      "sha256": "e8241707a9763bfed45f2c078971a776b21b05ab199e1c0160a6a5cf1350dd90",
+      "inputs": [
+        {
+          "artifact_id": "script",
+          "sha256": "d9b65b17bbeecabb6e6d2a0a6da545d86c1088d9eb645911aa767801c43a92de"
+        }
+      ]
+    },
+    {
+      "artifact_id": "character",
+      "scene_id": "scene-01",
+      "path": "characters/deniz/character-sheet.md",
+      "owner": "creator-character-designer",
+      "revision": 1,
+      "sha256": "b47ecf6e9e8c684cc5cba80a9fe601806db20dcc595ac8cb9d1e01aa80160ba2",
+      "inputs": [
+        {
+          "artifact_id": "script",
+          "sha256": "d9b65b17bbeecabb6e6d2a0a6da545d86c1088d9eb645911aa767801c43a92de"
+        },
+        {
+          "artifact_id": "direction",
+          "sha256": "e8241707a9763bfed45f2c078971a776b21b05ab199e1c0160a6a5cf1350dd90"
+        }
+      ]
+    },
+    {
+      "artifact_id": "production",
+      "scene_id": "scene-01",
+      "path": "production-design/locations/room.md",
+      "owner": "creator-production-designer",
+      "revision": 2,
+      "sha256": "823603c4bfc399b904e807548a0e8b2c3ea70f6572fd30a3d9a978ab0600c2e2",
+      "inputs": [
+        {
+          "artifact_id": "script",
+          "sha256": "d9b65b17bbeecabb6e6d2a0a6da545d86c1088d9eb645911aa767801c43a92de"
+        },
+        {
+          "artifact_id": "direction",
+          "sha256": "e8241707a9763bfed45f2c078971a776b21b05ab199e1c0160a6a5cf1350dd90"
+        }
+      ]
+    },
+    {
+      "artifact_id": "camera",
+      "scene_id": "scene-01",
+      "path": "production-design/cinematography/scene-01.md",
+      "owner": "creator-cinematographer",
+      "revision": 1,
+      "sha256": "485c607d15b9ea071ff1ca2768096894cc3b2a29fb4797a8f789e6991bf9337f",
+      "inputs": [
+        {
+          "artifact_id": "script",
+          "sha256": "d9b65b17bbeecabb6e6d2a0a6da545d86c1088d9eb645911aa767801c43a92de"
+        },
+        {
+          "artifact_id": "direction",
+          "sha256": "e8241707a9763bfed45f2c078971a776b21b05ab199e1c0160a6a5cf1350dd90"
+        }
+      ]
+    },
+    {
+      "artifact_id": "design",
+      "scene_id": "scene-01",
+      "path": "qc/design-decision.md",
+      "owner": "creator-pipeline-supervisor",
+      "revision": 2,
+      "sha256": "197ddd63f6320e4ba0eecc7b3fd76e3c00fc055da13e785a8d611d2e8e9fab1c",
+      "inputs": [
+        {
+          "artifact_id": "character",
+          "sha256": "b47ecf6e9e8c684cc5cba80a9fe601806db20dcc595ac8cb9d1e01aa80160ba2"
+        },
+        {
+          "artifact_id": "production",
+          "sha256": "823603c4bfc399b904e807548a0e8b2c3ea70f6572fd30a3d9a978ab0600c2e2"
+        },
+        {
+          "artifact_id": "camera",
+          "sha256": "485c607d15b9ea071ff1ca2768096894cc3b2a29fb4797a8f789e6991bf9337f"
+        }
+      ]
+    },
+    {
+      "artifact_id": "canon",
+      "scene_id": "scene-01",
+      "path": "bible/prompt-blocks.md",
+      "owner": "creator-pipeline-supervisor",
+      "revision": 1,
+      "sha256": "41eba4b167159d46b580fad13e1330785e2026003d960da880f716de38d841c4",
+      "inputs": [
+        {
+          "artifact_id": "design",
+          "sha256": "197ddd63f6320e4ba0eecc7b3fd76e3c00fc055da13e785a8d611d2e8e9fab1c"
+        }
+      ]
+    },
+    {
+      "artifact_id": "storyboard",
+      "scene_id": "scene-01",
+      "path": "storyboards/scene-01/panels.md",
+      "owner": "creator-storyboard-artist",
+      "revision": 1,
+      "sha256": "977259aded77bee3489a14a5a68b3c7074a7781c9592edc759c83288522f9cf3",
+      "inputs": [
+        {
+          "artifact_id": "canon",
+          "sha256": "41eba4b167159d46b580fad13e1330785e2026003d960da880f716de38d841c4"
+        }
+      ]
+    },
+    {
+      "artifact_id": "shots",
+      "scene_id": "scene-01",
+      "path": "shot-list/scene-01/shots.md",
+      "owner": "creator-shot-list-designer",
+      "revision": 1,
+      "sha256": "a9e6e79429bc556368a0885739e8245102ded3c73a09806b615740d9e60f132c",
+      "inputs": [
+        {
+          "artifact_id": "storyboard",
+          "sha256": "977259aded77bee3489a14a5a68b3c7074a7781c9592edc759c83288522f9cf3"
+        }
+      ]
+    },
+    {
+      "artifact_id": "prompts",
+      "scene_id": "scene-01",
+      "path": "prompts/scene-01/prompts.md",
+      "owner": "creator-prompt-engineer",
+      "revision": 1,
+      "sha256": "9e738030c9642c72d75f60a6fd05ccfa3cff22b14017998039a5e1b7da74058d",
+      "inputs": [
+        {
+          "artifact_id": "shots",
+          "sha256": "a9e6e79429bc556368a0885739e8245102ded3c73a09806b615740d9e60f132c"
+        },
+        {
+          "artifact_id": "canon",
+          "sha256": "41eba4b167159d46b580fad13e1330785e2026003d960da880f716de38d841c4"
+        }
+      ]
+    },
+    {
+      "artifact_id": "sound",
+      "scene_id": "scene-01",
+      "path": "sound/scenes/scene-01.md",
+      "owner": "creator-sound-music-designer",
+      "revision": 1,
+      "sha256": "465473b7e4c241e7d215322fbe86b28936e0caf88c616eb5cac0f58736453223",
+      "inputs": [
+        {
+          "artifact_id": "shots",
+          "sha256": "a9e6e79429bc556368a0885739e8245102ded3c73a09806b615740d9e60f132c"
+        }
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "v00-conflict-brief",
+      "node_id": "brief",
+      "actor_id": "codex-root-author",
+      "attempt": 1,
+      "started_at": "2026-10-03T20:11:30.919105+00:00",
+      "finished_at": "2026-10-03T20:11:30.920596+00:00",
+      "status": "succeeded",
+      "inputs": [],
+      "outputs": [
+        {
+          "artifact_id": "brief",
+          "sha256": "23e510665b86a9d9db79aa0a87563cc5890f950bb2404600eb22899e4e74c5d5"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "run_id": "v00-conflict-script",
+      "node_id": "script",
+      "actor_id": "codex-root-author",
+      "attempt": 1,
+      "started_at": "2026-10-03T20:11:30.920644+00:00",
+      "finished_at": "2026-10-03T20:11:30.921205+00:00",
+      "status": "succeeded",
+      "inputs": [
+        {
+          "artifact_id": "brief",
+          "sha256": "23e510665b86a9d9db79aa0a87563cc5890f950bb2404600eb22899e4e74c5d5"
+        }
+      ],
+      "outputs": [
+        {
+          "artifact_id": "script",
+          "sha256": "d9b65b17bbeecabb6e6d2a0a6da545d86c1088d9eb645911aa767801c43a92de"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "run_id": "v00-conflict-direction",
+      "node_id": "direction",
+      "actor_id": "codex-root-author",
+      "attempt": 1,
+      "started_at": "2026-10-03T20:11:30.921291+00:00",
+      "finished_at": "2026-10-03T20:11:30.921833+00:00",
+      "status": "succeeded",
+      "inputs": [
+        {
+          "artifact_id": "script",
+          "sha256": "d9b65b17bbeecabb6e6d2a0a6da545d86c1088d9eb645911aa767801c43a92de"
+        }
+      ],
+      "outputs": [
+        {
+          "artifact_id": "direction",
+          "sha256": "e8241707a9763bfed45f2c078971a776b21b05ab199e1c0160a6a5cf1350dd90"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "run_id": "v00-conflict-character",
+      "node_id": "character",
+      "actor_id": "codex-root-author",
+      "attempt": 1,
+      "started_at": "2026-10-03T20:11:30.921914+00:00",
+      "finished_at": "2026-10-03T20:11:30.922357+00:00",
+      "status": "succeeded",
+      "inputs": [
+        {
+          "artifact_id": "script",
+          "sha256": "d9b65b17bbeecabb6e6d2a0a6da545d86c1088d9eb645911aa767801c43a92de"
+        },
+        {
+          "artifact_id": "direction",
+          "sha256": "e8241707a9763bfed45f2c078971a776b21b05ab199e1c0160a6a5cf1350dd90"
+        }
+      ],
+      "outputs": [
+        {
+          "artifact_id": "character",
+          "sha256": "b47ecf6e9e8c684cc5cba80a9fe601806db20dcc595ac8cb9d1e01aa80160ba2"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "run_id": "v01-production",
+      "node_id": "production",
+      "actor_id": "codex-root-author",
+      "attempt": 1,
+      "started_at": "2026-10-03T20:11:30.934000+00:00",
+      "finished_at": "2026-10-03T20:11:30.934906+00:00",
+      "status": "succeeded",
+      "inputs": [
+        {
+          "artifact_id": "script",
+          "sha256": "d9b65b17bbeecabb6e6d2a0a6da545d86c1088d9eb645911aa767801c43a92de"
+        },
+        {
+          "artifact_id": "direction",
+          "sha256": "e8241707a9763bfed45f2c078971a776b21b05ab199e1c0160a6a5cf1350dd90"
+        }
+      ],
+      "outputs": [
+        {
+          "artifact_id": "production",
+          "sha256": "823603c4bfc399b904e807548a0e8b2c3ea70f6572fd30a3d9a978ab0600c2e2"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "run_id": "v00-conflict-camera",
+      "node_id": "camera",
+      "actor_id": "codex-root-author",
+      "attempt": 1,
+      "started_at": "2026-10-03T20:11:30.922903+00:00",
+      "finished_at": "2026-10-03T20:11:30.923400+00:00",
+      "status": "succeeded",
+      "inputs": [
+        {
+          "artifact_id": "script",
+          "sha256": "d9b65b17bbeecabb6e6d2a0a6da545d86c1088d9eb645911aa767801c43a92de"
+        },
+        {
+          "artifact_id": "direction",
+          "sha256": "e8241707a9763bfed45f2c078971a776b21b05ab199e1c0160a6a5cf1350dd90"
+        }
+      ],
+      "outputs": [
+        {
+          "artifact_id": "camera",
+          "sha256": "485c607d15b9ea071ff1ca2768096894cc3b2a29fb4797a8f789e6991bf9337f"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "run_id": "v01-design",
+      "node_id": "design",
+      "actor_id": "codex-root-author",
+      "attempt": 1,
+      "started_at": "2026-10-03T20:11:30.935176+00:00",
+      "finished_at": "2026-10-03T20:11:30.936287+00:00",
+      "status": "succeeded",
+      "inputs": [
+        {
+          "artifact_id": "character",
+          "sha256": "b47ecf6e9e8c684cc5cba80a9fe601806db20dcc595ac8cb9d1e01aa80160ba2"
+        },
+        {
+          "artifact_id": "production",
+          "sha256": "823603c4bfc399b904e807548a0e8b2c3ea70f6572fd30a3d9a978ab0600c2e2"
+        },
+        {
+          "artifact_id": "camera",
+          "sha256": "485c607d15b9ea071ff1ca2768096894cc3b2a29fb4797a8f789e6991bf9337f"
+        }
+      ],
+      "outputs": [
+        {
+          "artifact_id": "design",
+          "sha256": "197ddd63f6320e4ba0eecc7b3fd76e3c00fc055da13e785a8d611d2e8e9fab1c"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "run_id": "v01-canon",
+      "node_id": "canon",
+      "actor_id": "codex-root-author",
+      "attempt": 1,
+      "started_at": "2026-10-03T20:11:30.936304+00:00",
+      "finished_at": "2026-10-03T20:11:30.937087+00:00",
+      "status": "succeeded",
+      "inputs": [
+        {
+          "artifact_id": "design",
+          "sha256": "197ddd63f6320e4ba0eecc7b3fd76e3c00fc055da13e785a8d611d2e8e9fab1c"
+        }
+      ],
+      "outputs": [
+        {
+          "artifact_id": "canon",
+          "sha256": "41eba4b167159d46b580fad13e1330785e2026003d960da880f716de38d841c4"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "run_id": "v01-storyboard",
+      "node_id": "storyboard",
+      "actor_id": "codex-root-author",
+      "attempt": 1,
+      "started_at": "2026-10-03T20:11:30.937151+00:00",
+      "finished_at": "2026-10-03T20:11:30.937918+00:00",
+      "status": "succeeded",
+      "inputs": [
+        {
+          "artifact_id": "canon",
+          "sha256": "41eba4b167159d46b580fad13e1330785e2026003d960da880f716de38d841c4"
+        }
+      ],
+      "outputs": [
+        {
+          "artifact_id": "storyboard",
+          "sha256": "977259aded77bee3489a14a5a68b3c7074a7781c9592edc759c83288522f9cf3"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "run_id": "v01-shots",
+      "node_id": "shots",
+      "actor_id": "codex-root-author",
+      "attempt": 1,
+      "started_at": "2026-10-03T20:11:30.937992+00:00",
+      "finished_at": "2026-10-03T20:11:30.938886+00:00",
+      "status": "succeeded",
+      "inputs": [
+        {
+          "artifact_id": "storyboard",
+          "sha256": "977259aded77bee3489a14a5a68b3c7074a7781c9592edc759c83288522f9cf3"
+        }
+      ],
+      "outputs": [
+        {
+          "artifact_id": "shots",
+          "sha256": "a9e6e79429bc556368a0885739e8245102ded3c73a09806b615740d9e60f132c"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "run_id": "v01-prompts",
+      "node_id": "prompts",
+      "actor_id": "codex-root-author",
+      "attempt": 1,
+      "started_at": "2026-10-03T20:11:30.938954+00:00",
+      "finished_at": "2026-10-03T20:11:30.939689+00:00",
+      "status": "succeeded",
+      "inputs": [
+        {
+          "artifact_id": "shots",
+          "sha256": "a9e6e79429bc556368a0885739e8245102ded3c73a09806b615740d9e60f132c"
+        },
+        {
+          "artifact_id": "canon",
+          "sha256": "41eba4b167159d46b580fad13e1330785e2026003d960da880f716de38d841c4"
+        }
+      ],
+      "outputs": [
+        {
+          "artifact_id": "prompts",
+          "sha256": "9e738030c9642c72d75f60a6fd05ccfa3cff22b14017998039a5e1b7da74058d"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "run_id": "v01-sound",
+      "node_id": "sound",
+      "actor_id": "codex-root-author",
+      "attempt": 1,
+      "started_at": "2026-10-03T20:11:30.939781+00:00",
+      "finished_at": "2026-10-03T20:11:30.941073+00:00",
+      "status": "succeeded",
+      "inputs": [
+        {
+          "artifact_id": "shots",
+          "sha256": "a9e6e79429bc556368a0885739e8245102ded3c73a09806b615740d9e60f132c"
+        }
+      ],
+      "outputs": [
+        {
+          "artifact_id": "sound",
+          "sha256": "465473b7e4c241e7d215322fbe86b28936e0caf88c616eb5cac0f58736453223"
+        }
+      ],
+      "error": ""
+    }
+  ],
+  "reviews": [
+    {
+      "review_id": "v00-conflict-direction-gate",
+      "gate": "direction",
+      "reviewer_id": "codex-root-author",
+      "reviewed_at": "2026-10-03T20:11:30.921836+00:00",
+      "subjects": [
+        {
+          "artifact_id": "script",
+          "sha256": "d9b65b17bbeecabb6e6d2a0a6da545d86c1088d9eb645911aa767801c43a92de"
+        },
+        {
+          "artifact_id": "direction",
+          "sha256": "e8241707a9763bfed45f2c078971a776b21b05ab199e1c0160a6a5cf1350dd90"
+        }
+      ],
+      "checks": [
+        {
+          "name": "pilot direction and design consistency",
+          "passed": true,
+          "evidence": "continuity/direction-sheets/scene-01.md"
+        }
+      ],
+      "verdict": "pass",
+      "notes": "Coordinator decision in manually authored pilot; not independent review or user approval."
+    },
+    {
+      "review_id": "v01-design-gate",
+      "gate": "design",
+      "reviewer_id": "codex-root-author",
+      "reviewed_at": "2026-10-03T20:11:30.936289+00:00",
+      "subjects": [
+        {
+          "artifact_id": "character",
+          "sha256": "b47ecf6e9e8c684cc5cba80a9fe601806db20dcc595ac8cb9d1e01aa80160ba2"
+        },
+        {
+          "artifact_id": "production",
+          "sha256": "823603c4bfc399b904e807548a0e8b2c3ea70f6572fd30a3d9a978ab0600c2e2"
+        },
+        {
+          "artifact_id": "camera",
+          "sha256": "485c607d15b9ea071ff1ca2768096894cc3b2a29fb4797a8f789e6991bf9337f"
+        },
+        {
+          "artifact_id": "design",
+          "sha256": "197ddd63f6320e4ba0eecc7b3fd76e3c00fc055da13e785a8d611d2e8e9fab1c"
+        }
+      ],
+      "checks": [
+        {
+          "name": "pilot direction and design consistency",
+          "passed": true,
+          "evidence": "qc/design-decision.md"
+        }
+      ],
+      "verdict": "pass",
+      "notes": "Coordinator decision in manually authored pilot; not independent review or user approval."
+    },
+    {
+      "review_id": "independent-v01-package",
+      "gate": "package",
+      "reviewer_id": "/root/independent_review",
+      "reviewed_at": "2026-10-03T20:13:31.352970+00:00",
+      "subjects": [
+        {
+          "artifact_id": "brief",
+          "sha256": "23e510665b86a9d9db79aa0a87563cc5890f950bb2404600eb22899e4e74c5d5"
+        },
+        {
+          "artifact_id": "script",
+          "sha256": "d9b65b17bbeecabb6e6d2a0a6da545d86c1088d9eb645911aa767801c43a92de"
+        },
+        {
+          "artifact_id": "direction",
+          "sha256": "e8241707a9763bfed45f2c078971a776b21b05ab199e1c0160a6a5cf1350dd90"
+        },
+        {
+          "artifact_id": "character",
+          "sha256": "b47ecf6e9e8c684cc5cba80a9fe601806db20dcc595ac8cb9d1e01aa80160ba2"
+        },
+        {
+          "artifact_id": "production",
+          "sha256": "823603c4bfc399b904e807548a0e8b2c3ea70f6572fd30a3d9a978ab0600c2e2"
+        },
+        {
+          "artifact_id": "camera",
+          "sha256": "485c607d15b9ea071ff1ca2768096894cc3b2a29fb4797a8f789e6991bf9337f"
+        },
+        {
+          "artifact_id": "design",
+          "sha256": "197ddd63f6320e4ba0eecc7b3fd76e3c00fc055da13e785a8d611d2e8e9fab1c"
+        },
+        {
+          "artifact_id": "canon",
+          "sha256": "41eba4b167159d46b580fad13e1330785e2026003d960da880f716de38d841c4"
+        },
+        {
+          "artifact_id": "storyboard",
+          "sha256": "977259aded77bee3489a14a5a68b3c7074a7781c9592edc759c83288522f9cf3"
+        },
+        {
+          "artifact_id": "shots",
+          "sha256": "a9e6e79429bc556368a0885739e8245102ded3c73a09806b615740d9e60f132c"
+        },
+        {
+          "artifact_id": "prompts",
+          "sha256": "9e738030c9642c72d75f60a6fd05ccfa3cff22b14017998039a5e1b7da74058d"
+        },
+        {
+          "artifact_id": "sound",
+          "sha256": "465473b7e4c241e7d215322fbe86b28936e0caf88c616eb5cac0f58736453223"
+        }
+      ],
+      "checks": [
+        {
+          "name": "structure and content hashes",
+          "passed": true,
+          "evidence": "Read all 12 creative Markdown artifacts and all six schemas; validate_package(require_review=False) passes 12 nodes / 12 artifacts against actual file SHA256 values."
+        },
+        {
+          "name": "three shots and 15 seconds",
+          "passed": true,
+          "evidence": "Camera, canon, storyboard, shots and per-shot prompts agree on 0–5, 5–10, 10–15 seconds; 35/50/65 mm and wide/medium/medium-close. Sound places two footfalls at 6–8 and exhale at 12."
+        },
+        {
+          "name": "immutable anchors",
+          "passed": true,
+          "evidence": "Exact four canonical anchor lines verified in design, storyboard, shots and all three prompt sections: adult Deniz, plum cardigan, charcoal trousers, off-white room, oak table, fixed red envelope, frame-left window light, south-side camera and left-to-right axis."
+        },
+        {
+          "name": "envelope remains untouched",
+          "passed": true,
+          "evidence": "Screenplay leaves letter untouched; direction forbids touch/hand insert; production keeps envelope stationary; last beat cuts before any reach; shot list forbids manipulation and sound forbids paper foley. No contradictory contact instruction found."
+        },
+        {
+          "name": "negative contract tests",
+          "passed": true,
+          "evidence": "In-memory mutations reject changed file hash, missing run input, failed design gate, stale approval hash, wrong prompt owner, workflow cycle, duplicate output path, downstream start before dependency completion, and failed prompt run. Production impact includes canon/design/production/prompts/shots/sound/storyboard."
+        },
+        {
+          "name": "scope and authorship",
+          "passed": true,
+          "evidence": "All producer actors honestly recorded as codex-root-author; coordinator approvals expressly not independent/user approval. This reviewer is distinct task /root/independent_review. Package consists of manual preproduction text; provider-neutral prompts explicitly require adaptation/reference images before generation."
+        }
+      ],
+      "verdict": "pass",
+      "notes": "Pass for the reviewed v01 manual text preproduction package only. No real media, independent specialist production, or rendered quality is asserted. Actor/timestamp declarations are not cryptographically authenticated. Existing graph-engineering-plan.tr.md remains an explicitly dated proposal, not current completion evidence."
+    }
+  ]
+}

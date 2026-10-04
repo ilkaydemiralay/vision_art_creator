@@ -35,6 +35,15 @@ and never let a department's work drift from the film's coherent intent.
 - Simple one-shot generation tasks
 - Pure technical questions outside film-production context
 
+## Recorded graph mode
+
+For a Graph Engineering run, read [the recorded workflow contract](references/graph-workflow.md).
+It adds explicit ownership, hash-bound approvals, draft/joint-review stages and
+revision impact tracking while preserving the specialist skills. Use its
+versioned DAG for the selected scope instead of treating the general sequence
+below as an executable schedule. Keep coordinator QC separate from independent
+package review; do not write or approve the independent reviewer's verdict.
+
 ## Information gathering
 
 Before orchestrating, gather:
@@ -160,7 +169,7 @@ project/
 │   └── audio/
 ├── sound/                       # creator-sound-music-designer outputs
 ├── cuts/                        # creator-final-cut-editor outputs
-├── qc/                          # supervisor outputs
+├── qc/                          # supervisor outputs; qc/reviews/ reserved for reviewer
 │   ├── continuity-reports/
 │   ├── revision-notes/
 │   └── final-checklists/
@@ -462,7 +471,10 @@ Write to `project/bible/` and `project/qc/`:
 
 ## Coordination with other skills
 
-You **read** every skill's outputs. You **write** the bible and QC layer.
+You **read** every skill's outputs. You **write** the bible and QC layer,
+except `qc/reviews/`, reserved for independent reviewers. The recorded
+single-scene profile stores review evidence beside its manifest instead;
+`qc/reviews/` is reserved but unused in that profile.
 You do **not** write inside other skills' directories (no direct edits to
 `project/screenplay/*` — that is creator-screenwriter's territory). Instead you
 write **revision requests** that the responsible skill executes.

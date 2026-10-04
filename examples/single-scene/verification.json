@@ -1,0 +1,49 @@
+{
+  "checked_at": "2026-10-03T20:21:04.162887+00:00",
+  "workflow_nodes": 12,
+  "snapshots": {
+    "v00-conflict": {
+      "result": "pass",
+      "nodes": 7,
+      "artifacts": 7,
+      "independent_review": false,
+      "partial": true
+    },
+    "v01": {
+      "result": "pass",
+      "nodes": 12,
+      "artifacts": 12,
+      "independent_review": true,
+      "partial": false
+    },
+    "v02": {
+      "result": "pass",
+      "nodes": 12,
+      "artifacts": 12,
+      "independent_review": true,
+      "partial": false
+    }
+  },
+  "revision": {
+    "result": "pass",
+    "affected": [
+      "canon",
+      "design",
+      "production",
+      "prompts",
+      "shots",
+      "sound",
+      "storyboard"
+    ]
+  },
+  "tests": {
+    "exit_code": 0,
+    "summary": [
+      "----------------------------------------------------------------------",
+      "Ran 33 tests in 0.708s",
+      "",
+      "OK"
+    ]
+  },
+  "scope": "Manual text preproduction; no media generation, no concurrent specialist execution."
+}

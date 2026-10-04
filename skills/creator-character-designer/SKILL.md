@@ -315,3 +315,12 @@ Also write `project/characters/cast-list.md` summarizing all characters.
 - Cite real-world period reference; separate from interpretation
 - Hand off in clean, structured documents — downstream skills must be able
   to read your output without re-asking the user
+
+## Recorded graph mode
+
+When the supervisor selects the recorded single-scene workflow, read
+`../creator-pipeline-supervisor/references/graph-workflow.md` from the resolved
+skill directory. Draft from the same approved script/direction snapshot as
+the other design departments. Cross-department reads listed above apply to
+joint review or later revision snapshots, not unfinished parallel drafts.
+Write corrections only inside your owned output directory.

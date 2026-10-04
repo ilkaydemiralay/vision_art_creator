@@ -1,0 +1,211 @@
+{
+  "workflow_id": "single-scene.v1",
+  "nodes": [
+    {
+      "id": "brief",
+      "owner": "creator-pipeline-supervisor",
+      "needs": [],
+      "output": {
+        "artifact_id": "brief",
+        "path": "bible/project-bible.md"
+      },
+      "gate": false
+    },
+    {
+      "id": "script",
+      "owner": "creator-screenwriter",
+      "needs": [
+        "brief"
+      ],
+      "output": {
+        "artifact_id": "script",
+        "path": "screenplay/scene-01.md"
+      },
+      "gate": false
+    },
+    {
+      "id": "direction",
+      "owner": "creator-director",
+      "needs": [
+        "script"
+      ],
+      "output": {
+        "artifact_id": "direction",
+        "path": "continuity/direction-sheets/scene-01.md"
+      },
+      "gate": true
+    },
+    {
+      "id": "character",
+      "owner": "creator-character-designer",
+      "needs": [
+        "script",
+        "direction"
+      ],
+      "output": {
+        "artifact_id": "character",
+        "path": "characters/deniz/character-sheet.md"
+      },
+      "gate": false
+    },
+    {
+      "id": "production",
+      "owner": "creator-production-designer",
+      "needs": [
+        "script",
+        "direction"
+      ],
+      "output": {
+        "artifact_id": "production",
+        "path": "production-design/locations/room.md"
+      },
+      "gate": false
+    },
+    {
+      "id": "camera",
+      "owner": "creator-cinematographer",
+      "needs": [
+        "script",
+        "direction"
+      ],
+      "output": {
+        "artifact_id": "camera",
+        "path": "production-design/cinematography/scene-01.md"
+      },
+      "gate": false
+    },
+    {
+      "id": "design",
+      "owner": "creator-pipeline-supervisor",
+      "needs": [
+        "character",
+        "production",
+        "camera"
+      ],
+      "output": {
+        "artifact_id": "design",
+        "path": "qc/design-decision.md"
+      },
+      "gate": true
+    },
+    {
+      "id": "canon",
+      "owner": "creator-pipeline-supervisor",
+      "needs": [
+        "design"
+      ],
+      "output": {
+        "artifact_id": "canon",
+        "path": "bible/prompt-blocks.md"
+      },
+      "gate": false
+    },
+    {
+      "id": "storyboard",
+      "owner": "creator-storyboard-artist",
+      "needs": [
+        "canon"
+      ],
+      "output": {
+        "artifact_id": "storyboard",
+        "path": "storyboards/scene-01/panels.md"
+      },
+      "gate": false
+    },
+    {
+      "id": "shots",
+      "owner": "creator-shot-list-designer",
+      "needs": [
+        "storyboard"
+      ],
+      "output": {
+        "artifact_id": "shots",
+        "path": "shot-list/scene-01/shots.md"
+      },
+      "gate": false
+    },
+    {
+      "id": "prompts",
+      "owner": "creator-prompt-engineer",
+      "needs": [
+        "shots",
+        "canon"
+      ],
+      "output": {
+        "artifact_id": "prompts",
+        "path": "prompts/scene-01/prompts.md"
+      },
+      "gate": false
+    },
+    {
+      "id": "sound",
+      "owner": "creator-sound-music-designer",
+      "needs": [
+        "shots"
+      ],
+      "output": {
+        "artifact_id": "sound",
+        "path": "sound/scenes/scene-01.md"
+      },
+      "gate": false
+    }
+  ],
+  "ownership": [
+    {
+      "prefix": "bible",
+      "owner": "creator-pipeline-supervisor"
+    },
+    {
+      "prefix": "qc",
+      "owner": "creator-pipeline-supervisor"
+    },
+    {
+      "prefix": "qc/reviews",
+      "owner": "reviewer"
+    },
+    {
+      "prefix": "screenplay",
+      "owner": "creator-screenwriter"
+    },
+    {
+      "prefix": "continuity",
+      "owner": "creator-director"
+    },
+    {
+      "prefix": "characters",
+      "owner": "creator-character-designer"
+    },
+    {
+      "prefix": "production-design",
+      "owner": "creator-production-designer"
+    },
+    {
+      "prefix": "production-design/cinematography",
+      "owner": "creator-cinematographer"
+    },
+    {
+      "prefix": "storyboards",
+      "owner": "creator-storyboard-artist"
+    },
+    {
+      "prefix": "shot-list",
+      "owner": "creator-shot-list-designer"
+    },
+    {
+      "prefix": "prompts",
+      "owner": "creator-prompt-engineer"
+    },
+    {
+      "prefix": "sound",
+      "owner": "creator-sound-music-designer"
+    },
+    {
+      "prefix": "cuts",
+      "owner": "creator-final-cut-editor"
+    },
+    {
+      "prefix": "generated-assets",
+      "owner": "operator"
+    }
+  ]
+}

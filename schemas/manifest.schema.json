@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vision-art-creator.local/schemas/manifest.schema.json",
+  "type": "object",
+  "properties": {
+    "workflow_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scene_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "$ref": "artifact.schema.json"
+      },
+      "minItems": 0
+    },
+    "runs": {
+      "type": "array",
+      "items": {
+        "$ref": "run.schema.json"
+      },
+      "minItems": 0
+    },
+    "reviews": {
+      "type": "array",
+      "items": {
+        "$ref": "review.schema.json"
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "workflow_id",
+    "scene_id",
+    "artifacts",
+    "runs",
+    "reviews"
+  ],
+  "additionalProperties": false
+}

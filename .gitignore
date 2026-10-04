@@ -4,3 +4,8 @@
 *~
 .idea/
 .vscode/
+
+# Local graph validation environment and Python caches
+.venv/
+__pycache__/
+*.py[cod]

@@ -1,0 +1,27 @@
+{
+  "revision_id": "envelope-cream-01",
+  "reason": "Controlled pilot change: red envelope becomes cream; story and character unchanged.",
+  "previous_manifest_sha256": "ad4990ec17eb2234f3a3185a7d993bca1c76e7d869818a6d0b8f06bc5d9eed9d",
+  "changed": [
+    "production"
+  ],
+  "affected": [
+    "canon",
+    "design",
+    "production",
+    "prompts",
+    "shots",
+    "sound",
+    "storyboard"
+  ],
+  "rerun_nodes": [
+    "canon",
+    "design",
+    "production",
+    "prompts",
+    "shots",
+    "sound",
+    "storyboard"
+  ],
+  "closure_evidence": "Compare v01 and v02 manifests; validate both packages and this revision record. Independent reviews recorded separately for each package."
+}

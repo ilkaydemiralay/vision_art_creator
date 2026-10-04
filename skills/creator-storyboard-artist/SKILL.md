@@ -198,7 +198,8 @@ Each shot prompt includes:
 - **Safe simplified alternative** (lower risk version)
 
 Hand off prompts to **creator-prompt-engineer** for tool-specific optimization, or
-write directly to `project/prompts/scene-{NN}/panel-{PP}.md`.
+keep drafts in `project/storyboards/scene-{NN}/prompts.md`. Only
+**creator-prompt-engineer** writes final image/video prompts under `project/prompts/`.
 
 ## Storyboard sheet format (canonical)
 

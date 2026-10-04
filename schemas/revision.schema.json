@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vision-art-creator.local/schemas/revision.schema.json",
+  "type": "object",
+  "properties": {
+    "revision_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "previous_manifest_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "changed": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "affected": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "rerun_nodes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "closure_evidence": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "revision_id",
+    "reason",
+    "previous_manifest_sha256",
+    "changed",
+    "affected",
+    "rerun_nodes",
+    "closure_evidence"
+  ],
+  "additionalProperties": false
+}

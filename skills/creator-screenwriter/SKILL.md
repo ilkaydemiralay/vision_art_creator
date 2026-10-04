@@ -168,3 +168,9 @@ When writing for AI video generation, keep scenes producible:
 - Respect the user's voice; strengthen it, do not replace it
 - For sensitive cultural, historical, or political material, flag potential issues
   and suggest consulting domain experts before final draft
+
+## Recorded graph mode
+
+In a recorded workflow, optional downstream reads above are revision feedback
+from a completed earlier snapshot, not prerequisites for the initial pass.
+Use the supervisor's declared input snapshot and record consumed artifact hashes.

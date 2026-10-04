@@ -282,3 +282,12 @@ AI video prompt:
 - Deliver in structured, downstream-readable documents
 - For AI risky locations (crowds, vast cityscapes, intricate hand-detail
   rooms), propose simplified alternatives
+
+## Recorded graph mode
+
+When the supervisor selects the recorded single-scene workflow, read
+`../creator-pipeline-supervisor/references/graph-workflow.md` from the resolved
+skill directory. Draft from the same approved script/direction snapshot as
+the other design departments. Cross-department reads listed above apply to
+joint review or later revision snapshots, not unfinished parallel drafts.
+Write corrections only inside your owned output directory.

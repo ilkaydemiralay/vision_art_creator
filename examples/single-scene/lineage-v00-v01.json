@@ -1,0 +1,27 @@
+{
+  "revision_id": "v00-v01-retrospective-lineage",
+  "reason": "Retrospective record on 2026-10-04: plum wall corrected to off-white and partial checkpoint expanded. This records existing file lineage, not a new creative run or approval.",
+  "previous_manifest_sha256": "9f5370a0af80146f23446b41e3f0d7c938e0cf74ec3bdc8ccc47856dfed9815c",
+  "changed": [
+    "production"
+  ],
+  "affected": [
+    "canon",
+    "design",
+    "production",
+    "prompts",
+    "shots",
+    "sound",
+    "storyboard"
+  ],
+  "rerun_nodes": [
+    "canon",
+    "design",
+    "production",
+    "prompts",
+    "shots",
+    "sound",
+    "storyboard"
+  ],
+  "closure_evidence": "Existing v00 and v01 artifact/run records; validate using --allow-growth. Historical snapshots unchanged."
+}

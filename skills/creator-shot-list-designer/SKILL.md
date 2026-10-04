@@ -313,3 +313,9 @@ Write to `project/shot-list/`:
 - For dialogue, don't just follow the speaker; design listener coverage too
 - Coordinate sound and music edit intent, not just picture
 - Output structured, downstream-readable documents
+
+## Recorded graph mode
+
+In a recorded workflow, optional downstream reads above are revision feedback
+from a completed earlier snapshot, not prerequisites for the initial pass.
+Use the supervisor's declared input snapshot and record consumed artifact hashes.

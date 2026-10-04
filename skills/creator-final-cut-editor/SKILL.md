@@ -58,7 +58,7 @@ If gaps remain, ask. Label assumptions when needed.
 - `project/storyboards/*` — original visual intent
 - `project/shot-list/*` — shot list, edit plan, transitions, **final-editor-notes.md**
 - `project/sound/scenes/*` — audio integration plan
-- `project/continuity/*` — creator-pipeline-supervisor reports
+- `project/qc/*` — creator-pipeline-supervisor reports
 
 ## Material evaluation
 

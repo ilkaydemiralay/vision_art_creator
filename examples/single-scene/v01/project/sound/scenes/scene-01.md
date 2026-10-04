@@ -1,0 +1,2 @@
+# Sound plan — scene 01
+15 seconds, stereo room tone: quiet interior with faint distant air, steady across straight cuts at 5 and 10 seconds. Two soft footfalls during seconds 6–8, placed slightly left then toward center. One restrained natural exhale at second 12. No dialogue, paper foley, music, door sound or dramatic accent. Do not imply the letter was touched. Mix plan only; audio not generated. Dependency is the complete shot-list file, so visual shot-list revisions conservatively require this plan to be rechecked.
