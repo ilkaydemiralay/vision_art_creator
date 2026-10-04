@@ -103,6 +103,27 @@ once the directorial vision is set.
 
 ---
 
+## Recorded graph mode (optional, experimental)
+
+Since v1.1.0 the pack includes an optional, machine-checkable workflow for a single scene. `creator-pipeline-supervisor` can run pre-production as a 12-node graph: every artifact is recorded with its SHA-256 hash, every approval is bound to the exact inputs it reviewed, and a revision re-runs only the nodes it affects.
+
+- Workflow: `workflows/single-scene.v1.json`. Contract: `skills/creator-pipeline-supervisor/references/graph-workflow.md`.
+- JSON Schemas in `schemas/`, a read-only validator in `scripts/validate_graph.py`, tests in `tests/`.
+- A worked 15-second, three-shot text pilot in `examples/single-scene/`: v00 stops at a design conflict, v01 resolves it, v02 changes one prop colour.
+
+Normal skill use needs no Python. To run the validator (Python 3.10+):
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements-graph.txt
+.venv/bin/python -m unittest discover -s tests
+.venv/bin/python scripts/validate_graph.py validate --manifest path/to/manifest.json
+```
+
+Limits: this is a text-only pilot written by a single author. Parallel department runs, media generation, editing and cost were not tested. Approver identity and timestamps are declared by the operator, not signed. Design and results notes are in `docs/` (Turkish).
+
+---
+
 ## Updating
 
 ```bash
@@ -111,6 +132,8 @@ git pull
 ```
 
 Because the skills are symlinked, no extra step is needed.
+
+See [CHANGELOG.md](CHANGELOG.md) for what changed in each release. **v1.1.0:** `creator-cinematographer` and `creator-storyboard-artist` now keep prompt drafts in their own folders; only `creator-prompt-engineer` writes final prompts under `project/prompts/`.
 
 ---
 

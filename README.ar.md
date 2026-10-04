@@ -103,6 +103,27 @@ manages revision loops, and holds the bibles.
 
 ---
 
+## وضع الرسم البياني المسجَّل (اختياري، تجريبي)
+
+منذ الإصدار v1.1.0 تتضمن الحزمة سير عمل اختياريًا يمكن التحقق منه آليًا لمشهد واحد. يستطيع `creator-pipeline-supervisor` تشغيل مرحلة ما قبل الإنتاج كرسم بياني من 12 عقدة: يُسجَّل كل ناتج مع تجزئة SHA-256 الخاصة به، وترتبط كل موافقة بالمدخلات نفسها التي راجعتها، ولا تعيد المراجعة تشغيل إلا العقد المتأثرة.
+
+- سير العمل: `workflows/single-scene.v1.json`. العقد: `skills/creator-pipeline-supervisor/references/graph-workflow.md`.
+- مخططات JSON في `schemas/`، ومدقِّق للقراءة فقط في `scripts/validate_graph.py`، واختبارات في `tests/`.
+- تجربة نصية كاملة مدتها 15 ثانية من ثلاث لقطات في `examples/single-scene/`: يتوقف v00 عند تعارض في التصميم، ويحله v01، ويغيّر v02 لون قطعة إكسسوار واحدة.
+
+الاستخدام العادي للمهارات لا يحتاج إلى Python. لتشغيل المدقِّق (Python 3.10 أو أحدث):
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements-graph.txt
+.venv/bin/python -m unittest discover -s tests
+.venv/bin/python scripts/validate_graph.py validate --manifest path/to/manifest.json
+```
+
+الحدود: هذه تجربة نصية فقط كتبها مؤلف واحد. لم يُختبر التشغيل المتوازي للأقسام ولا توليد الوسائط ولا المونتاج ولا التكلفة. هوية الموافِق والطوابع الزمنية يصرّح بها المشغّل وليست موقَّعة. ملاحظات التصميم والنتائج موجودة في `docs/` (بالتركية).
+
+---
+
 ## التحديث
 
 ```bash
@@ -111,6 +132,8 @@ git pull
 ```
 
 نظرًا لأن المهارات مرتبطة بروابط رمزية، فلا حاجة إلى أي خطوة إضافية.
+
+راجع [CHANGELOG.md](CHANGELOG.md) لمعرفة ما تغيّر في كل إصدار. **v1.1.0:** أصبح `creator-cinematographer` و`creator-storyboard-artist` يحتفظان بمسودات الموجِّهات في مجلديهما؛ ولا يكتب الموجِّهات النهائية في `project/prompts/` إلا `creator-prompt-engineer`.
 
 ---
 

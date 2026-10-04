@@ -102,6 +102,27 @@ manages revision loops, and holds the bibles.
 
 ---
 
+## 기록형 그래프 모드 (선택 사항, 실험적)
+
+v1.1.0부터 이 팩에는 단일 장면을 위한 선택적이고 기계로 검증 가능한 워크플로가 포함됩니다. `creator-pipeline-supervisor`는 프리프로덕션을 12개 노드의 그래프로 실행할 수 있습니다. 모든 산출물은 SHA-256 해시와 함께 기록되고, 모든 승인은 검토한 정확한 입력에 묶이며, 수정 시에는 영향을 받는 노드만 다시 실행됩니다.
+
+- 워크플로: `workflows/single-scene.v1.json`. 계약: `skills/creator-pipeline-supervisor/references/graph-workflow.md`.
+- `schemas/`의 JSON 스키마, `scripts/validate_graph.py`의 읽기 전용 검증기, `tests/`의 테스트.
+- `examples/single-scene/`에 15초, 3개 쇼트로 된 텍스트 파일럿 예제가 있습니다. v00은 디자인 충돌에서 멈추고, v01은 이를 해결하며, v02는 소품 하나의 색을 바꿉니다.
+
+일반적인 스킬 사용에는 Python이 필요 없습니다. 검증기 실행 (Python 3.10 이상):
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements-graph.txt
+.venv/bin/python -m unittest discover -s tests
+.venv/bin/python scripts/validate_graph.py validate --manifest path/to/manifest.json
+```
+
+한계: 한 명의 작성자가 만든 텍스트 전용 파일럿입니다. 부서 병렬 실행, 미디어 생성, 편집, 비용은 테스트하지 않았습니다. 승인자 신원과 타임스탬프는 운영자가 선언한 것이며 서명되지 않았습니다. 설계 및 결과 노트는 `docs/`(튀르키예어)에 있습니다.
+
+---
+
 ## 업데이트
 
 ```bash
@@ -110,6 +131,8 @@ git pull
 ```
 
 스킬들이 심링크로 연결되어 있기 때문에 별도의 단계가 필요하지 않습니다.
+
+각 릴리스의 변경 사항은 [CHANGELOG.md](CHANGELOG.md)를 참고하세요. **v1.1.0:** `creator-cinematographer`와 `creator-storyboard-artist`는 이제 프롬프트 초안을 각자의 폴더에 보관합니다. 최종 프롬프트는 `creator-prompt-engineer`만 `project/prompts/`에 작성합니다.
 
 ---
 

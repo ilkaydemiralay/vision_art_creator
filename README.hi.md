@@ -105,6 +105,27 @@ character/production/cinematography समानांतर रूप से �
 
 ---
 
+## रिकॉर्डेड ग्राफ़ मोड (वैकल्पिक, प्रायोगिक)
+
+v1.1.0 से इस पैक में एक दृश्य के लिए वैकल्पिक, मशीन से जाँचा जा सकने वाला वर्कफ़्लो शामिल है। `creator-pipeline-supervisor` प्री-प्रोडक्शन को 12 नोड वाले ग्राफ़ के रूप में चला सकता है: हर आर्टिफ़ैक्ट उसके SHA-256 हैश के साथ दर्ज होता है, हर अनुमोदन ठीक उन्हीं इनपुट से बंधा होता है जिनकी उसने समीक्षा की, और संशोधन केवल प्रभावित नोड को दोबारा चलाता है।
+
+- वर्कफ़्लो: `workflows/single-scene.v1.json`। अनुबंध: `skills/creator-pipeline-supervisor/references/graph-workflow.md`।
+- `schemas/` में JSON स्कीमा, `scripts/validate_graph.py` में केवल-पठन वैलिडेटर, और `tests/` में टेस्ट।
+- `examples/single-scene/` में 15 सेकंड, तीन शॉट का पूरा टेक्स्ट पायलट: v00 एक डिज़ाइन टकराव पर रुकता है, v01 उसे सुलझाता है, v02 एक प्रॉप का रंग बदलता है।
+
+सामान्य स्किल उपयोग के लिए Python की ज़रूरत नहीं है। वैलिडेटर चलाने के लिए (Python 3.10+):
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements-graph.txt
+.venv/bin/python -m unittest discover -s tests
+.venv/bin/python scripts/validate_graph.py validate --manifest path/to/manifest.json
+```
+
+सीमाएँ: यह एक ही लेखक द्वारा लिखा गया केवल-टेक्स्ट पायलट है। विभागों का समानांतर चलना, मीडिया निर्माण, एडिटिंग और लागत का परीक्षण नहीं हुआ। अनुमोदक की पहचान और टाइमस्टैम्प ऑपरेटर द्वारा घोषित हैं, हस्ताक्षरित नहीं। डिज़ाइन और परिणाम नोट्स `docs/` में हैं (तुर्की भाषा में)।
+
+---
+
 ## अपडेट करना
 
 ```bash
@@ -113,6 +134,8 @@ git pull
 ```
 
 चूँकि स्किल्स symlink की गई हैं, इसलिए किसी अतिरिक्त चरण की ज़रूरत नहीं।
+
+हर रिलीज़ में क्या बदला, यह [CHANGELOG.md](CHANGELOG.md) में देखें। **v1.1.0:** `creator-cinematographer` और `creator-storyboard-artist` अब प्रॉम्प्ट ड्राफ़्ट अपने-अपने फ़ोल्डर में रखते हैं; अंतिम प्रॉम्प्ट `project/prompts/` में केवल `creator-prompt-engineer` लिखता है।
 
 ---
 

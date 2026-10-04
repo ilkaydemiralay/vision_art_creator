@@ -104,6 +104,27 @@ s'exécutent généralement en parallèle une fois la vision de réalisation ét
 
 ---
 
+## Mode graphe enregistré (optionnel, expérimental)
+
+Depuis la v1.1.0, le pack inclut un workflow optionnel et vérifiable par machine pour une seule scène. `creator-pipeline-supervisor` peut exécuter la préproduction sous forme de graphe à 12 nœuds : chaque artefact est enregistré avec son hash SHA-256, chaque validation est liée aux entrées exactes qu'elle a examinées, et une révision ne relance que les nœuds concernés.
+
+- Workflow : `workflows/single-scene.v1.json`. Contrat : `skills/creator-pipeline-supervisor/references/graph-workflow.md`.
+- Schémas JSON dans `schemas/`, un validateur en lecture seule dans `scripts/validate_graph.py`, des tests dans `tests/`.
+- Un pilote textuel complet de 15 secondes et trois plans dans `examples/single-scene/` : v00 s'arrête sur un conflit de design, v01 le résout, v02 change la couleur d'un accessoire.
+
+L'usage normal des skills ne nécessite pas Python. Pour lancer le validateur (Python 3.10+) :
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements-graph.txt
+.venv/bin/python -m unittest discover -s tests
+.venv/bin/python scripts/validate_graph.py validate --manifest path/to/manifest.json
+```
+
+Limites : pilote uniquement textuel, rédigé par un seul auteur. Les départements en parallèle, la génération de médias, le montage et les coûts n'ont pas été testés. L'identité des validateurs et les horodatages sont déclarés par l'opérateur, non signés. Les notes de conception et de résultats sont dans `docs/` (en turc).
+
+---
+
 ## Mise à jour
 
 ```bash
@@ -113,6 +134,8 @@ git pull
 
 Comme les compétences sont liées par des liens symboliques, aucune étape
 supplémentaire n'est nécessaire.
+
+Consultez [CHANGELOG.md](CHANGELOG.md) pour les changements de chaque version. **v1.1.0 :** `creator-cinematographer` et `creator-storyboard-artist` gardent désormais leurs brouillons de prompts dans leurs propres dossiers ; seul `creator-prompt-engineer` écrit les prompts finaux dans `project/prompts/`.
 
 ---
 

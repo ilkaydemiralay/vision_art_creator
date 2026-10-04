@@ -89,6 +89,27 @@ manages revision loops, and holds the bibles.
 
 ---
 
+## 記録型グラフモード（任意・実験的）
+
+v1.1.0 から、単一シーン向けの任意の、機械で検証できるワークフローが含まれています。`creator-pipeline-supervisor` はプリプロダクションを 12 ノードのグラフとして実行できます。各成果物は SHA-256 ハッシュとともに記録され、各承認はレビューした入力そのものに結び付けられ、修正時には影響を受けるノードだけが再実行されます。
+
+- ワークフロー：`workflows/single-scene.v1.json`。契約：`skills/creator-pipeline-supervisor/references/graph-workflow.md`。
+- `schemas/` に JSON Schema、`scripts/validate_graph.py` に読み取り専用のバリデーター、`tests/` にテストがあります。
+- `examples/single-scene/` に 15 秒・3 ショットのテキストによるパイロット例があります。v00 はデザインの衝突で止まり、v01 で解決し、v02 で小道具の色を 1 つ変更します。
+
+通常のスキル利用に Python は不要です。バリデーターの実行（Python 3.10 以上）：
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements-graph.txt
+.venv/bin/python -m unittest discover -s tests
+.venv/bin/python scripts/validate_graph.py validate --manifest path/to/manifest.json
+```
+
+制限：これは一人の作者によるテキストのみのパイロットです。部門の並行実行、メディア生成、編集、コストは検証していません。承認者の身元とタイムスタンプはオペレーターの申告であり、署名されていません。設計と結果のメモは `docs/`（トルコ語）にあります。
+
+---
+
 ## 更新
 
 ```bash
@@ -97,6 +118,8 @@ git pull
 ```
 
 スキルはシンボリックリンクになっているため、追加の手順は不要です。
+
+各リリースの変更点は [CHANGELOG.md](CHANGELOG.md) を参照してください。**v1.1.0：** `creator-cinematographer` と `creator-storyboard-artist` はプロンプトの下書きを各自のフォルダーに保存するようになりました。最終プロンプトを `project/prompts/` に書くのは `creator-prompt-engineer` だけです。
 
 ---
 

@@ -89,6 +89,27 @@ manages revision loops, and holds the bibles.
 
 ---
 
+## 记录式图模式（可选，实验性）
+
+自 v1.1.0 起，本包为单个场景提供一个可选的、可由机器校验的工作流。`creator-pipeline-supervisor` 可以将前期制作作为 12 个节点的图来运行：每个产物都连同其 SHA-256 哈希一起记录，每次审批都绑定到它所审查的确切输入，修订时只重新运行受影响的节点。
+
+- 工作流：`workflows/single-scene.v1.json`。约定：`skills/creator-pipeline-supervisor/references/graph-workflow.md`。
+- `schemas/` 中的 JSON Schema、`scripts/validate_graph.py` 中的只读校验器，以及 `tests/` 中的测试。
+- `examples/single-scene/` 中有一个完整的 15 秒、三个镜头的文本试点：v00 在设计冲突处停下，v01 解决冲突，v02 修改一个道具的颜色。
+
+正常使用技能无需 Python。运行校验器（Python 3.10+）：
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements-graph.txt
+.venv/bin/python -m unittest discover -s tests
+.venv/bin/python scripts/validate_graph.py validate --manifest path/to/manifest.json
+```
+
+限制：这是由单一作者编写的纯文本试点。未测试部门并行运行、媒体生成、剪辑和成本。审批人身份和时间戳由操作者声明，未经签名。设计与结果说明位于 `docs/`（土耳其语）。
+
+---
+
 ## 更新
 
 ```bash
@@ -97,6 +118,8 @@ git pull
 ```
 
 由于这些技能是通过符号链接接入的，无需任何额外步骤。
+
+各版本的变更请见 [CHANGELOG.md](CHANGELOG.md)。**v1.1.0：** `creator-cinematographer` 和 `creator-storyboard-artist` 现在把提示词草稿保存在各自的文件夹中；只有 `creator-prompt-engineer` 会在 `project/prompts/` 下写入最终提示词。
 
 ---
 

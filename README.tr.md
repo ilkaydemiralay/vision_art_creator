@@ -100,6 +100,27 @@ yönetmenliği genellikle paralel çalışır.
 
 ---
 
+## Kayıtlı graf modu (isteğe bağlı, deneysel)
+
+v1.1.0'dan itibaren pakette tek sahne için isteğe bağlı, makineyle denetlenebilen bir iş akışı var. `creator-pipeline-supervisor` ön prodüksiyonu 12 düğümlü bir graf olarak yürütebilir: her çıktı SHA-256 hash'iyle kaydedilir, her onay incelediği girdilerin tam hash'ine bağlanır ve bir revizyon yalnız etkilediği düğümleri yeniden çalıştırır.
+
+- İş akışı: `workflows/single-scene.v1.json`. Sözleşme: `skills/creator-pipeline-supervisor/references/graph-workflow.md`.
+- `schemas/` içinde JSON şemaları, `scripts/validate_graph.py` içinde salt okunur doğrulayıcı, `tests/` içinde testler.
+- `examples/single-scene/` içinde 15 saniyelik, üç planlık metin pilotu: v00 bir tasarım çatışmasında durur, v01 bunu çözer, v02 tek bir aksesuarın rengini değiştirir.
+
+Normal skill kullanımı Python gerektirmez. Doğrulayıcıyı çalıştırmak için (Python 3.10+):
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements-graph.txt
+.venv/bin/python -m unittest discover -s tests
+.venv/bin/python scripts/validate_graph.py validate --manifest path/to/manifest.json
+```
+
+Sınırlar: bu, tek yazarın hazırladığı yalnız metinden oluşan bir pilottur. Departmanların paralel çalışması, medya üretimi, kurgu ve maliyet sınanmadı. Onaylayan kimliği ve zaman damgaları operatörün beyanıdır, imzalı değildir. Tasarım ve sonuç notları `docs/` klasöründe.
+
+---
+
 ## Güncelleme
 
 ```bash
@@ -108,6 +129,8 @@ git pull
 ```
 
 Symlink olduğu için ekstra adım gerekmez.
+
+Her sürümde neyin değiştiği için [CHANGELOG.md](CHANGELOG.md) dosyasına bakın. **v1.1.0:** `creator-cinematographer` ve `creator-storyboard-artist` prompt taslaklarını artık kendi klasörlerinde tutar; nihai promptları `project/prompts/` altına yalnız `creator-prompt-engineer` yazar.
 
 ---
 
