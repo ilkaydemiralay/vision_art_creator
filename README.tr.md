@@ -2,7 +2,7 @@
 
 [English](README.md) · [中文](README.zh.md) · [Español](README.es.md) · [हिन्दी](README.hi.md) · [العربية](README.ar.md) · [Português (BR)](README.pt-BR.md) · **Türkçe** · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [日本語](README.ja.md) · [한국어](README.ko.md)
 
-AI film prodüksiyon skill paketi ([Claude Code](https://claude.com/claude-code)). Senaryodan final cut'a kadar
+AI film prodüksiyon skill paketi ([Claude Code](https://claude.com/claude-code) ve [OpenAI Codex](https://github.com/openai/codex)). Senaryodan final cut'a kadar
 bir prodüksiyonun her departmanını kapsayan **11 creator skill**'i tek bir
 repo'da toplar; başka bir makineye `git clone` + `./install.sh` ile kurulur.
 
@@ -12,12 +12,28 @@ repo'da toplar; başka bir makineye `git clone` + `./install.sh` ile kurulur.
 
 ---
 
+## Demo: *Gitmeden Önce*
+
+Bu paket ve Higgsfield ile üretilmiş 26 saniyelik bir sahne (Nano Banana Pro referansları, Seedance 2.0 klipleri) ve kayıtlı grafı gösteren 30 saniyelik yapım videosu: sahipler, hash'ler, onaylar. İki ajan, Claude Code ve OpenAI Codex, aynı skill dosyalarıyla çalıştı. Tüm görüntüler yapay zekâ ile üretilmiştir.
+
+| Film (26 sn) | Yapım süreci (30 sn) |
+|---|---|
+| [![Film (26 sn)](docs/media/demo-film.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-film.mp4) | [![Yapım süreci (30 sn)](docs/media/demo-making-of.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-making-of.mp4) |
+
+---
+
 ## Kurulum
 
 ```bash
 git clone https://github.com/ilkaydemiralay/vision_art_creator.git ~/projects/vision_art_creator
 cd ~/projects/vision_art_creator
 ./install.sh
+```
+
+OpenAI Codex mi kullanıyorsunuz? Codex'in skills dizinine kurun, sonra Codex'i yeniden başlatın:
+
+```bash
+./install.sh --codex   # ~/.agents/skills/
 ```
 
 `install.sh` her skill için `~/.claude/skills/<skill-adı>` altında bu repo'ya

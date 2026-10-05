@@ -4,6 +4,22 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the project uses [Semantic Versioning](https://semver.org/).
 
+## [1.2.0] - 2026-10-05
+
+### Added
+
+- **OpenAI Codex support.** The skills are plain `SKILL.md` folders and work in
+  Codex as well as Claude Code. `./install.sh --codex` links them into
+  `~/.agents/skills/`; `./uninstall.sh --codex` removes them.
+- **Demo film.** *Before She Leaves*, a 26-second scene made with the pack and
+  Higgsfield, plus a 30-second making-of showing the recorded graph. Videos are
+  attached to the GitHub release; posters are in `docs/media/`. All footage is
+  AI-generated.
+
+### Changed
+
+- All 12 READMEs name both Claude Code and OpenAI Codex and include the demo.
+
 ## [1.1.0] - 2026-10-04
 
 ### Added
@@ -63,5 +79,6 @@ First public release: 11 `creator-*` skills, `install.sh` / `uninstall.sh`,
 READMEs in 12 languages, MIT license, contributing guide, issue and PR
 templates.
 
+[1.2.0]: https://github.com/ilkaydemiralay/vision_art_creator/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/ilkaydemiralay/vision_art_creator/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/ilkaydemiralay/vision_art_creator/releases/tag/v1.0.0

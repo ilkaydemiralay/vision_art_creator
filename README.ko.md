@@ -2,7 +2,7 @@
 
 [English](README.md) · [中文](README.zh.md) · [Español](README.es.md) · [हिन्दी](README.hi.md) · [العربية](README.ar.md) · [Português (BR)](README.pt-BR.md) · [Türkçe](README.tr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [日本語](README.ja.md) · **한국어**
 
-> [Claude Code](https://claude.com/claude-code)를 위한 AI 영화 제작 스킬 팩.
+> [Claude Code](https://claude.com/claude-code)와 [OpenAI Codex](https://github.com/openai/codex)를 위한 AI 영화 제작 스킬 팩.
 
 `vision_art_creator`는 영화 제작의 모든 부서를 아우르는 **11개의 `creator-*`
 스킬**을 — 시나리오에서 최종 편집본까지 — 하나의 저장소에 묶어 제공합니다.
@@ -14,12 +14,28 @@
 
 ---
 
+## 데모: *Before She Leaves*
+
+이 스킬 팩과 Higgsfield(Nano Banana Pro 레퍼런스, Seedance 2.0 클립)로 제작한 26초 장면과, 기록된 그래프(담당자, 해시, 승인)를 보여주는 30초 메이킹 영상입니다. Claude Code와 OpenAI Codex 두 에이전트가 같은 스킬 파일로 작업했습니다. 모든 영상은 AI로 생성되었습니다.
+
+| 영화 (26초) | 메이킹 (30초) |
+|---|---|
+| [![영화 (26초)](docs/media/demo-film.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-film.mp4) | [![메이킹 (30초)](docs/media/demo-making-of.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-making-of.mp4) |
+
+---
+
 ## 설치
 
 ```bash
 git clone https://github.com/ilkaydemiralay/vision_art_creator.git ~/projects/vision_art_creator
 cd ~/projects/vision_art_creator
 ./install.sh
+```
+
+OpenAI Codex를 사용하나요? Codex의 스킬 디렉터리에 설치한 뒤 Codex를 다시 시작하세요:
+
+```bash
+./install.sh --codex   # ~/.agents/skills/
 ```
 
 `install.sh`는 각 스킬에 대해 이 저장소를 가리키는 **심링크**를

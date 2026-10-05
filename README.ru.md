@@ -2,7 +2,7 @@
 
 [English](README.md) · [中文](README.zh.md) · [Español](README.es.md) · [हिन्दी](README.hi.md) · [العربية](README.ar.md) · [Português (BR)](README.pt-BR.md) · [Türkçe](README.tr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · **Русский** · [日本語](README.ja.md) · [한국어](README.ko.md)
 
-> Набор навыков для кинопроизводства с помощью ИИ для [Claude Code](https://claude.com/claude-code).
+> Набор навыков для кинопроизводства с помощью ИИ для [Claude Code](https://claude.com/claude-code) и [OpenAI Codex](https://github.com/openai/codex).
 
 `vision_art_creator` объединяет **11 навыков `creator-*`**, которые охватывают
 каждый отдел кинопроизводства — от сценария до финального монтажа — в одном
@@ -15,12 +15,28 @@
 
 ---
 
+## Демо: *Before She Leaves*
+
+Сцена длиной 26 секунд, созданная с этим набором и Higgsfield (референсы Nano Banana Pro, клипы Seedance 2.0), и 30-секундный ролик о создании, показывающий записанный граф: ответственных, хеши и согласования. Два агента, Claude Code и OpenAI Codex, работали с одними и теми же файлами навыков. Все кадры созданы ИИ.
+
+| Фильм (26 с) | Как это сделано (30 с) |
+|---|---|
+| [![Фильм (26 с)](docs/media/demo-film.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-film.mp4) | [![Как это сделано (30 с)](docs/media/demo-making-of.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-making-of.mp4) |
+
+---
+
 ## Установка
 
 ```bash
 git clone https://github.com/ilkaydemiralay/vision_art_creator.git ~/projects/vision_art_creator
 cd ~/projects/vision_art_creator
 ./install.sh
+```
+
+Используете OpenAI Codex? Установите навыки в его каталог и перезапустите Codex:
+
+```bash
+./install.sh --codex   # ~/.agents/skills/
 ```
 
 `install.sh` создаёт **символическую ссылку** для каждого навыка в

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# vision_art_creator — remove creator-* skill symlinks from Claude Code skills dir.
+# vision_art_creator — remove creator-* skill symlinks from Claude Code or Codex skills dir.
 #
 # Only removes symlinks that point back into this repo. Will not delete a real
 # directory or a symlink that points somewhere else, unless --force is passed.
@@ -7,6 +7,7 @@
 # Usage:
 #   ./uninstall.sh                  # remove from ~/.claude/skills/
 #   ./uninstall.sh --target <dir>   # remove from a different skills dir
+#   ./uninstall.sh --codex          # remove from ~/.agents/skills/ (OpenAI Codex)
 #   ./uninstall.sh --force          # remove even non-symlinks / foreign links
 
 set -euo pipefail
@@ -19,6 +20,7 @@ FORCE=0
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --target) TARGET="$2"; shift 2 ;;
+    --codex)  TARGET="${HOME}/.agents/skills"; shift ;;
     --force)  FORCE=1; shift ;;
     -h|--help)
       sed -n '2,12p' "$0"

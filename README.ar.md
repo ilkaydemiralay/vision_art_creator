@@ -2,7 +2,7 @@
 
 [English](README.md) · [中文](README.zh.md) · [Español](README.es.md) · [हिन्दी](README.hi.md) · **العربية** · [Português (BR)](README.pt-BR.md) · [Türkçe](README.tr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [日本語](README.ja.md) · [한국어](README.ko.md)
 
-> حزمة مهارات لإنتاج الأفلام بالذكاء الاصطناعي مخصصة لـ [Claude Code](https://claude.com/claude-code).
+> حزمة مهارات لإنتاج الأفلام بالذكاء الاصطناعي مخصصة لـ [Claude Code](https://claude.com/claude-code) و[OpenAI Codex](https://github.com/openai/codex).
 
 تجمع `vision_art_creator` بين **11 مهارة `creator-*`** تغطي كل قسم من
 أقسام إنتاج الفيلم — من السيناريو وصولًا إلى المونتاج النهائي — في
@@ -14,12 +14,28 @@
 
 ---
 
+## عرض توضيحي: *Before She Leaves*
+
+مشهد مدته 26 ثانية أُنتج بهذه الحزمة وHiggsfield (صور مرجعية من Nano Banana Pro ومقاطع Seedance 2.0)، ومعه فيديو كواليس مدته 30 ثانية يعرض الرسم البياني المسجّل: المسؤولون والبصمات (hashes) والموافقات. عمل وكيلان، Claude Code وOpenAI Codex، من ملفات المهارات نفسها. جميع اللقطات مولّدة بالذكاء الاصطناعي.
+
+| الفيلم (26 ث) | الكواليس (30 ث) |
+|---|---|
+| [![الفيلم (26 ث)](docs/media/demo-film.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-film.mp4) | [![الكواليس (30 ث)](docs/media/demo-making-of.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-making-of.mp4) |
+
+---
+
 ## التثبيت
 
 ```bash
 git clone https://github.com/ilkaydemiralay/vision_art_creator.git ~/projects/vision_art_creator
 cd ~/projects/vision_art_creator
 ./install.sh
+```
+
+تستخدم OpenAI Codex؟ ثبّت المهارات في مجلد المهارات الخاص به ثم أعد تشغيل Codex:
+
+```bash
+./install.sh --codex   # ~/.agents/skills/
 ```
 
 ينشئ `install.sh` **رابطًا رمزيًا (symlink)** لكل مهارة ضمن

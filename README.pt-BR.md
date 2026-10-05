@@ -2,7 +2,7 @@
 
 [English](README.md) · [中文](README.zh.md) · [Español](README.es.md) · [हिन्दी](README.hi.md) · [العربية](README.ar.md) · **Português (BR)** · [Türkçe](README.tr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [日本語](README.ja.md) · [한국어](README.ko.md)
 
-> Um pacote de skills de produção cinematográfica com IA para o [Claude Code](https://claude.com/claude-code).
+> Um pacote de skills de produção cinematográfica com IA para o [Claude Code](https://claude.com/claude-code) e o [OpenAI Codex](https://github.com/openai/codex).
 
 O `vision_art_creator` reúne **11 skills `creator-*`** que cobrem todos os
 departamentos de uma produção cinematográfica — do roteiro até o corte final —
@@ -15,12 +15,28 @@ em um único repositório. Instale em qualquer máquina com `git clone` +
 
 ---
 
+## Demo: *Before She Leaves*
+
+Uma cena de 26 segundos produzida com este pacote e o Higgsfield (referências Nano Banana Pro, clipes Seedance 2.0), e um making-of de 30 segundos que mostra o grafo registrado: responsáveis, hashes e aprovações. Dois agentes, Claude Code e OpenAI Codex, trabalharam com os mesmos arquivos de skills. Todas as imagens foram geradas por IA.
+
+| Filme (26 s) | Making-of (30 s) |
+|---|---|
+| [![Filme (26 s)](docs/media/demo-film.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-film.mp4) | [![Making-of (30 s)](docs/media/demo-making-of.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-making-of.mp4) |
+
+---
+
 ## Instalação
 
 ```bash
 git clone https://github.com/ilkaydemiralay/vision_art_creator.git ~/projects/vision_art_creator
 cd ~/projects/vision_art_creator
 ./install.sh
+```
+
+Usa o OpenAI Codex? Instale no diretório de skills dele e reinicie o Codex:
+
+```bash
+./install.sh --codex   # ~/.agents/skills/
 ```
 
 O `install.sh` cria um **symlink** para cada skill em

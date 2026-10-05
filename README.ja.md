@@ -2,11 +2,21 @@
 
 [English](README.md) · [中文](README.zh.md) · [Español](README.es.md) · [हिन्दी](README.hi.md) · [العربية](README.ar.md) · [Português (BR)](README.pt-BR.md) · [Türkçe](README.tr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · **日本語** · [한국어](README.ko.md)
 
-> [Claude Code](https://claude.com/claude-code) のための、AI 映画制作スキルパック。
+> [Claude Code](https://claude.com/claude-code) と [OpenAI Codex](https://github.com/openai/codex) のための、AI 映画制作スキルパック。
 
 `vision_art_creator` は、**11 個の `creator-*` スキル**をひとつのリポジトリにまとめたもので、脚本から最終的なファイナルカットに至るまで、映画制作のあらゆる部門をカバーします。`git clone` と `./install.sh` さえあれば、どのマシンにもインストールできます。
 
 > これらのスキルは互いを参照し合うように設計されています（`creator-pipeline-supervisor` が残りのスキルを統括します）。すべてをまとめてインストールすることをおすすめします。
+
+---
+
+## デモ：*Before She Leaves*
+
+このパックと Higgsfield（Nano Banana Pro の参照画像、Seedance 2.0 のクリップ）で制作した 26 秒のシーンと、記録されたグラフ（担当者、ハッシュ、承認）を見せる 30 秒のメイキング。Claude Code と OpenAI Codex の 2 つのエージェントが同じスキルファイルで作業しました。映像はすべて AI 生成です。
+
+| 本編（26 秒） | メイキング（30 秒） |
+|---|---|
+| [![本編（26 秒）](docs/media/demo-film.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-film.mp4) | [![メイキング（30 秒）](docs/media/demo-making-of.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-making-of.mp4) |
 
 ---
 
@@ -16,6 +26,12 @@
 git clone https://github.com/ilkaydemiralay/vision_art_creator.git ~/projects/vision_art_creator
 cd ~/projects/vision_art_creator
 ./install.sh
+```
+
+OpenAI Codex を使う場合は、Codex のスキルディレクトリにインストールし、Codex を再起動してください：
+
+```bash
+./install.sh --codex   # ~/.agents/skills/
 ```
 
 `install.sh` は、各スキルについて `~/.claude/skills/<skill-name>` の下に、このリポジトリを指す**シンボリックリンク**を作成します。利点は、更新したいときに単純な `git pull` だけで済むことです。再インストールは不要です。

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# vision_art_creator — install creator-* skills into Claude Code skills dir.
+# vision_art_creator — install creator-* skills into Claude Code or Codex skills dir.
 #
 # Strategy: symlink each skill from this repo into ~/.claude/skills/.
 # Running `git pull` in this repo then instantly updates all installed skills.
@@ -7,6 +7,7 @@
 # Usage:
 #   ./install.sh                  # install into ~/.claude/skills/
 #   ./install.sh --target <dir>   # install into a different skills dir
+#   ./install.sh --codex          # install into ~/.agents/skills/ (OpenAI Codex)
 #   ./install.sh --force          # overwrite existing symlinks/dirs
 
 set -euo pipefail
@@ -19,6 +20,7 @@ FORCE=0
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --target) TARGET="$2"; shift 2 ;;
+    --codex)  TARGET="${HOME}/.agents/skills"; shift ;;
     --force)  FORCE=1; shift ;;
     -h|--help)
       sed -n '2,12p' "$0"

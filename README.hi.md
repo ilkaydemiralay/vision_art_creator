@@ -2,7 +2,7 @@
 
 [English](README.md) · [中文](README.zh.md) · [Español](README.es.md) · **हिन्दी** · [العربية](README.ar.md) · [Português (BR)](README.pt-BR.md) · [Türkçe](README.tr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [日本語](README.ja.md) · [한국어](README.ko.md)
 
-> [Claude Code](https://claude.com/claude-code) के लिए एक AI फ़िल्म‑प्रोडक्शन स्किल पैक।
+> [Claude Code](https://claude.com/claude-code) और [OpenAI Codex](https://github.com/openai/codex) के लिए एक AI फ़िल्म‑प्रोडक्शन स्किल पैक।
 
 `vision_art_creator` में **11 `creator-*` स्किल्स** शामिल हैं, जो एक ही
 रिपॉज़िटरी में किसी फ़िल्म प्रोडक्शन के हर विभाग को कवर करती हैं — पटकथा से
@@ -15,12 +15,28 @@
 
 ---
 
+## डेमो: *Before She Leaves*
+
+इस पैक और Higgsfield (Nano Banana Pro रेफ़रेंस, Seedance 2.0 क्लिप) से बना 26 सेकंड का एक दृश्य, और 30 सेकंड का मेकिंग‑ऑफ़ जो रिकॉर्ड किया गया ग्राफ़ दिखाता है: ज़िम्मेदार, हैश और अनुमोदन। दो एजेंट, Claude Code और OpenAI Codex, एक ही स्किल फ़ाइलों से काम करते रहे। सभी दृश्य AI से बनाए गए हैं।
+
+| फ़िल्म (26 सेकंड) | मेकिंग‑ऑफ़ (30 सेकंड) |
+|---|---|
+| [![फ़िल्म (26 सेकंड)](docs/media/demo-film.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-film.mp4) | [![मेकिंग‑ऑफ़ (30 सेकंड)](docs/media/demo-making-of.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-making-of.mp4) |
+
+---
+
 ## इंस्टॉलेशन
 
 ```bash
 git clone https://github.com/ilkaydemiralay/vision_art_creator.git ~/projects/vision_art_creator
 cd ~/projects/vision_art_creator
 ./install.sh
+```
+
+OpenAI Codex इस्तेमाल करते हैं? इसकी skills डायरेक्टरी में इंस्टॉल करें, फिर Codex को रीस्टार्ट करें:
+
+```bash
+./install.sh --codex   # ~/.agents/skills/
 ```
 
 `install.sh` प्रत्येक स्किल के लिए `~/.claude/skills/<skill-name>` के अंतर्गत

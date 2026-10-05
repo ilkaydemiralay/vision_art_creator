@@ -2,11 +2,21 @@
 
 [English](README.md) · **中文** · [Español](README.es.md) · [हिन्दी](README.hi.md) · [العربية](README.ar.md) · [Português (BR)](README.pt-BR.md) · [Türkçe](README.tr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Русский](README.ru.md) · [日本語](README.ja.md) · [한국어](README.ko.md)
 
-> 一套面向 [Claude Code](https://claude.com/claude-code) 的 AI 电影制作技能包。
+> 一套面向 [Claude Code](https://claude.com/claude-code) 和 [OpenAI Codex](https://github.com/openai/codex) 的 AI 电影制作技能包。
 
 `vision_art_creator` 在单个仓库中打包了 **11 个 `creator-*` 技能**，覆盖电影制作的每一个部门——从剧本一直到最终剪辑。在任意一台机器上，通过 `git clone` + `./install.sh` 即可安装。
 
 > 这些技能在设计上会相互引用（由 `creator-pipeline-supervisor` 统筹其余技能）。建议将它们全部一起安装。
+
+---
+
+## 演示：*Before She Leaves*
+
+使用本技能包和 Higgsfield（Nano Banana Pro 参考图、Seedance 2.0 片段）制作的 26 秒场景，以及展示已记录图谱（负责人、哈希、审批）的 30 秒幕后视频。Claude Code 和 OpenAI Codex 两个智能体使用同一套技能文件协作完成。所有画面均由 AI 生成。
+
+| 影片（26 秒） | 幕后制作（30 秒） |
+|---|---|
+| [![影片（26 秒）](docs/media/demo-film.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-film.mp4) | [![幕后制作（30 秒）](docs/media/demo-making-of.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-making-of.mp4) |
 
 ---
 
@@ -16,6 +26,12 @@
 git clone https://github.com/ilkaydemiralay/vision_art_creator.git ~/projects/vision_art_creator
 cd ~/projects/vision_art_creator
 ./install.sh
+```
+
+使用 OpenAI Codex？请安装到其技能目录，然后重启 Codex：
+
+```bash
+./install.sh --codex   # ~/.agents/skills/
 ```
 
 `install.sh` 会在 `~/.claude/skills/<skill-name>` 下为每个技能创建一个**符号链接**，指回本仓库。好处在于：更新时只需一条简单的 `git pull` 即可——无需重新安装。
