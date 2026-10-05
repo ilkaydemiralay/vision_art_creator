@@ -19,9 +19,15 @@
 
 Сцена длиной 26 секунд, созданная с этим набором и Higgsfield (референсы Nano Banana Pro, клипы Seedance 2.0), и 30-секундный ролик о создании, показывающий записанный граф: ответственных, хеши и согласования. Два агента, Claude Code и OpenAI Codex, работали с одними и теми же файлами навыков. Все кадры созданы ИИ.
 
-| Фильм (26 с) | Как это сделано (30 с) |
-|---|---|
-| [![Фильм (26 с)](docs/media/demo-film.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-film.mp4) | [![Как это сделано (30 с)](docs/media/demo-making-of.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-making-of.mp4) |
+**Фильм (26 с)**
+
+https://github.com/user-attachments/assets/1af79d83-494b-403b-96df-cfdf44dabbf1
+
+**Как это сделано (30 с)**
+
+https://github.com/user-attachments/assets/5db19cde-1c08-42f1-a48a-cd3a4a0a28d8
+
+Файлы в полном качестве: [release v1.2.0](https://github.com/ilkaydemiralay/vision_art_creator/releases/tag/v1.2.0)
 
 ---
 

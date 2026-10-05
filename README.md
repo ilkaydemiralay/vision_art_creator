@@ -19,9 +19,15 @@ cut — in a single repository. Install it on any machine with `git clone` +
 
 A 26-second scene produced with this pack and Higgsfield (Nano Banana Pro references, Seedance 2.0 clips), plus a 30-second making-of that shows the recorded graph: owners, hashes and approvals. Two agents, Claude Code and OpenAI Codex, worked from the same skill files. All footage is AI-generated.
 
-| Film (26 s) | Making-of (30 s) |
-|---|---|
-| [![Film (26 s)](docs/media/demo-film.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-film.mp4) | [![Making-of (30 s)](docs/media/demo-making-of.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-making-of.mp4) |
+**Film (26 s)**
+
+https://github.com/user-attachments/assets/1af79d83-494b-403b-96df-cfdf44dabbf1
+
+**Making-of (30 s)**
+
+https://github.com/user-attachments/assets/5db19cde-1c08-42f1-a48a-cd3a4a0a28d8
+
+Full-quality files: [release v1.2.0](https://github.com/ilkaydemiralay/vision_art_creator/releases/tag/v1.2.0)
 
 ---
 

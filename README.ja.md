@@ -14,9 +14,15 @@
 
 このパックと Higgsfield（Nano Banana Pro の参照画像、Seedance 2.0 のクリップ）で制作した 26 秒のシーンと、記録されたグラフ（担当者、ハッシュ、承認）を見せる 30 秒のメイキング。Claude Code と OpenAI Codex の 2 つのエージェントが同じスキルファイルで作業しました。映像はすべて AI 生成です。
 
-| 本編（26 秒） | メイキング（30 秒） |
-|---|---|
-| [![本編（26 秒）](docs/media/demo-film.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-film.mp4) | [![メイキング（30 秒）](docs/media/demo-making-of.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-making-of.mp4) |
+**本編（26 秒）**
+
+https://github.com/user-attachments/assets/1af79d83-494b-403b-96df-cfdf44dabbf1
+
+**メイキング（30 秒）**
+
+https://github.com/user-attachments/assets/5db19cde-1c08-42f1-a48a-cd3a4a0a28d8
+
+フル画質のファイル：[release v1.2.0](https://github.com/ilkaydemiralay/vision_art_creator/releases/tag/v1.2.0)
 
 ---
 

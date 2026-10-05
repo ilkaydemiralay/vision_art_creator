@@ -12,9 +12,10 @@ and the project uses [Semantic Versioning](https://semver.org/).
   Codex as well as Claude Code. `./install.sh --codex` links them into
   `~/.agents/skills/`; `./uninstall.sh --codex` removes them.
 - **Demo film.** *Before She Leaves*, a 26-second scene made with the pack and
-  Higgsfield, plus a 30-second making-of showing the recorded graph. Videos are
-  attached to the GitHub release; posters are in `docs/media/`. All footage is
-  AI-generated.
+  Higgsfield, plus a 30-second making-of showing the recorded graph. Both play
+  inline in the READMEs; full-quality files are attached to the release. All
+  footage is AI-generated.
+- `docs/media/social-preview.png`: the repository's social preview image.
 
 ### Changed
 

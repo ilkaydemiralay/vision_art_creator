@@ -18,9 +18,15 @@
 
 مشهد مدته 26 ثانية أُنتج بهذه الحزمة وHiggsfield (صور مرجعية من Nano Banana Pro ومقاطع Seedance 2.0)، ومعه فيديو كواليس مدته 30 ثانية يعرض الرسم البياني المسجّل: المسؤولون والبصمات (hashes) والموافقات. عمل وكيلان، Claude Code وOpenAI Codex، من ملفات المهارات نفسها. جميع اللقطات مولّدة بالذكاء الاصطناعي.
 
-| الفيلم (26 ث) | الكواليس (30 ث) |
-|---|---|
-| [![الفيلم (26 ث)](docs/media/demo-film.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-film.mp4) | [![الكواليس (30 ث)](docs/media/demo-making-of.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-making-of.mp4) |
+**الفيلم (26 ث)**
+
+https://github.com/user-attachments/assets/1af79d83-494b-403b-96df-cfdf44dabbf1
+
+**الكواليس (30 ث)**
+
+https://github.com/user-attachments/assets/5db19cde-1c08-42f1-a48a-cd3a4a0a28d8
+
+الملفات بالجودة الكاملة: [release v1.2.0](https://github.com/ilkaydemiralay/vision_art_creator/releases/tag/v1.2.0)
 
 ---
 

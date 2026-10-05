@@ -19,9 +19,15 @@
 
 इस पैक और Higgsfield (Nano Banana Pro रेफ़रेंस, Seedance 2.0 क्लिप) से बना 26 सेकंड का एक दृश्य, और 30 सेकंड का मेकिंग‑ऑफ़ जो रिकॉर्ड किया गया ग्राफ़ दिखाता है: ज़िम्मेदार, हैश और अनुमोदन। दो एजेंट, Claude Code और OpenAI Codex, एक ही स्किल फ़ाइलों से काम करते रहे। सभी दृश्य AI से बनाए गए हैं।
 
-| फ़िल्म (26 सेकंड) | मेकिंग‑ऑफ़ (30 सेकंड) |
-|---|---|
-| [![फ़िल्म (26 सेकंड)](docs/media/demo-film.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-film.mp4) | [![मेकिंग‑ऑफ़ (30 सेकंड)](docs/media/demo-making-of.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-making-of.mp4) |
+**फ़िल्म (26 सेकंड)**
+
+https://github.com/user-attachments/assets/1af79d83-494b-403b-96df-cfdf44dabbf1
+
+**मेकिंग‑ऑफ़ (30 सेकंड)**
+
+https://github.com/user-attachments/assets/5db19cde-1c08-42f1-a48a-cd3a4a0a28d8
+
+पूरी क्वालिटी वाली फ़ाइलें: [release v1.2.0](https://github.com/ilkaydemiralay/vision_art_creator/releases/tag/v1.2.0)
 
 ---
 

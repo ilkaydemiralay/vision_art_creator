@@ -16,9 +16,15 @@ repo'da toplar; başka bir makineye `git clone` + `./install.sh` ile kurulur.
 
 Bu paket ve Higgsfield ile üretilmiş 26 saniyelik bir sahne (Nano Banana Pro referansları, Seedance 2.0 klipleri) ve kayıtlı grafı gösteren 30 saniyelik yapım videosu: sahipler, hash'ler, onaylar. İki ajan, Claude Code ve OpenAI Codex, aynı skill dosyalarıyla çalıştı. Tüm görüntüler yapay zekâ ile üretilmiştir.
 
-| Film (26 sn) | Yapım süreci (30 sn) |
-|---|---|
-| [![Film (26 sn)](docs/media/demo-film.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-film.mp4) | [![Yapım süreci (30 sn)](docs/media/demo-making-of.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-making-of.mp4) |
+**Film (26 sn)**
+
+https://github.com/user-attachments/assets/1af79d83-494b-403b-96df-cfdf44dabbf1
+
+**Yapım süreci (30 sn)**
+
+https://github.com/user-attachments/assets/5db19cde-1c08-42f1-a48a-cd3a4a0a28d8
+
+Yüksek kaliteli dosyalar: [release v1.2.0](https://github.com/ilkaydemiralay/vision_art_creator/releases/tag/v1.2.0)
 
 ---
 

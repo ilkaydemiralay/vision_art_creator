@@ -18,9 +18,15 @@
 
 이 스킬 팩과 Higgsfield(Nano Banana Pro 레퍼런스, Seedance 2.0 클립)로 제작한 26초 장면과, 기록된 그래프(담당자, 해시, 승인)를 보여주는 30초 메이킹 영상입니다. Claude Code와 OpenAI Codex 두 에이전트가 같은 스킬 파일로 작업했습니다. 모든 영상은 AI로 생성되었습니다.
 
-| 영화 (26초) | 메이킹 (30초) |
-|---|---|
-| [![영화 (26초)](docs/media/demo-film.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-film.mp4) | [![메이킹 (30초)](docs/media/demo-making-of.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-making-of.mp4) |
+**영화 (26초)**
+
+https://github.com/user-attachments/assets/1af79d83-494b-403b-96df-cfdf44dabbf1
+
+**메이킹 (30초)**
+
+https://github.com/user-attachments/assets/5db19cde-1c08-42f1-a48a-cd3a4a0a28d8
+
+원본 화질 파일: [release v1.2.0](https://github.com/ilkaydemiralay/vision_art_creator/releases/tag/v1.2.0)
 
 ---
 

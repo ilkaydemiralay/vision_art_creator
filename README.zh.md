@@ -14,9 +14,15 @@
 
 使用本技能包和 Higgsfield（Nano Banana Pro 参考图、Seedance 2.0 片段）制作的 26 秒场景，以及展示已记录图谱（负责人、哈希、审批）的 30 秒幕后视频。Claude Code 和 OpenAI Codex 两个智能体使用同一套技能文件协作完成。所有画面均由 AI 生成。
 
-| 影片（26 秒） | 幕后制作（30 秒） |
-|---|---|
-| [![影片（26 秒）](docs/media/demo-film.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-film.mp4) | [![幕后制作（30 秒）](docs/media/demo-making-of.jpg)](https://github.com/ilkaydemiralay/vision_art_creator/releases/download/v1.2.0/before-she-leaves-making-of.mp4) |
+**影片（26 秒）**
+
+https://github.com/user-attachments/assets/1af79d83-494b-403b-96df-cfdf44dabbf1
+
+**幕后制作（30 秒）**
+
+https://github.com/user-attachments/assets/5db19cde-1c08-42f1-a48a-cd3a4a0a28d8
+
+完整画质文件：[release v1.2.0](https://github.com/ilkaydemiralay/vision_art_creator/releases/tag/v1.2.0)
 
 ---
 
