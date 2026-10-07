@@ -14,7 +14,7 @@ repo'da toplar; başka bir makineye `git clone` + `./install.sh` ile kurulur.
 
 ## Demo: *Gitmeden Önce*
 
-Bu paket ve Higgsfield ile üretilmiş 26 saniyelik bir sahne (Nano Banana Pro referansları, Seedance 2.0 klipleri) ve kayıtlı grafı gösteren 30 saniyelik yapım videosu: sahipler, hash'ler, onaylar. İki ajan, Claude Code ve OpenAI Codex, aynı skill dosyalarıyla çalıştı. Tüm görüntüler yapay zekâ ile üretilmiştir.
+Bu paket ve Higgsfield ile üretilmiş 26 saniyelik bir sahne (Nano Banana Pro referansları, Seedance 2.0 klipleri) ve kayıtlı grafı gösteren 30 saniyelik yapım videosu: sahipler, hash'ler, onaylar. İki ajan, Claude Code ve OpenAI Codex, aynı skill dosyalarıyla çalıştı. Tüm görüntüler yapay zeka ile üretilmiştir.
 
 **Film (26 sn)**
 
