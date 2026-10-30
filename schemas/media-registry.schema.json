@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vision-art-creator.local/schemas/media-registry.schema.json",
+  "title": "Media registry event",
+  "description": "One line of project/media/registry.jsonl, written by skills/creator-pipeline-supervisor/scripts/media_registry.py. The log is append-only; the latest event per (shot_id, take) is the current state.",
+  "type": "object",
+  "required": ["event", "at", "shot_id", "take"],
+  "properties": {
+    "event": {"enum": ["add", "select", "reject"]},
+    "at": {"type": "string", "format": "date-time"},
+    "shot_id": {"type": "string", "minLength": 1},
+    "take": {"type": "integer", "minimum": 1},
+    "file": {"type": "string", "description": "path relative to the project root when inside it"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "bytes": {"type": "integer", "minimum": 0},
+    "model": {"type": "string"},
+    "tool": {"type": ["string", "null"], "description": "provider, e.g. higgsfield, fal"},
+    "job_id": {"type": ["string", "null"]},
+    "cost": {"type": ["number", "null"], "description": "credits or currency as recorded by the operator"},
+    "prompt_file": {"type": ["string", "null"]},
+    "prompt_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "probe": {
+      "type": "object",
+      "properties": {
+        "width": {"type": ["integer", "null"]},
+        "height": {"type": ["integer", "null"]},
+        "fps": {"type": ["number", "null"]},
+        "duration_s": {"type": ["number", "null"]},
+        "frames": {"type": ["integer", "null"]},
+        "has_audio": {"type": "boolean"}
+      }
+    },
+    "note": {"type": ["string", "null"]},
+    "reason": {"type": "string", "description": "required on reject"}
+  },
+  "allOf": [
+    {"if": {"properties": {"event": {"const": "add"}}}, "then": {"required": ["file", "sha256", "model", "probe"]}},
+    {"if": {"properties": {"event": {"const": "reject"}}}, "then": {"required": ["reason"]}}
+  ]
+}

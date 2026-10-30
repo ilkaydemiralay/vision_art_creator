@@ -28,6 +28,14 @@ https://github.com/user-attachments/assets/5db19cde-1c08-42f1-a48a-cd3a4a0a28d8
 
 ## インストール
 
+**Claude Code プラグイン（ワンステップ）:**
+
+```
+/plugin install vision-art-creator --marketplace ilkaydemiralay/vision_art_creator
+```
+
+または、クローンしてスキルを手動でリンクします:
+
 ```bash
 git clone https://github.com/ilkaydemiralay/vision_art_creator.git ~/projects/vision_art_creator
 cd ~/projects/vision_art_creator

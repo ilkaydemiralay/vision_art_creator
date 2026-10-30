@@ -1,0 +1,15 @@
+{
+  "name": "vision-art",
+  "description": "Marketplace for the vision_art_creator AI film production skill pack.",
+  "owner": {"name": "İlkay Demiralay", "url": "https://github.com/ilkaydemiralay"},
+  "plugins": [
+    {
+      "name": "vision-art-creator",
+      "source": "./",
+      "description": "11 creator skills (screenwriter → director → design → storyboard → shot list → prompts → sound → final cut) plus QC scripts.",
+      "version": "1.3.0",
+      "category": "productivity",
+      "keywords": ["film", "video", "ai-film", "storyboard"]
+    }
+  ]
+}

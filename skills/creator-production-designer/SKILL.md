@@ -175,6 +175,15 @@ research:
 Separate documented period reference from creative interpretation. Cite
 sources for non-obvious claims.
 
+### Evidence table (required for period or real-world material)
+
+Record every researched claim in `project/bible/evidence-table.md` using the
+template in `${CLAUDE_SKILL_DIR}/references/historical-evidence-table.md`:
+claim, scene, date/place, source, certainty, decision, affected prompts. No
+prompt ships with an `unknown` row in close-up; `dramatised, kept` rows are
+listed in the bible as known departures. When a row changes, every prompt it
+names is re-opened.
+
 ## Location continuity (AI consistency)
 
 For each location used in multiple scenes:

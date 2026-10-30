@@ -92,6 +92,11 @@ research before drafting. Verify:
 Separate **researched fact** from **dramatic interpretation** in your output —
 label each. Cite sources when claims are non-obvious.
 
+For historical, biographical or real-place material, add each story claim as
+a row to `project/bible/evidence-table.md` (template:
+`creator-production-designer/references/historical-evidence-table.md`). The
+production designer owns the table; you own the story rows.
+
 ## Outputs
 
 Write to `project/screenplay/`:
