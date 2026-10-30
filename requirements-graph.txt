@@ -1,1 +1,2 @@
 jsonschema>=4.23,<5
+Pillow>=10

@@ -30,6 +30,14 @@ Yüksek kaliteli dosyalar: [release v1.2.0](https://github.com/ilkaydemiralay/vi
 
 ## Kurulum
 
+**Claude Code eklentisi (tek adım):**
+
+```
+/plugin install vision-art-creator --marketplace ilkaydemiralay/vision_art_creator
+```
+
+Ya da klonlayıp skill'leri elle bağla:
+
 ```bash
 git clone https://github.com/ilkaydemiralay/vision_art_creator.git ~/projects/vision_art_creator
 cd ~/projects/vision_art_creator

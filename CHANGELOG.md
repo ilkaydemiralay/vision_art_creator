@@ -4,6 +4,34 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the project uses [Semantic Versioning](https://semver.org/).
 
+## [1.3.0] - 2026-10-30
+
+### Added
+
+- **Claude Code plugin.** `.claude-plugin/plugin.json` + a single-plugin
+  marketplace in this repo. Install in one step:
+  `/plugin install vision-art-creator --marketplace ilkaydemiralay/vision_art_creator`.
+  `install.sh` remains for Codex and manual symlink installs.
+- **Media registry** (`creator-pipeline-supervisor/scripts/media_registry.py`,
+  schema `schemas/media-registry.schema.json`): binds every generated file to
+  its shot, take, model, prompt hash, file hash and probed duration/fps/size;
+  `select`/`reject` with reasons; `verify` fails on missing or changed files,
+  zero or duplicate selections, wrong durations; `report` sums recorded cost.
+- **QC contact sheet and A/B comparison**
+  (`creator-final-cut-editor/scripts/contact_sheet.py`): labelled frame grids
+  with before/after-cut frames outlined, and a time-aligned side-by-side video
+  of two takes with labels and a progress bar. No ffmpeg `drawtext` needed.
+- **Historical evidence table**
+  (`creator-production-designer/references/historical-evidence-table.md`):
+  claim → source → certainty → decision → affected prompts, wired into the
+  screenwriter, production-designer and supervisor skills.
+
+### Changed
+
+- Final-cut-editor, pipeline-supervisor, production-designer and screenwriter
+  SKILL.md files reference the new scripts and table.
+- Plugin icon added at `.claude-plugin/icon.png`.
+
 ## [1.2.0] - 2026-10-05
 
 ### Added

@@ -294,6 +294,32 @@ States: ✅ done, ⏳ in progress, 🟡 needs revision, 🔴 blocked, `-` not st
 
 Update after every skill run. Use this to answer "what's next?"
 
+## Media registry (plan ↔ generated file binding)
+
+Thirteen revision rounds produce dozens of near-identical files; the cut must
+never reference the wrong one. Every generated clip or image is registered the
+moment it lands, with `${CLAUDE_SKILL_DIR}/scripts/media_registry.py`
+(append-only `project/media/registry.jsonl`, schema in
+`${CLAUDE_PLUGIN_ROOT}/schemas/media-registry.schema.json`):
+
+```bash
+R=${CLAUDE_SKILL_DIR}/scripts/media_registry.py
+python3 $R add    --project project --file project/media/raw/S07-t2.mp4 --shot S07 --take 2 \
+                  --model seedance_2_0 --tool higgsfield --prompt project/prompts/S07-v3.txt \
+                  --job-id <provider job id> --cost 12.5
+python3 $R reject --project project --shot S07 --take 1 --reason "left hand morphs at 3s"
+python3 $R select --project project --shot S07 --take 2 --note "clean motion, matches S06 light"
+python3 $R verify --project project --require-selected --shots S01 S02 S07 --expect-duration 5
+python3 $R report --project project
+```
+
+`add` hashes the file and the prompt, probes duration / fps / size / audio and
+refuses a duplicate (shot, take). `select` demotes any previously selected take
+of the same shot. `verify` exits non-zero if a file is missing or changed, a shot
+has zero or two selected takes, or a selected clip's duration is off. Run
+`verify` before the final-cut-editor starts and again in the delivery readiness
+audit. The registry is also the cost ledger: `report` sums recorded cost.
+
 ## Revision loop management
 
 When a downstream skill flags a problem upstream:

@@ -33,6 +33,14 @@ https://github.com/user-attachments/assets/5db19cde-1c08-42f1-a48a-cd3a4a0a28d8
 
 ## इंस्टॉलेशन
 
+**Claude Code प्लगइन (एक चरण):**
+
+```
+/plugin install vision-art-creator --marketplace ilkaydemiralay/vision_art_creator
+```
+
+या क्लोन करके स्किल्स को मैन्युअल रूप से लिंक करें:
+
 ```bash
 git clone https://github.com/ilkaydemiralay/vision_art_creator.git ~/projects/vision_art_creator
 cd ~/projects/vision_art_creator

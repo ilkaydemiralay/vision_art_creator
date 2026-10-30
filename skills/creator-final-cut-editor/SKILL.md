@@ -289,6 +289,31 @@ Produce color-grading notes if needed.
 
 Subtitles/graphics must not break the film's atmosphere.
 
+## QC scripts: contact sheet and A/B comparison
+
+Do not judge takes by scrubbing files one by one. Two scripts ship with this
+skill (`${CLAUDE_SKILL_DIR}/scripts/contact_sheet.py`, needs ffmpeg + Pillow):
+
+```bash
+# one labelled frame grid per clip: start, evenly spaced, end, and frames
+# just before/after each planned cut (outlined), so drift is visible at a glance
+python3 ${CLAUDE_SKILL_DIR}/scripts/contact_sheet.py sheet \
+  --out project/qc/S07-takes.jpg --label-from-name \
+  project/media/raw/S07-t1.mp4 project/media/raw/S07-t2.mp4 --cuts 2.5
+
+# side-by-side, time-aligned video of two takes with labels and a progress bar;
+# a static board cannot prove motion quality, this can
+python3 ${CLAUDE_SKILL_DIR}/scripts/contact_sheet.py ab \
+  --out project/qc/S07-ab.mp4 project/media/raw/S07-t1.mp4 project/media/raw/S07-t2.mp4 \
+  --labels "take 1" "take 2"
+```
+
+Run the sheet on every shot before the rough cut and attach it to the
+material-evaluation report. Run `ab` whenever two takes are close and the
+decision is about motion, pacing or morphing. Record the decision with
+`media_registry.py select/reject` (pipeline-supervisor) so the EDL can only
+reference a selected take.
+
 ## Final export and delivery
 
 Per delivery platform, recommend:

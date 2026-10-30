@@ -1,0 +1,10 @@
+{
+  "name": "vision-art-creator",
+  "version": "1.3.0",
+  "description": "AI film production skill pack: 11 creator skills from screenplay to final cut, with media registry, QC contact sheets and A/B comparison scripts.",
+  "author": {"name": "İlkay Demiralay", "url": "https://github.com/ilkaydemiralay"},
+  "homepage": "https://github.com/ilkaydemiralay/vision_art_creator",
+  "repository": "https://github.com/ilkaydemiralay/vision_art_creator",
+  "license": "MIT",
+  "keywords": ["film", "video", "ai-film", "storyboard", "screenplay", "cinematography", "higgsfield", "fal"]
+}

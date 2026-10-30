@@ -33,6 +33,14 @@ Dateien in voller Qualität: [release v1.2.0](https://github.com/ilkaydemiralay/
 
 ## Installation
 
+**Claude-Code-Plugin (ein Schritt):**
+
+```
+/plugin install vision-art-creator --marketplace ilkaydemiralay/vision_art_creator
+```
+
+Oder klonen und die Skills manuell verlinken:
+
 ```bash
 git clone https://github.com/ilkaydemiralay/vision_art_creator.git ~/projects/vision_art_creator
 cd ~/projects/vision_art_creator
