@@ -52,7 +52,7 @@ OpenAI Codex mi kullanıyorsunuz? Codex'in skills dizinine kurun, sonra Codex'i 
 
 `install.sh` her skill için `~/.claude/skills/<skill-adı>` altında bu repo'ya
 işaret eden bir **symlink** oluşturur. Avantajı: güncelleme için sadece
-`git pull` yeterli — yeniden kurulum gerekmez.
+`git pull` yeterli, yeniden kurulum gerekmez.
 
 ### Seçenekler
 
@@ -62,7 +62,7 @@ işaret eden bir **symlink** oluşturur. Avantajı: güncelleme için sadece
 ./uninstall.sh                          # symlink'leri kaldır
 ```
 
-`uninstall.sh` sadece bu repo'ya işaret eden symlink'leri siler — yabancı
+`uninstall.sh` sadece bu repo'ya işaret eden symlink'leri siler; yabancı
 linkleri veya gerçek dizinleri (`--force` olmadıkça) dokunmaz.
 
 ### Doğrulama
@@ -116,7 +116,7 @@ Canonical pipeline:
 6. creator-storyboard-artist   → prompt'lu paneller
 7. creator-shot-list-designer  → shot listesi + edit planı
 8. creator-prompt-engineer     → araç-uyumlu görsel + video prompt'ları
-   → [AI materyal üretimi — operatör]
+   → [AI materyal üretimi, operatör]
 9. creator-sound-music-designer → ses + score planı
 10. creator-final-cut-editor   → rough → fine → final cut → teslim
 
@@ -167,7 +167,7 @@ Her sürümde neyin değiştiği için [CHANGELOG.md](CHANGELOG.md) dosyasına b
 ## Geliştirme
 
 1. Repo içindeki bir skill'i düzenle (`skills/creator-*/SKILL.md`).
-2. Claude Code'da değişikliği test et — symlink olduğu için anında geçerli.
+2. Claude Code'da değişikliği test et; symlink olduğu için anında geçerli.
 3. Commit + push.
 
 Yeni bir creator skill eklemek için:
@@ -184,7 +184,7 @@ mkdir -p skills/creator-yeni-skill
 
 Bu README ve her skill'in `README.md` dosyası 12 dilde mevcut (üstteki dil
 seçicisine bak). `SKILL.md` talimat dosyaları bilinçli olarak İngilizce
-tutulur — Claude çalışma anında kullanıcının dilinde yanıt verir ve tek bir
+tutulur; Claude çalışma anında kullanıcının dilinde yanıt verir ve tek bir
 canonical talimat seti, çakışan skill adlarını önler.
 
 ---

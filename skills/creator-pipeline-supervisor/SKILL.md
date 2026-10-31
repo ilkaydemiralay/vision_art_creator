@@ -201,8 +201,11 @@ R=${CLAUDE_SKILL_DIR}/scripts/media_registry.py
 python3 $R add    --project project --file project/media/raw/S07-t2.mp4 --shot S07 --take 2 --model seedance_2_0 --prompt project/prompts/S07-v3.txt --cost 12.5
 python3 $R reject --project project --shot S07 --take 1 --reason "left hand morphs at 3s"
 python3 $R select --project project --shot S07 --take 2 --note "clean motion"
-python3 $R verify --project project --require-selected --expect-duration 5
+python3 $R verify --project project --require-selected --shots S01 S02 S07 --expect-duration 5
 ```
+
+`--shots` lists every shot the cut needs, so a shot that was never generated
+fails verification instead of silently dropping out of the film.
 
 `add` hashes file and prompt and probes duration / fps / size. `select` keeps
 one take per shot. `verify` fails on missing or changed files, zero or double
@@ -276,6 +279,14 @@ negative master, camera / light / period / sound blocks). Templates:
 `${CLAUDE_SKILL_DIR}/references/project-bible-template.md` and
 `${CLAUDE_SKILL_DIR}/references/prompt-blocks-template.md`.
 creator-prompt-engineer uses the blocks verbatim; you enforce it.
+
+**Evidence gate.** For period, biographical or real-place material the
+production designer keeps `project/bible/evidence-table.md` (template in
+`creator-production-designer/references/historical-evidence-table.md`). Before
+prompt consolidation, read it: every `unknown` row must carry a `neutral choice`
+or `cut` decision, and every `dramatised, kept` row must be listed in the project
+bible as a known departure. When a row changes, re-open the prompts it names and
+log the cascade in the revision notes.
 
 ## Delivery readiness audit
 

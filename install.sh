@@ -35,6 +35,14 @@ if [[ ! -d "$SKILLS_SRC" ]]; then
   exit 1
 fi
 
+# The same skills may already be loaded as the Claude Code plugin; two copies cost context twice.
+if grep -q '"vision-art-creator@' "${HOME}/.claude/settings.json" 2>/dev/null; then
+  echo "WARNING: the vision-art-creator plugin is already enabled in ~/.claude/settings.json." >&2
+  echo "         Symlinking the skills as well loads them twice. Pick one: plugin OR install.sh." >&2
+  echo "         Continue anyway with --force, or Ctrl-C." >&2
+  [[ "$FORCE" -eq 1 ]] || exit 3
+fi
+
 mkdir -p "$TARGET"
 
 installed=0

@@ -1,4 +1,4 @@
-# Bağımsız denetim bulguları — düzeltme kaydı
+# Bağımsız denetim bulguları: düzeltme kaydı
 
 Tarih: 2026-10-04. Kapsam: 2026-10-03 bağımsız salt-okunur denetimindeki 10 bulgu.
 11 skill korundu. Önceki pilot ve onay kayıtları değiştirilmedi.

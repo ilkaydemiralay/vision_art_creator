@@ -1,4 +1,4 @@
-# Graph Engineering — ilk uygulama ve tek sahne pilotu
+# Graph Engineering: ilk uygulama ve tek sahne pilotu
 
 Tarih: 2026-10-03.
 
@@ -48,7 +48,7 @@ sürüme göre yeniden kontrol edildi ve revizyon numarası arttı. Daha dar sem
 bağımlılık olmadığı için sesin güncel kaldığı varsayılmadı.
 
 Sahne: Deniz masadaki kapalı zarfı fark eder, iki adım yaklaşır, dokunmadan durur.
-Planlar 0–5, 5–10, 10–15 saniye; kamera ekseni, kostüm, mekân ve zarf sürekliliği
+Planlar 0-5, 5-10, 10-15 saniye; kamera ekseni, kostüm, mekan ve zarf sürekliliği
 korunur. Bunlar metin sahne/prompt çıktılarıdır; render veya film değildir.
 
 ## Doğrulama

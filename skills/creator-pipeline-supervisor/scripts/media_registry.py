@@ -47,6 +47,10 @@ def probe(path: Path) -> dict:
     v = next((s for s in info.get("streams", []) if s.get("codec_type") == "video"), None)
     if not v:
         return {}
+    # Still images (png/jpeg/webp…) open fine in ffprobe but carry a fake demuxer fps; classify them separately.
+    if v.get("codec_name") in ("png", "mjpeg", "webp", "bmp", "tiff", "gif") or path.suffix.lower() in (".png", ".jpg", ".jpeg", ".webp"):
+        return {"width": v.get("width"), "height": v.get("height"), "fps": None, "duration_s": None,
+                "frames": 1, "has_audio": False, "kind": "image"}
     fps = None
     if v.get("r_frame_rate") and "/" in v["r_frame_rate"]:
         n, d = v["r_frame_rate"].split("/")
@@ -57,6 +61,7 @@ def probe(path: Path) -> dict:
         "duration_s": round(float(dur), 3) if dur else None,
         "frames": int(v["nb_frames"]) if str(v.get("nb_frames", "")).isdigit() else None,
         "has_audio": any(s.get("codec_type") == "audio" for s in info["streams"]),
+        "kind": "video",
     }
 
 
@@ -65,7 +70,7 @@ def _probe_image(path: Path) -> dict:
         from PIL import Image
         with Image.open(path) as im:
             return {"width": im.width, "height": im.height, "duration_s": None, "fps": None,
-                    "frames": 1, "has_audio": False}
+                    "frames": 1, "has_audio": False, "kind": "image"}
     except Exception:
         return {}
 
@@ -104,8 +109,17 @@ def current_state(records: list[dict]) -> dict[tuple[str, int], dict]:
 def cmd_add(a) -> int:
     project = Path(a.project)
     f = Path(a.file)
-    if not f.exists():
-        print(f"ERROR: file not found: {f}", file=sys.stderr); return 2
+    if not f.is_file():
+        print(f"ERROR: not a file: {f}", file=sys.stderr); return 2
+    if a.take < 1:
+        print("ERROR: --take must be >= 1", file=sys.stderr); return 2
+    if a.prompt and not Path(a.prompt).is_file():
+        print(f"ERROR: prompt file not found: {a.prompt}", file=sys.stderr); return 2
+    if not a.prompt:
+        print("WARNING: no --prompt given; prompt → result traceability is lost for this take", file=sys.stderr)
+    pr = probe(f)
+    if not pr.get("width"):
+        print(f"ERROR: not a decodable image or video (ffprobe/Pillow found no picture stream): {f}", file=sys.stderr); return 2
     state = current_state(load(project))
     if (a.shot, a.take) in state:
         print(f"ERROR: {a.shot} take {a.take} already registered; use a new take number", file=sys.stderr); return 2
@@ -115,7 +129,7 @@ def cmd_add(a) -> int:
         "sha256": sha256(f), "bytes": f.stat().st_size, "model": a.model,
         "job_id": a.job_id, "cost": a.cost, "tool": a.tool,
         "prompt_sha256": sha256(Path(a.prompt)) if a.prompt else None,
-        "prompt_file": a.prompt, "probe": probe(f), "note": a.note,
+        "prompt_file": a.prompt, "probe": pr, "note": a.note,
     }
     dup = [k for k, v in state.items() if v["sha256"] == rec["sha256"]]
     if dup:
@@ -149,6 +163,17 @@ def cmd_verify(a) -> int:
     records = load(project)
     state = current_state(records)
     problems: list[str] = []
+    seen_add: set[tuple[str, int]] = set()
+    for r in records:
+        key = (r.get("shot_id"), r.get("take"))
+        if r.get("event") == "add":
+            if key in seen_add:
+                problems.append(f"{key[0]} take {key[1]}: duplicate add event in registry (log edited by hand?)")
+            seen_add.add(key)
+        elif key not in seen_add:
+            problems.append(f"{key[0]} take {key[1]}: {r.get('event')} event without a prior add")
+        if r.get("event") == "add" and (not isinstance(r.get("take"), int) or r["take"] < 1):
+            problems.append(f"{key[0]}: invalid take {r.get('take')!r}")
     for (shot, take), v in state.items():
         f = project / v["file"] if not Path(v["file"]).is_absolute() else Path(v["file"])
         if not f.exists():
@@ -212,7 +237,7 @@ def main(argv=None) -> int:
             s.add_argument("--prompt"); s.add_argument("--job-id"); s.add_argument("--cost", type=float)
             s.add_argument("--tool", help="provider, e.g. higgsfield, fal"); s.add_argument("--note")
         if name == "select":
-            s.add_argument("--note")
+            s.add_argument("--note", required=True, help="why this take wins (required, it is the audit trail)")
         if name == "reject":
             s.add_argument("--reason", required=True)
         if name == "verify":

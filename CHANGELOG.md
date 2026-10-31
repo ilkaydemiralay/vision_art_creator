@@ -10,6 +10,15 @@ and the project uses [Semantic Versioning](https://semver.org/).
 
 - Supervisor pipeline section is now a 10-row table; the ASCII diagram moved
   to `references/pipeline-diagram.md`. SKILL.md 423 → ~370 lines.
+- Review fixes (independent audit, 2026-10-31): `media_registry.py` rejects
+  directories, undecodable files, `take < 1` and missing prompt files, warns
+  when no prompt is given, classifies still images (`kind: image`, no fake
+  fps), requires `--note` on `select`, and `verify` catches hand-edited logs
+  (duplicate `add`, decisions without `add`). `contact_sheet.py` samples by
+  the clip's real fps, refuses cut times outside the clip and fails loudly
+  when ffmpeg decodes no frame. Supervisor gained the evidence-table gate and
+  the `--shots` example. `install.sh` warns when the plugin is already enabled.
+  Turkish docs: em/en dashes and circumflexes removed.
 
 ## [1.3.1] - 2026-10-31
 

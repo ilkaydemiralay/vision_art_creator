@@ -1,4 +1,4 @@
-# Graph Engineering — inceleme ve aşamalı plan
+# Graph Engineering: inceleme ve aşamalı plan
 
 Tarih: 2026-10-03. Bu belge başlangıç incelemesi ve planının tarihsel kaydıdır.
 Güncel uygulama ve pilot sonucu: [sonuç raporu](graph-engineering-results.tr.md).
@@ -47,11 +47,11 @@ onaylı sürümlerden kanonu derler. Çözülemeyen yaratıcı karar kullanıcı
 
 | Aşama | Somut değişiklik | Tamamlanma ölçütü |
 |---|---|---|
-| 1 — Sözleşme | `workflows/single-scene.v1.json`, sahiplik tablosu, artefakt/run/review/revision JSON Schema'ları | Tüm düğüm ve skill referansları çözülür; zorunlu graf çevrimsizdir; aynı dosyanın iki yazarı yoktur. |
-| 2 — Küçük skill uyarlamaları | Supervisor'a graf kapıları; üç tasarım skill'ine taslak/ortak inceleme ayrımı; storyboard ve DOP'a kendi alanında prompt taslağı; editor QC yolu düzeltmesi | Mevcut adlar, uzmanlık içeriği ve çıktı alanları korunur; çelişkili doğrudan yazım cümleleri giderilir. |
-| 3 — Doğrulama | Küçük yerel validator; şema, sahiplik, bağımlılık/hash, onay ve stale kontrolleri | Geçerli örnek geçer; çift yazar, eksik girdi, eski onay, çevrim ve başarısız QC örnekleri reddedilir. |
-| 4 — Tek sahne pilotu | İzole `examples/single-scene/` altında gerçek metin çıktıları ve yürütme kayıtları | İki koşu: ilk üretim ve kontrollü revizyon. Ayrı reviewer, ilgili dosya sürümlerini denetler; kanıt raporu çıkar. |
-| 5 — Değerlendirme | Sonuçlar, maliyet, yeniden yapılan işler ve eksik sözleşmeler | Pilot kabul ölçütleri sağlanınca medya ve çok sahne kapsamı ayrıca genişletilir. |
+| 1. Sözleşme | `workflows/single-scene.v1.json`, sahiplik tablosu, artefakt/run/review/revision JSON Schema'ları | Tüm düğüm ve skill referansları çözülür; zorunlu graf çevrimsizdir; aynı dosyanın iki yazarı yoktur. |
+| 2. Küçük skill uyarlamaları | Supervisor'a graf kapıları; üç tasarım skill'ine taslak/ortak inceleme ayrımı; storyboard ve DOP'a kendi alanında prompt taslağı; editor QC yolu düzeltmesi | Mevcut adlar, uzmanlık içeriği ve çıktı alanları korunur; çelişkili doğrudan yazım cümleleri giderilir. |
+| 3. Doğrulama | Küçük yerel validator; şema, sahiplik, bağımlılık/hash, onay ve stale kontrolleri | Geçerli örnek geçer; çift yazar, eksik girdi, eski onay, çevrim ve başarısız QC örnekleri reddedilir. |
+| 4. Tek sahne pilotu | İzole `examples/single-scene/` altında gerçek metin çıktıları ve yürütme kayıtları | İki koşu: ilk üretim ve kontrollü revizyon. Ayrı reviewer, ilgili dosya sürümlerini denetler; kanıt raporu çıkar. |
+| 5. Değerlendirme | Sonuçlar, maliyet, yeniden yapılan işler ve eksik sözleşmeler | Pilot kabul ölçütleri sağlanınca medya ve çok sahne kapsamı ayrıca genişletilir. |
 
 Bu yollar öneridir; bu incelemede workflow veya validator oluşturulmadı.
 Kurulum symlink tabanlı olduğundan ortak şemaların kurulu skill'den nasıl
@@ -124,9 +124,9 @@ onay bağımsızlık kanıtı sayılmamalı. Bu inceleme sırasında reviewer ç
 Pilot sınamaları:
 
 1. Üç taslak aynı girdi snapshot'ından çıkar; birbirlerinin dosyalarını yazmaz.
-2. Kostüm–dekor renk çatışması kontrollü eklenir; ortak onay kapanmadan sonraki
+2. Kostüm-dekor renk çatışması kontrollü eklenir; ortak onay kapanmadan sonraki
    düğüm başlayamaz. Karar ve sahiplerin düzeltmeleri kayda girer.
-3. Üç planın karakter, mekân, ekran yönü, süre ve kilitli prompt blokları denetlenir.
+3. Üç planın karakter, mekan, ekran yönü, süre ve kilitli prompt blokları denetlenir.
 4. Storyboard'un nihai prompt yoluna yazma girişimi kontrol tarafından reddedilir.
 5. Onaydan sonra mektup kırmızı zarftan krem zarfa değiştirilir. Gerçek girdi
    kenarlarına göre kanon, storyboard, shot list, prompt ve review kayıtlarının
@@ -139,7 +139,7 @@ Pilot sınamaları:
 
 ## Karar önerisi
 
-Önce 1–3. aşamayı küçük bir yerel değişiklik olarak uygula; ardından tek sahnede
+Önce 1-3. aşamayı küçük bir yerel değişiklik olarak uygula; ardından tek sahnede
 4. aşamayı çalıştır. Pilot kanıtı olmadan 11 skill'in tamamına geniş yeniden
 yazım veya tam otomatik orkestrasyon ekleme. Mevcut QC ve revizyon bilgisini
 silmek yerine somut kayıtlarla güçlendir.

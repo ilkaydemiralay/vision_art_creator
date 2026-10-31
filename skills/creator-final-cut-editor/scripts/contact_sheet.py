@@ -32,14 +32,30 @@ def run(args: list[str]) -> str:
 
 
 def duration(path: Path) -> float:
-    out = run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "json", str(path)])
-    return float(json.loads(out)["format"]["duration"])
+    return media_info(path)[0]
+
+
+def media_info(path: Path) -> tuple[float, float]:
+    """(duration seconds, fps) from ffprobe; fps falls back to 24 when unreadable."""
+    out = run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
+               "stream=r_frame_rate:format=duration", "-of", "json", str(path)])
+    info = json.loads(out)
+    dur = float(info["format"]["duration"])
+    fps = 24.0
+    try:
+        n, d = info["streams"][0]["r_frame_rate"].split("/")
+        fps = int(n) / int(d) if int(d) else fps
+    except (KeyError, IndexError, ValueError, ZeroDivisionError):
+        pass
+    return dur, fps
 
 
 def frame_at(path: Path, t: float, dest: Path) -> Image.Image:
     run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", f"{t:.3f}", "-i", str(path),
          "-frames:v", "1", "-vf", f"scale={THUMB_W}:{THUMB_H}:force_original_aspect_ratio=decrease,"
          f"pad={THUMB_W}:{THUMB_H}:(ow-iw)/2:(oh-ih)/2:color=black", str(dest)])
+    if not dest.exists() or dest.stat().st_size == 0:
+        raise SystemExit(f"no frame decoded at {t:.3f}s in {path.name}; the clip may be shorter than ffprobe reports")
     return Image.open(dest).convert("RGB")
 
 
@@ -52,14 +68,18 @@ def font(size: int):
     return ImageFont.load_default()
 
 
-def sample_times(dur: float, n: int, cuts: list[float]) -> list[tuple[str, float]]:
-    eps = 1 / 24
+def sample_times(dur: float, n: int, cuts: list[float], fps: float = 24.0) -> list[tuple[str, float]]:
+    """Frame times: start, n-2 evenly spaced, last decodable frame, and one frame either side of each cut."""
+    frame = 1 / fps
+    last = max(dur - 1.5 * frame, 0)  # safely inside the final frame for any container rounding
     times = [("start", 0.0)]
     for i in range(1, n - 1):
         times.append((f"{dur * i / (n - 1):.2f}s", dur * i / (n - 1)))
-    times.append(("end", max(dur - eps, 0)))
+    times.append(("end", last))
     for c in cuts:
-        times += [(f"cut-{c:.2f}s", max(c - eps, 0)), (f"cut+{c:.2f}s", min(c + eps, dur - eps))]
+        if not 0 <= c <= dur:
+            raise SystemExit(f"cut time {c}s is outside the clip (0..{dur:.2f}s)")
+        times += [(f"cut-{c:.2f}s", max(c - frame, 0)), (f"cut+{c:.2f}s", min(c + frame, last))]
     return sorted(times, key=lambda x: x[1])
 
 
@@ -73,8 +93,8 @@ def cmd_sheet(a) -> int:
     rows = []
     with tempfile.TemporaryDirectory() as td:
         for i, (clip, label) in enumerate(zip(clips, labels)):
-            dur = duration(clip)
-            times = sample_times(dur, a.frames, a.cuts or [])
+            dur, fps = media_info(clip)
+            times = sample_times(dur, a.frames, a.cuts or [], fps)
             imgs = [(t_label, frame_at(clip, t, Path(td) / f"{i}-{j}.png")) for j, (t_label, t) in enumerate(times)]
             rows.append((label, dur, imgs))
         cols = max(len(r[2]) for r in rows)
