@@ -4,6 +4,13 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the project uses [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Changed
+
+- Supervisor pipeline section is now a 10-row table; the ASCII diagram moved
+  to `references/pipeline-diagram.md`. SKILL.md 423 → ~370 lines.
+
 ## [1.3.1] - 2026-10-31
 
 ### Changed

@@ -67,81 +67,24 @@ If gaps remain, ask. Label assumptions when proceeding fast.
 
 ## The pipeline (canonical sequence)
 
-```
-                 ┌────────────────────────────────┐
-                 │  0. Project bible & vision     │
-                 │  - logline, scope, format      │
-                 │  - working language            │
-                 │  - AI tools targeted           │
-                 └──────────────┬─────────────────┘
-                                │
-                                ▼
-            ┌─────────────────────────────────────────┐
-            │  1. creator-screenwriter                        │
-            │  → screenplay (logline → script v01)    │
-            └─────────────┬───────────────────────────┘
-                          │
-                          ▼
-            ┌─────────────────────────────────────────┐
-            │  2. creator-director                            │
-            │  → vision, direction sheets, arcs       │
-            └──┬──────────┬───────────┬────────┬──────┘
-               │          │           │        │
-               ▼          ▼           ▼        ▼
-   ┌──────────┐  ┌─────────────────┐  ┌────────────────┐
-   │ 3. char- │  │ 4. production-  │  │ 5. cinemato-   │
-   │ designer │  │    designer     │  │    grapher     │
-   └────┬─────┘  └────────┬────────┘  └────────┬───────┘
-        │                 │                    │
-        └────────┬────────┴────────┬───────────┘
-                 │                 │
-                 ▼                 ▼
-            ┌─────────────────────────────────────────┐
-            │  6. creator-storyboard-artist                   │
-            │  → panels with prompts                  │
-            └─────────────┬───────────────────────────┘
-                          │
-                          ▼
-            ┌─────────────────────────────────────────┐
-            │  7. creator-shot-list-designer                  │
-            │  → shot list + edit plan + transitions  │
-            └─────────────┬───────────────────────────┘
-                          │
-                          ▼
-            ┌─────────────────────────────────────────┐
-            │  8. creator-prompt-engineer                     │
-            │  → tool-fit image + video prompts       │
-            └─────────────┬───────────────────────────┘
-                          │
-                          ▼
-            ┌─────────────────────────────────────────┐
-            │  AI material generation (operator)      │
-            │  → images, videos, audio                │
-            └─────────────┬───────────────────────────┘
-                          │
-                          ▼
-            ┌─────────────────────────────────────────┐
-            │  9. creator-sound-music-designer                │
-            │  → sound + score plan and AI audio      │
-            └─────────────┬───────────────────────────┘
-                          │
-                          ▼
-            ┌─────────────────────────────────────────┐
-            │  10. creator-final-cut-editor                   │
-            │  → rough → fine → final cut → delivery  │
-            └─────────────────────────────────────────┘
+| # | Skill | Produces |
+|---|-------|----------|
+| 0 | (supervisor) | project bible: logline, scope, format, language, AI tools |
+| 1 | creator-screenwriter | screenplay v01 |
+| 2 | creator-director | vision, direction sheets, arcs |
+| 3-5 | creator-character-designer, creator-production-designer, creator-cinematographer | run in parallel once the vision is set |
+| 6 | creator-storyboard-artist | panels with prompts |
+| 7 | creator-shot-list-designer | shot list, edit plan, transitions |
+| 8 | creator-prompt-engineer | tool-fit image and video prompts |
+| — | operator | AI material generation: images, video, audio (registered in the media registry) |
+| 9 | creator-sound-music-designer | sound and score plan, AI audio |
+| 10 | creator-final-cut-editor | rough → fine → final cut → delivery |
 
-  creator-pipeline-supervisor monitors all stages, enforces continuity,
-  runs cross-cutting QC, manages revision loops, holds the bible.
-```
-
-The sequence is canonical but **not rigid**. Two adaptations:
-
-- **Iterative loops**: creator-director feedback can re-trigger creator-screenwriter; DOP can
-  ask creator-production-designer to adjust surfaces; final-cut can request
-  regeneration via creator-prompt-engineer.
-- **Parallel work**: character, production, and cinematography often run in
-  parallel after creator-director vision is set.
+You monitor every stage, enforce continuity, run QC, manage revision loops and
+hold the bibles. The sequence is canonical but **not rigid**: director feedback
+can re-trigger the screenwriter, the DOP can ask production design to adjust
+surfaces, the final cut can request regeneration through the prompt-engineer.
+Diagram: `${CLAUDE_SKILL_DIR}/references/pipeline-diagram.md`.
 
 ## Shared project state
 
