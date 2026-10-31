@@ -223,60 +223,11 @@ For each domain, maintain a **risk log** in `project/qc/continuity-reports/`.
 
 ## Continuity bible (your canonical document)
 
-Write and maintain `project/bible/continuity-bible.md`:
-
-```
-# Continuity Bible — {Project Name}
-
-## Locked character anchors
-- demir: {DNA block — verbatim from characters/demir/ai-prompts.md}
-- ayşe: {DNA block}
-
-## Locked location anchors
-- kitchen-anatolian-1980s: {master reference}
-- village-road: {master reference}
-
-## Costume continuity table
-| Scene | Character | Costume | Condition | Notes |
-|-------|-----------|---------|-----------|-------|
-| 1 | demir | "navy heavy wool coat" | new | first appearance |
-| 2 | demir | "navy heavy wool coat" | new | same day |
-| 4 | demir | "navy heavy wool coat" | rain-wet | weather change |
-
-## Time / weather table
-| Scene | Day | Time | Weather | Notes |
-|-------|-----|------|---------|-------|
-
-## Prop continuity table
-| Prop | Scene appearances | Current holder | Notes |
-|------|-------------------|----------------|-------|
-
-## Color palette canon
-- Master: {hex anchors}
-- Per-act drift: {if any}
-
-## Lighting canon
-- Daylight: {description}
-- Night: {description}
-- Practical sources by location
-
-## Sound continuity
-- Location ambience anchors
-- Leitmotif evolution checkpoints
-
-## Edit direction
-- Screen direction per major scene
-- Eyeline pairs
-
-## Open continuity questions
-- {questions awaiting creator-director resolution}
-
-## Resolved decisions (log)
-- {dated decisions and rationale}
-```
-
-This file is **the single source of truth** for cross-skill consistency. When
-any skill produces output, you verify it against this bible.
+Maintain `project/bible/continuity-bible.md`: locked character and location
+anchors, costume / time-weather / prop tables, color, lighting, sound and edit
+canons, open questions and a dated decision log. Template:
+`${CLAUDE_SKILL_DIR}/references/continuity-bible-template.md`. This file is
+**the single source of truth**; verify every skill's output against it.
 
 ## Production tracking table
 
@@ -296,29 +247,24 @@ Update after every skill run. Use this to answer "what's next?"
 
 ## Media registry (plan ↔ generated file binding)
 
-Thirteen revision rounds produce dozens of near-identical files; the cut must
-never reference the wrong one. Every generated clip or image is registered the
-moment it lands, with `${CLAUDE_SKILL_DIR}/scripts/media_registry.py`
-(append-only `project/media/registry.jsonl`, schema in
-`${CLAUDE_PLUGIN_ROOT}/schemas/media-registry.schema.json`):
+Many revision rounds produce near-identical files; the cut must never reference
+the wrong one. Register every generated clip or image the moment it lands with
+`${CLAUDE_SKILL_DIR}/scripts/media_registry.py` (append-only
+`project/media/registry.jsonl`; schema `${CLAUDE_PLUGIN_ROOT}/schemas/media-registry.schema.json`;
+`--help` shows all flags):
 
 ```bash
 R=${CLAUDE_SKILL_DIR}/scripts/media_registry.py
-python3 $R add    --project project --file project/media/raw/S07-t2.mp4 --shot S07 --take 2 \
-                  --model seedance_2_0 --tool higgsfield --prompt project/prompts/S07-v3.txt \
-                  --job-id <provider job id> --cost 12.5
+python3 $R add    --project project --file project/media/raw/S07-t2.mp4 --shot S07 --take 2 --model seedance_2_0 --prompt project/prompts/S07-v3.txt --cost 12.5
 python3 $R reject --project project --shot S07 --take 1 --reason "left hand morphs at 3s"
-python3 $R select --project project --shot S07 --take 2 --note "clean motion, matches S06 light"
-python3 $R verify --project project --require-selected --shots S01 S02 S07 --expect-duration 5
-python3 $R report --project project
+python3 $R select --project project --shot S07 --take 2 --note "clean motion"
+python3 $R verify --project project --require-selected --expect-duration 5
 ```
 
-`add` hashes the file and the prompt, probes duration / fps / size / audio and
-refuses a duplicate (shot, take). `select` demotes any previously selected take
-of the same shot. `verify` exits non-zero if a file is missing or changed, a shot
-has zero or two selected takes, or a selected clip's duration is off. Run
-`verify` before the final-cut-editor starts and again in the delivery readiness
-audit. The registry is also the cost ledger: `report` sums recorded cost.
+`add` hashes file and prompt and probes duration / fps / size. `select` keeps
+one take per shot. `verify` fails on missing or changed files, zero or double
+selections, wrong durations: run it before the final-cut-editor starts and in
+the delivery readiness audit. `report` sums recorded cost.
 
 ## Revision loop management
 
@@ -378,83 +324,15 @@ Maintain `project/qc/risk-register.md`:
 | Costume "navy coat" might shift hue across scenes | low | high | creator-character-designer | locked DNA includes hex; creator-prompt-engineer enforces | mitigated |
 ```
 
-## Project bible (top-level)
+## Project bible and locked prompt blocks
 
-Write `project/bible/project-bible.md` early:
-
-```
-# Project Bible — {Title}
-
-## Logline
-
-## Format and scope
-- Type: {short / feature / etc.}
-- Target duration:
-- Scenes: {count}
-- Aspect ratio:
-- Working language:
-- Output language:
-
-## AI tools
-- Image generation:
-- Video generation:
-- Audio:
-- Music:
-
-## Team / authorship
-
-## Stakeholders / decision-makers
-
-## Key references
-- Films:
-- Photographers / artists:
-- Period sources:
-
-## Constraints
-- Budget:
-- Timeline:
-- Platform delivery:
-- AI tool limits:
-
-## Decision log
-{dated entries of major creative decisions}
-```
-
-## Prompt block consolidation
-
-Maintain `project/bible/prompt-blocks.md`:
-
-```
-# Locked Prompt Blocks
-
-## Style block
-{verbatim block from style-anchors}
-
-## Character DNA blocks
-- {demir}: ...
-- {ayşe}: ...
-
-## Location anchor blocks
-- {kitchen-anatolian-1980s}: ...
-- {village-road}: ...
-
-## Negative prompt master
-{base negative prompt bank}
-
-## Camera language block
-{shared camera vocabulary}
-
-## Light language block
-{shared light vocabulary}
-
-## Period / geography block
-{anchor description}
-
-## Sound / music style block
-{anchor description}
-```
-
-creator-prompt-engineer references these. You enforce that prompts use them verbatim.
+Write `project/bible/project-bible.md` early (logline, format, AI tools, team,
+stakeholders, references, constraints, decision log) and maintain
+`project/bible/prompt-blocks.md` (style, character DNA, location anchors,
+negative master, camera / light / period / sound blocks). Templates:
+`${CLAUDE_SKILL_DIR}/references/project-bible-template.md` and
+`${CLAUDE_SKILL_DIR}/references/prompt-blocks-template.md`.
+creator-prompt-engineer uses the blocks verbatim; you enforce it.
 
 ## Delivery readiness audit
 

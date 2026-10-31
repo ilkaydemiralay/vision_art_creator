@@ -4,6 +4,15 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the project uses [Semantic Versioning](https://semver.org/).
 
+## [1.3.1] - 2026-10-31
+
+### Changed
+
+- `creator-pipeline-supervisor/SKILL.md` trimmed from 545 to 423 lines: the
+  continuity bible, project bible and locked prompt block templates moved to
+  `references/*-template.md`; the media registry section now points to
+  `--help`. Behaviour unchanged, less context per invocation.
+
 ## [1.3.0] - 2026-10-30
 
 ### Added
